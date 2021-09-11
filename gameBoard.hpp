@@ -18,8 +18,6 @@ using namespace std;
 class GameBoard {
 
 private:
-    //TODO: may not need winner, reason no setter or getter
-    bool winner; //tracks if there is a winning condition
     int num_rows;//number of board rows
     int num_col; //number of board columns
     int num_ships; //number of ships used in game
