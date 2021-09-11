@@ -54,6 +54,9 @@ void Executive::runApp() {
     //new state tracker
     game_state state = begin;
     game_winner who_won = playing;
+    
+    //testing
+    Test_Input testInput;
 
     //State Machine
     while (!winner) {
@@ -78,7 +81,8 @@ void Executive::runApp() {
 
             case user_turn:
                 //user interaction
-
+                testInput.get_input();
+                gameBoard.setGameSpace(testInput.getRow(), testInput.getColumn(), gameBoard);
                 //advance state
                 if (check_winner()){
                     state = end_game;
