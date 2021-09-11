@@ -11,6 +11,7 @@
 
 //macros
 using namespace std;
+
 #define ROWS 9
 #define COLUMNS 10
 #define TEST_SHIPS 4
@@ -104,6 +105,10 @@ int GameBoard::get_col() const{
 
 int GameBoard::get_ships() const{
     return num_ships;
+}
+
+char** GameBoard::get_arr() {
+    return board_arr;
 }
 
 /*******************************************************************************

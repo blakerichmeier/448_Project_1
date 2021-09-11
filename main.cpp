@@ -7,6 +7,8 @@
 
 #include "myDefines.h"
 
+using namespace std;
+
 int main(int argc, const char * argv[]) {
     //for testing
     Executive exec;

@@ -80,7 +80,12 @@ public:
      @post none
      @return num of ships */
     int get_ships() const;
-
+    
+    /** return game board array
+     @pre
+     @post
+     @return */
+    char** get_arr();
 
     /*MARK: Methods*/
     
