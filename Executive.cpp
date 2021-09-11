@@ -81,9 +81,11 @@ void Executive::runApp() {
 
             case user_turn:
                 //user interaction
+                //testing
                 testInput.get_input();
                 gameBoard.setGameSpace(testInput.getRow(), testInput.getColumn(), gameBoard.get_arr());
                 //advance state
+                gameBoard.printBoard();
                 if (check_winner()){
                     state = end_game;
                     who_won = user;
