@@ -29,10 +29,13 @@ public:
     void setRow(int p_row);
     void setColumn(int p_col);
     /*MARK: Getters*/
-    int getRow(int p_row) const;
-    int getColumn(int p_col) const;
+    int getRow() const;
+    int getColumn() const;
     /*MARK: Methods*/
     int let_2_num(char convert);
+    string get_input();
+    int user_row (string input_string);
+    int user_col(string input_string);
     
 };
 
