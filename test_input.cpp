@@ -15,7 +15,12 @@
 Test_Input::Test_Input() {
     move_row = 99;
     move_col = 99;
-    move_input = nullptr;
+//    move_input = nullptr;
+}
+
+Test_Input::Test_Input(int p_row, int p_col) {
+    move_row = p_row;
+    move_col = p_col;
 }
 
 /*******************************************************************************
@@ -76,22 +81,14 @@ int Test_Input::let_2_num(char convert) {
     }
 }
 
-string Test_Input::get_input() {
+void Test_Input::get_input() {
     string user_input;
     //ask user for input
     cout << "Please enter a move, first row then column. Rows: A-J, Columns: 1-9" << endl;
     cin >> user_input;
-    return user_input;
+    //set inputs
+    setRow(let_2_num(user_input[0]));
+    setColumn(user_input[1]);
 }
 
-int Test_Input::user_row(string input_string) {
-    char row_sel = '?';
-    //split string here
-    return let_2_num(row_sel);
-}
 
-int Test_Input::user_col(string input_string) {
-    int col_sel = 99;
-    //split string here
-    return col_sel;
-}

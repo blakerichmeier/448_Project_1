@@ -9,11 +9,11 @@
 
 #include "myDefines.h"
 
-using namespace::std;
+using namespace std;
 
 class Test_Input {
 private:
-    string move_input;
+//    string move_input;
     int move_row;
     int move_col;
     
@@ -23,19 +23,20 @@ public:
     /**
      @pre
      @post */
+    Test_Input(int p_row, int p_col);
     
     /*MARK: Destructor*/
+    
     /*MARK: Setters*/
     void setRow(int p_row);
     void setColumn(int p_col);
     /*MARK: Getters*/
     int getRow() const;
     int getColumn() const;
+    
     /*MARK: Methods*/
     int let_2_num(char convert);
-    string get_input();
-    int user_row (string input_string);
-    int user_col(string input_string);
+    void get_input();
     
 };
 
