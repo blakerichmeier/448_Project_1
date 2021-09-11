@@ -39,6 +39,9 @@ public:
     @param p_cols number of columns
     @param p_ships number of ships in game */
     GameBoard(int p_rows, int p_cols, int p_ships);
+    
+    /*MARK: Destructor*/
+    ~GameBoard();
 
     /*MARK: Setters*/
     /** set number of rows
