@@ -133,14 +133,15 @@ public:
      @return true if sucess, false else */
     bool setGameSpace(int p_row, int p_col, char **arr);
     
+    //TODO: FINISH COMMENTS
     /** checks if move is a valid, ie is there a '?' in space passed
      @pre
      @post
      @return true if '?' occupies the space, false else */
-    bool isValidMove(int p_row, int p_col, char **arr);
+    bool isValidMove(char test_char);
     
     //for testing, havent seen ship class yet
-    bool isShipHere(){return true;};
+    bool isShipHere(){return false;};
     
 };
 

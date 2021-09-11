@@ -203,7 +203,7 @@ void GameBoard::printDotted() {
 bool GameBoard::setGameSpace(int p_row, int p_col, char **arr) {
     bool set_result = false;
     //check for a previous move
-    if (isValidMove(p_row, p_col, arr)){
+    if (isValidMove(arr[p_row][p_col])){
         //check for ship & set space
         if (isShipHere()){
             arr[p_row][p_col] = 'X';
@@ -217,10 +217,10 @@ bool GameBoard::setGameSpace(int p_row, int p_col, char **arr) {
     return set_result;
 }
 
-bool GameBoard::isValidMove(int p_row, int p_col, char **arr) {
+bool GameBoard::isValidMove(char test_char) {
     bool move_valid = false;
     //has move been made?
-    if (arr[p_row][p_col] == '?'){
+    if (test_char == '?'){
         move_valid = true;
     }
     return move_valid;

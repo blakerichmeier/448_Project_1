@@ -83,9 +83,15 @@ void Executive::runApp() {
                 //user interaction
                 //testing
                 testInput.get_input();
-                gameBoard.setGameSpace(testInput.getRow(), testInput.getColumn(), gameBoard.get_arr());
-                //advance state
-                gameBoard.printBoard();
+                if (
+                    gameBoard.setGameSpace(testInput.getRow(), testInput.getColumn(), gameBoard.get_arr())) {
+                    cout << "MOVE MADE" << endl;
+                    //advance state
+                    gameBoard.printBoard();
+                } else {
+                    cout << "MOVE ERROR" << endl;
+                }
+                
                 if (check_winner()){
                     state = end_game;
                     who_won = user;
