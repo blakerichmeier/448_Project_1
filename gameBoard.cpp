@@ -194,3 +194,29 @@ void GameBoard::printDotted() {
     END:
     cout << endl;
 }
+
+bool GameBoard::setGameSpace(int p_row, int p_col, char **arr) {
+    bool set_result = false;
+    //check for a previous move
+    if (isValidMove(p_row, p_col, arr)){
+        //check for ship & set space
+        if (isShipHere()){
+            arr[p_row][p_col] = 'X';
+        } else {
+            arr[p_row][p_col] = 'O';
+        }
+        set_result = true;
+    } else {
+        //TODO: throw error here or flag and alert user
+    }
+    return set_result;
+}
+
+bool GameBoard::isValidMove(int p_row, int p_col, char **arr) {
+    bool move_valid = false;
+    //has move been made?
+    if (arr[p_row][p_col] == '?'){
+        move_valid = true;
+    }
+    return move_valid;
+}

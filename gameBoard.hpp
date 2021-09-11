@@ -120,6 +120,23 @@ public:
      @pre none
      @post none */
     void printDotted();
+    
+    //TODO: FINISH COMMENTS
+    /** set a space on the board, ie it changes the value to a hit or miss
+     @pre
+     @post
+     @return true if sucess, false else */
+    bool setGameSpace(int p_row, int p_col, char **arr);
+    
+    /** checks if move is a valid, ie is there a '?' in space passed
+     @pre
+     @post
+     @return true if '?' occupies the space, false else */
+    bool isValidMove(int p_row, int p_col, char **arr);
+    
+    //for testing, havent seen ship class yet
+    bool isShipHere(){return true;};
+    
 };
 
 #endif /* GAMEBOARD_HPP */
