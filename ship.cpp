@@ -4,8 +4,6 @@
 //
 // ship.cpp
 
-#include<vector>
-#include "point.hpp"
 #include "myDefines.h"
 
 
@@ -16,13 +14,13 @@ Ship::Ship(){
 
 Ship::Ship(){
 //constructor
-		Ship(char s_id, int s_len, int s_col, int s_row, char s_dir){
+		Ship(char s_id, int s_len, char s_col, int s_row, char s_dir){
 			id = s_id;
 			length = set_length(s_len)
 			startCol = set_column(s_col);
 			startRow = set_row(s_row);
 			direction = set_direction(s_dir);
-			std::vector<Coordinate> coordinates = create_coords(s_len, s_col, s_row);
+			//std::vector<Coordinate> coordinates = create_coords(s_len, s_col, s_row);
 			sunken = false;
 }
 	
@@ -32,7 +30,7 @@ Ship::Ship(){
 
 		void Ship::set_row(int r) { startRow = r; }
 
-		void Ship::set_col(int c) { startCol = c; }
+		void Ship::set_col(char c) { startCol = c; }
 
 		void Ship::set_direction(char dir) { direction = dir; }
 
@@ -71,7 +69,7 @@ Ship::Ship(){
 			//sunken = true;
 			return sunken;
 		}
-
+		/**
 		vector<Coordinate> Ship::create_coords(int len, int x_coord, int y_coord) {
 			
 			std::vector<Coordinate> coords(len);
@@ -102,6 +100,7 @@ Ship::Ship(){
 				cout << coords[i] << "\n"end1;
 			}
 		}
+		*/
 };
 	
 

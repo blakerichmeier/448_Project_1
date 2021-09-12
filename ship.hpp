@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "coordinate.hpp"
+
 #include<vector>
 #include "myDefines.h"
 
@@ -22,12 +22,12 @@ class Ship{
 	private:
 		char id;
 		int length; //Length of the ship determines which ship it is
-		int startRow; //First x coordinate
-		int startCol; //First y coordinate
+		char startCol; //First x coordinate (Taken as A-J)
+		int startRow; //First y coordinate
 		int numHits; //Times ship has been hit (will need to prevent hitting same spot)
 		char direction; //starting direction:"Vertical" or "horizontal"
 		bool sunken; //True if it has been sunk
-		std::vector<Coordinate> coordinates;//vector of ship coords
+		//std::vector<Coordinate> coordinates;//vector of ship coords
 		
 		
 	 /** with param
@@ -39,7 +39,7 @@ class Ship{
 		@param s_direction direction represented as a char*/
 
 	public:
-		Ship(char s_id, int s_len, int s_col, int s_row, char s_dir){
+		Ship(char s_id, int s_len, char  s_col, int s_row, char s_dir){
 		}
 
 		
@@ -63,7 +63,7 @@ class Ship{
 		@pre none
 		@post s_col becomes input
 		@param starting x coord as an int */
-		void set_col(int c); 
+		void set_col(char c); 
 
 		/** set direction of ship
 		@pre none
@@ -89,7 +89,7 @@ class Ship{
 		/** return Starting x coord
 		 @pre none
 		 @post none
-		 @return first x coord as an int */
+		 @return first x coord as a char */
 		int get_col()const;
 
 		/** return Starting y coord
@@ -131,7 +131,7 @@ class Ship{
 		@pre none
 		@post none
 		@return coordinate array for the ship based on direction and size*/
-		vector<Coordinate> create_coords(int len, int x_coord, int y_coord);
+		//vector<Coordinate> create_coords(int len, int x_coord, int y_coord);
 
 		/** Removes a coordinate from the vector
 		@pre none
@@ -145,7 +145,7 @@ class Ship{
 		@pre none
 		@post none
 		@param updated coordinate vector*/
-		void print_coords(vector<Coordinate> coords);
+		//void print_coords(vector<Coordinate> coords);
 		
 		
 		

@@ -4,7 +4,7 @@
 // coordinate.cpp
 
 #include "myDefines.h"
-#include "coordinate.hpp"
+
 using namespace std;
 
 
