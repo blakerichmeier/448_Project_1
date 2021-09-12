@@ -88,6 +88,15 @@ public:
      @return pointer to the char in the position */
     char* get_char(int p_row, int p_col);
 
+    /**
+     @pre col and row chosen for ship placement
+     @param ship_row of desired position
+     @param ship_col column of desired ship placement
+     @param length size of ship
+     @param direction direction of ship
+     */
+     void place_ship(int ship_row, int ship_col, int ship_size, char direction);
+
     /*MARK: Methods*/
     
     /**
