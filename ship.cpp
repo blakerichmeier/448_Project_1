@@ -14,7 +14,7 @@ Ship::Ship(){
 
 Ship::Ship(){
 //constructor
-		Ship(char s_id, int s_len, char s_col, int s_row, char s_dir){
+		Ship(char s_id, int s_len, int s_col, int s_row, char s_dir){
 			id = s_id;
 			length = set_length(s_len)
 			startCol = set_column(s_col);
@@ -30,7 +30,7 @@ Ship::Ship(){
 
 		void Ship::set_row(int r) { startRow = r; }
 
-		void Ship::set_col(char c) { startCol = c; }
+		void Ship::set_col(int c) { startCol = c; }
 
 		void Ship::set_direction(char dir) { direction = dir; }
 
