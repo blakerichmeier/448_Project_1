@@ -84,7 +84,7 @@ void Executive::runApp() {
                 //testing
                 testInput.get_input();
                 if (
-                    gameBoard.setGameSpace(testInput.getRow(), testInput.getColumn(), gameBoard.get_arr())) {
+                    gameBoard.setGameSpace(testInput.getRow(), testInput.getColumn())) {
                     cout << "MOVE MADE" << endl;
                     //advance state
                     gameBoard.printBoard();

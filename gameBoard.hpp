@@ -86,6 +86,12 @@ public:
      @post
      @return */
     char** get_arr();
+    
+    /** get the char in the positions passed
+     @pre
+     @post
+     @return the char in the position */
+    char* get_char(int p_row, int p_col);
 
     /*MARK: Methods*/
     
@@ -131,7 +137,7 @@ public:
      @pre
      @post
      @return true if sucess, false else */
-    bool setGameSpace(int p_row, int p_col, char **arr);
+    bool setGameSpace(int p_row, int p_col);
     
     //TODO: FINISH COMMENTS
     /** checks if move is a valid, ie is there a '?' in space passed

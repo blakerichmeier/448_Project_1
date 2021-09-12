@@ -111,6 +111,12 @@ char** GameBoard::get_arr() {
     return board_arr;
 }
 
+char* GameBoard::get_char(int p_row, int p_col) {
+//    char return_char = board_arr[p_row][p_col];
+//    return return_char;
+    return &board_arr[p_row][p_col];
+}
+
 /*******************************************************************************
 **
 **MARK: Methods
@@ -133,8 +139,6 @@ void GameBoard::printBoard() {
 void GameBoard::printInstructions() {
     cout << "inst line 1" << endl;
     cout << "inst line 2" << endl;
-    cout << "inst line 3" << endl;
-    cout << "inst line 4" << endl;
 }
 
 void GameBoard::printLegend() {
@@ -200,15 +204,15 @@ void GameBoard::printDotted() {
     cout << endl;
 }
 
-bool GameBoard::setGameSpace(int p_row, int p_col, char **arr) {
+bool GameBoard::setGameSpace(int p_row, int p_col) {
     bool set_result = false;
     //check for a previous move
-    if (isValidMove(arr[p_row][p_col])){
+    if (isValidMove(board_arr[p_row][p_col])){
         //check for ship & set space
-        if (isShipHere()){
-            arr[p_row][p_col] = 'X';
+        if (!isShipHere()){
+            board_arr[p_row][p_col] = 'X';
         } else {
-            arr[p_row][p_col] = 'O';
+            board_arr[p_row][p_col] = 'O';
         }
         set_result = true;
     } else {
