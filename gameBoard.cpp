@@ -17,10 +17,10 @@ using namespace std;
 #define TEST_SHIPS 4
 
 /*******************************************************************************
-**
-**MARK: Constructors
-**
-*******************************************************************************/
+ **
+ **MARK: Constructors
+ **
+ *******************************************************************************/
 //default
 GameBoard::GameBoard() {
     num_rows = ROWS;
@@ -56,10 +56,10 @@ GameBoard::GameBoard(int p_rows, int p_cols, int p_ships) {
 }
 
 /*******************************************************************************
-**
-**MARK: Destructor
-**
-*******************************************************************************/
+ **
+ **MARK: Destructor
+ **
+ *******************************************************************************/
 
 GameBoard::~GameBoard() {
     if (board_arr != nullptr) {
@@ -72,10 +72,10 @@ GameBoard::~GameBoard() {
 }
 
 /*******************************************************************************
-**
-**MARK: Setter Methods
-**
-*******************************************************************************/
+ **
+ **MARK: Setter Methods
+ **
+ *******************************************************************************/
 
 void GameBoard::set_rows(int row) {
     num_rows = row;
@@ -90,10 +90,10 @@ void GameBoard::set_ships(int ship) {
 }
 
 /*******************************************************************************
-**
-**MARK: Getter Methods
-**
-*******************************************************************************/
+ **
+ **MARK: Getter Methods
+ **
+ *******************************************************************************/
 
 int GameBoard::get_rows() const{
     return num_rows;
@@ -108,16 +108,16 @@ int GameBoard::get_ships() const{
 }
 
 char* GameBoard::get_char(int p_row, int p_col) {
-//    char return_char = board_arr[p_row][p_col];
-//    return return_char;
+    //    char return_char = board_arr[p_row][p_col];
+    //    return return_char;
     return &board_arr[p_row][p_col];
 }
 
 /*******************************************************************************
-**
-**MARK: Methods
-**
-*******************************************************************************/
+ **
+ **MARK: Methods
+ **
+ *******************************************************************************/
 
 void GameBoard::printBoard(bool inst) {
     if (inst) {
@@ -129,8 +129,6 @@ void GameBoard::printBoard(bool inst) {
     printDotted();
     print_play(board_arr);
     printHeader();
-//    cout << endl << "THEND BOARD" << endl;
-    
 }
 
 void GameBoard::printInstructions() {
@@ -157,7 +155,7 @@ void GameBoard::print_play(char **arr) {
                 cout << " | " << arr[r][c];
             }
         }
-        END:
+    END:
         cout << " | " << r + 1 << endl;
         printDotted();
     }
@@ -175,11 +173,11 @@ void GameBoard::printHeader() {
             cout << " | " << col_head[c];
         }
     }
-    END:
+END:
     //satisfies compiler
     cout << " |   " << endl;
 }
-    
+
 void GameBoard::printDotted() {
     for (int i = 0; i<num_col + 1; i++){
         if (i == num_col ) {
@@ -192,7 +190,7 @@ void GameBoard::printDotted() {
             cout << " ---";
         }
     }
-    END:
+END:
     cout << endl;
 }
 
@@ -209,6 +207,7 @@ bool GameBoard::setGameSpace(int p_row, int p_col) {
         set_result = true;
     } else {
         //TODO: throw error here or flag and alert user
+        // have something like this already in test input class
     }
     return set_result;
 }
