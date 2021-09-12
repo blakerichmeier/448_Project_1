@@ -1,9 +1,8 @@
 //
 //  Executive.hpp
-//  Abernathy_2876941_Lab_10
 //
 //  Created by Adam Abernathy on sept 8 2021
-//  Copyright © 2019 Adam Abernathy. All rights reserved.
+//  Copyright © 2021 Adam Abernathy. All rights reserved.
 //
 // Executive class that user interacts with and runs the app
 //
