@@ -89,19 +89,19 @@ void GameBoard::set_ships(int ship) {
     num_ships = ship;
 }
 
-void GameBoard::place_ships(int ship_row, int ship_col, int ship_size, char direction) {
+void GameBoard::place_ship(int ship_row, int ship_col, int ship_size, char direction) {
 	if (direction == 'h' || direction == 'H')
 	{
 		for (int i = 0; i < ship_size; i++)
 		{
-			board_arr[ship_row + i][ship_col]) = 'S';
+			board_arr[ship_row+1][ship_col] = 'S';
 		}
 	}
 	else if (direction == 'v' || direction == 'V')
 	{
 		for (int j = 0; j < ship_size; j++)
 		{
-			board_arr[ship_row][ship_col + i] = 'S'
+			board_arr[ship_row][ship_col+1] = 'S';
 		}
 	}
 }
