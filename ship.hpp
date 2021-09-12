@@ -22,7 +22,7 @@ class Ship{
 	private:
 		char id;
 		int length; //Length of the ship determines which ship it is
-		char startCol; //First x coordinate (Taken as A-J)
+		int startCol; //First x coordinate (Converted from A-J)
 		int startRow; //First y coordinate
 		int numHits; //Times ship has been hit (will need to prevent hitting same spot)
 		char direction; //starting direction:"Vertical" or "horizontal"
@@ -39,7 +39,7 @@ class Ship{
 		@param s_direction direction represented as a char*/
 
 	public:
-		Ship(char s_id, int s_len, char  s_col, int s_row, char s_dir){
+		Ship(char s_id, int s_len, int s_col, int s_row, char s_dir){
 		}
 
 		
@@ -63,7 +63,7 @@ class Ship{
 		@pre none
 		@post s_col becomes input
 		@param starting x coord as an int */
-		void set_col(char c); 
+		void set_col(int c); 
 
 		/** set direction of ship
 		@pre none
