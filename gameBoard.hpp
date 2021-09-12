@@ -23,7 +23,7 @@ private:
     int num_ships; //number of ships used in game
     char **board_arr; //will hold the state of the current board
     //array of letters used for the column header labels and ? to fill new board
-    char col_head[12] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', '?'};
+    char col_head[12] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', ' '};
 
 public:
     /*MARK: Constructors*/
