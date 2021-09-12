@@ -107,10 +107,6 @@ int GameBoard::get_ships() const{
     return num_ships;
 }
 
-char** GameBoard::get_arr() {
-    return board_arr;
-}
-
 char* GameBoard::get_char(int p_row, int p_col) {
 //    char return_char = board_arr[p_row][p_col];
 //    return return_char;
@@ -142,9 +138,9 @@ void GameBoard::printInstructions() {
 }
 
 void GameBoard::printLegend() {
-    cout << "************* LEGEND ************" << endl;
-    cout << "X => HIT  O => MISS  ? => UNKNOWN" << endl;
-    cout << "*********************************" << endl;
+    cout << "       ************* LEGEND ************" << endl;
+    cout << "       X => HIT  O => MISS  ? => UNKNOWN" << endl;
+    cout << "       *********************************" << endl;
 }
 
 void GameBoard::print_play(char **arr) {

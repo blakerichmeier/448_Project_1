@@ -81,12 +81,6 @@ public:
      @return num of ships */
     int get_ships() const;
     
-    /** return game board array
-     @pre
-     @post
-     @return */
-    char** get_arr();
-    
     /** get the char in the positions passed
      @pre
      @post
