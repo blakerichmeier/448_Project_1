@@ -183,13 +183,13 @@ void GameBoard::printHeader() {
 void GameBoard::printDotted() {
     for (int i = 0; i<num_col + 1; i++){
         if (i == num_col ) {
-            cout << "------";
+            cout << " --- -- ";
             goto END;
         }
         if (i == 0) {
-            cout << " ---";
+            cout << " --";
         } else {
-            cout << "----";
+            cout << " ---";
         }
     }
     END:
