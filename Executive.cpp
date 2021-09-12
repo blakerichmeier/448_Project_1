@@ -47,8 +47,8 @@ Executive::Executive() {
 *******************************************************************************/
 
 void Executive::runApp() {
-    //new game board
-    GameBoard gameBoard;
+    //new user game board
+    GameBoard user_gameBoard;
     //new user
     //new comp player
     //new state tracker
@@ -65,7 +65,7 @@ void Executive::runApp() {
                 //start the game
                 // print banner
                 cout << "Welcome to BattleShip" << endl;
-                cout << "start game" << endl;
+                user_gameBoard.printBoard(true);
                 state = set_ships;
                 break;
             case set_ships:
@@ -73,8 +73,8 @@ void Executive::runApp() {
 
                 //comp set ships
 
-                //print board
-                gameBoard.printBoard(true);
+                //print ship board
+                //TODO: do we want a whole board or keep track of the spots in the ship class?
                 //advance state machine
                 state = user_turn;
                 break;
@@ -84,10 +84,10 @@ void Executive::runApp() {
                 //testing
                 testInput.get_input();
                 if (
-                    gameBoard.setGameSpace(testInput.getRow(), testInput.getColumn())) {
+                    user_gameBoard.setGameSpace(testInput.getRow(), testInput.getColumn())) {
                     cout << "MOVE MADE" << endl;
                     //advance state
-                    gameBoard.printBoard(false);
+                    user_gameBoard.printBoard(false);
                 } else {
                     cout << "MOVE ERROR" << endl;
                 }

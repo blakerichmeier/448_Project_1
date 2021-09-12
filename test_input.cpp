@@ -55,30 +55,34 @@ int Test_Input::getColumn() const{
  *******************************************************************************/
 
 int Test_Input::let_2_num(char convert) {
-    switch (convert) {
-        case ('A'):
-            return 0;
-        case ('B'):
-            return 1;
-        case ('C'):
-            return 2;
-        case ('D'):
-            return 3;
-        case ('E'):
-            return 4;
-        case ('F'):
-            return 5;
-        case ('G'):
-            return 6;
-        case ('H'):
-            return 7;
-        case ('I'):
-            return 8;
-        case ('J'):
-            return 9;
-        default:
-            return 99;
+    int i = 99;
+    RESTART:
+    if ('a' == convert || 'A' == convert) {
+        i = 0;
+    } else if ('b' == convert || 'B' == convert) {
+        i = 1;
+    } else if ('c' == convert || 'C' == convert) {
+        i = 2;
+    } else if ('d' == convert || 'D' == convert) {
+        i = 3;
+    } else if ('e' == convert || 'E' == convert) {
+        i = 4;
+    } else if ('F' == convert || 'f' == convert) {
+        i = 5;
+    } else if ('g' == convert || 'G' == convert) {
+        i = 6;
+    } else if ('h' == convert || 'H' == convert) {
+        i = 7;
+    } else if ('i' == convert || 'I' == convert) {
+        i = 8;
+    } else if ('j' == convert || 'J' == convert) {
+        i = 9;
+    } else {
+        cout << "Please enter a letter between A-J" << endl;
+        cin >> convert;
+        goto RESTART;
     }
+    return i;
 }
 
 void Test_Input::get_input() {
