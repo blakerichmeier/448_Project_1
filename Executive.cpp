@@ -74,7 +74,7 @@ void Executive::runApp() {
                 //comp set ships
 
                 //print board
-                gameBoard.printBoard();
+                gameBoard.printBoard(true);
                 //advance state machine
                 state = user_turn;
                 break;
@@ -87,7 +87,7 @@ void Executive::runApp() {
                     gameBoard.setGameSpace(testInput.getRow(), testInput.getColumn())) {
                     cout << "MOVE MADE" << endl;
                     //advance state
-                    gameBoard.printBoard();
+                    gameBoard.printBoard(false);
                 } else {
                     cout << "MOVE ERROR" << endl;
                 }

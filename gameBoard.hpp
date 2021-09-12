@@ -91,8 +91,9 @@ public:
     
     /** prints the game boar
     @pre class object with rows and columns
-    @post board printed on screen */
-    void printBoard();
+    @post board printed on screen
+     @param inst if true,will print the instructions */
+    void printBoard(bool inst);
 
     /** prints the instructions
     @pre none

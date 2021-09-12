@@ -119,9 +119,10 @@ char* GameBoard::get_char(int p_row, int p_col) {
 **
 *******************************************************************************/
 
-void GameBoard::printBoard() {
-//    cout << "THE BOARD" << endl;
-    printInstructions();
+void GameBoard::printBoard(bool inst) {
+    if (inst) {
+        printInstructions();
+    }
     cout << endl;
     printLegend();
     printHeader();
