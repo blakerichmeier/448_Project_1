@@ -24,12 +24,14 @@
 #include <stdexcept>
 #include <time.h>
 #include <random>
+#include <vector>
 
 //Class Header
 #include "Executive.hpp"
 #include "gameBoard.hpp"
 #include "test_input.hpp"
-
+#include "ship.hpp"
+#include "coordinate.hpp"
 
 
 #endif /* MYDEFINES_H */
