@@ -7,8 +7,8 @@ main.o: main.cpp Executive.hpp myDefines.h
 Executive.o: Executive.cpp Executive.hpp myDefines.h
 	g++ -g -std=c++11 -Wall -c Executive.cpp
 
-gameBoard.o: GameBoard.cpp GameBoard.hpp myDefines.h
-	g++ -g -std=c++11 -Wall -c GameBoard.cpp
+gameBoard.o: gameBoard.cpp gameBoard.hpp myDefines.h
+	g++ -g -std=c++11 -Wall -c gameBoard.cpp
 	
 test_input.o: test_input.cpp test_input.hpp myDefines.h
 		g++ -g -std=c++11 -Wall -c test_input.cpp
