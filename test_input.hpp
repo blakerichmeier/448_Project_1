@@ -17,6 +17,7 @@ private:
     int move_row;
     int move_col;
     
+    
 public:
     /*MARK: Constructors*/
     Test_Input();

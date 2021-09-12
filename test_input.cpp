@@ -56,25 +56,25 @@ int Test_Input::getColumn() const{
 
 int Test_Input::let_2_num(char convert) {
     switch (convert) {
-        case ('A' | 'a'):
+        case ('A'):
             return 0;
-        case ('B' | 'b'):
+        case ('B'):
             return 1;
-        case ('C' | 'c'):
+        case ('C'):
             return 2;
-        case ('D' | 'd'):
+        case ('D'):
             return 3;
-        case ('E' | 'e'):
+        case ('E'):
             return 4;
-        case ('F' | 'f'):
+        case ('F'):
             return 5;
-        case ('G' | 'g'):
+        case ('G'):
             return 6;
-        case ('H' | 'h'):
+        case ('H'):
             return 7;
-        case ('I' | 'i'):
+        case ('I'):
             return 8;
-        case ('J' | 'j'):
+        case ('J'):
             return 9;
         default:
             return 99;
@@ -83,12 +83,17 @@ int Test_Input::let_2_num(char convert) {
 
 void Test_Input::get_input() {
     string user_input;
+    char move[3];
     //ask user for input
-    cout << "Please enter a move, first row then column. Rows: A-J, Columns: 1-9" << endl;
+    cout << "Please enter row of shot, 1-9" << endl;
     cin >> user_input;
+    move[0] = stoi(user_input);
+    cout << "Please enter a column, A-J" << endl;
+    cin >> user_input;
+    move[1] = user_input[0];
     //set inputs
-    setRow(let_2_num(user_input[0]));
-    setColumn(user_input[1]);
+    setRow(move[0] - 1);
+    setColumn(let_2_num(move[1]));
 }
 
 
