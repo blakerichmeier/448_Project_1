@@ -109,12 +109,6 @@ public:
     @pre none
     @post none*/
     void printLegend();
-
-    //TODO: may nix
-    /** prints the position and current value with the border
-     @pre a board array
-     @post none */
-    void printSquare();
     
     /** prints play area of the board
      @pre none

@@ -147,11 +147,6 @@ void GameBoard::printLegend() {
     cout << "*********************************" << endl;
 }
 
-void GameBoard::printSquare() {
-    //TODO: needs proto
-}
-
-
 void GameBoard::print_play(char **arr) {
     for (int r = 0; r<num_rows; r++) {
         for (int c = 0; c<num_col; c++){
