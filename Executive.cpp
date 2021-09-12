@@ -8,6 +8,7 @@
 //
 
 #include "myDefines.h"
+#include "gameBoard.hpp"
 
 //macros
 using namespace std;
@@ -69,6 +70,21 @@ void Executive::runApp() {
                 state = set_ships;
                 break;
             case set_ships:
+		//user decides how many ships to play with
+		int numShips;
+		cout << "Enter number of ships to play with: ";
+		cin >> numShips;
+		cout << endl;
+		while (numShips < 1 || numShips > 6)
+		{
+			if (numShips < 1 || numShips >> 6)
+			{
+				cout << "Enter number of ships to play with: ";
+				cin >> numShips;
+				cout << endl;
+			}
+		}
+		user_gameBoard.set_ships(numShips);
                 //user set ships
 
                 //comp set ships
