@@ -14,6 +14,10 @@ using namespace std;
 
 class CPUPlayer {
 private:
+    int num_ships;
+    string lastMove; //previous move
+//    Ship cpu_ships[6]; // array of cpu ships
+    
 public:
     /*MARK: Constructors*/
     /** default
@@ -22,9 +26,13 @@ public:
     CPUPlayer();
     
     /*MARK: Destructor*/
+    
     /*MARK: Setters*/
+
     /*MARK: Getters*/
+
     /*MARK: Methods*/
+    
 };
 
 #endif /* CPU_PLAYER_HPP */
