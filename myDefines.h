@@ -32,7 +32,6 @@
 #include "test_input.hpp"
 #include "ship.hpp"
 #include "coordinate.hpp"
-#include "cpu_player.hpp"
 
 
 #endif /* MYDEFINES_H */
