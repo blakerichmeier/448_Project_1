@@ -24,7 +24,7 @@ Ship::Ship(char s_id, int s_len, int s_col, int s_row, char s_dir){
 
 void Ship::set_length(int len) {length = len;}
 
-void Ship::set_row(int r) {startRow = r;
+void Ship::set_row(int r) {startRow = r;}
 
 
 void Ship::set_col(int c) {startCol = c;}
