@@ -25,6 +25,15 @@ public:
      @post */
     void printMove();
     
+    /**
+     @pre
+     @post */
+    void printShips();
+    
+    /**
+     @pre
+     @post */
+    bool makeMove();
 };
 
 #endif /* PLAYER_HPP */
