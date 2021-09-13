@@ -1,5 +1,5 @@
-battleship: main.o Executive.o gameBoard.o test_input.o
-	g++ -g -std=c++11 -Wall main.o Executive.o gameBoard.o test_input.o -o battleship
+battleship: main.o Executive.o gameBoard.o test_input.o player.o
+	g++ -g -std=c++11 -Wall main.o Executive.o gameBoard.o test_input.o player.o -o battleship
 
 main.o: main.cpp Executive.hpp myDefines.h
 	g++ -g -std=c++11 -Wall -c main.cpp
@@ -12,6 +12,9 @@ gameBoard.o: gameBoard.cpp gameBoard.hpp myDefines.h
 
 test_input.o: test_input.cpp test_input.hpp myDefines.h
 		g++ -g -std=c++11 -Wall -c test_input.cpp
+		
+player.o: Player.cpp Player.hpp myDefines.h
+			g++ -g -std=c++11 -Wall -c Player.cpp
 
 clean:
 	rm *.o battleship

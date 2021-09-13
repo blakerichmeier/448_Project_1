@@ -32,6 +32,6 @@
 #include "test_input.hpp"
 #include "ship.hpp"
 #include "coordinate.hpp"
-
+#include "Player.hpp"
 
 #endif /* MYDEFINES_H */
