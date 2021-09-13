@@ -39,7 +39,7 @@ public:
     @param p_cols number of columns
     @param p_ships number of ships in game */
     GameBoard(int p_rows, int p_cols, int p_ships);
-    
+
     /*MARK: Destructor*/
     /** deletes array of pointers
      @pre need a GameBoard object
@@ -62,7 +62,7 @@ public:
     /**
     @pre none
     @post num_ships is assigned passed value
-    @param ship # of columns */
+    @param ship # of ships */
     void set_ships(int ship);
 
     /*MARK: Getters*/
@@ -80,7 +80,7 @@ public:
      @pre none
      @return num of ships */
     int get_ships() const;
-    
+
     /**
      @pre none
      @param p_row row of desired position
@@ -88,17 +88,8 @@ public:
      @return pointer to the char in the position */
     char* get_char(int p_row, int p_col);
 
-    /**
-     @pre col and row chosen for ship placement
-     @param ship_row of desired position
-     @param ship_col column of desired ship placement
-     @param length size of ship
-     @param direction direction of ship
-     */
-     void place_ship(int ship_row, int ship_col, int ship_size, char direction);
-
     /*MARK: Methods*/
-    
+
     /**
      @pre class object with rows and columns
      @post board printed on screen
@@ -115,23 +106,23 @@ public:
     @pre none
     @post output legend */
     void printLegend();
-    
+
     /**
      @pre none
      @post array passed is printed
      @param arr 2D array of the game*/
     void print_play(char **arr);
-    
+
     /** prints the row header
      @pre none
      @post none */
     void printHeader();
-    
+
     /**
      @pre none
      @post prints dotted line that matched game board lenght */
     void printDotted();
-    
+
     /** set a space on the board, ie it changes the value to a hit or miss
      @pre none
      @post space is set to hit or miss
@@ -139,17 +130,26 @@ public:
      @param p_col column od desired position
      @return true if sucess, false else */
     bool setGameSpace(int p_row, int p_col);
-    
+
     /** checks char passed for previous move, ie is there a '?' in space passed
      @pre none
      @post none
      @param test_char char used in comparison
      @return true if '?' occupies the space passed, false else */
     bool isValidMove(char test_char);
-    
+
     //for testing, havent seen ship class yet
     bool isShipHere(){return false;};
-    
+
+    /**
+     @pre col and row chosen for ship placement
+     @post
+     @param ship_row of desired position
+     @param ship_col column of desired ship placement
+     @param ship_size size of ship
+     @param direction direction of ship */
+     void place_ship(int ship_row, int ship_col, int ship_size, char direction);
+
 };
 
 #endif /* GAMEBOARD_HPP */
