@@ -19,9 +19,9 @@ class Executive {
 private:
     //used to throw state machine loop
     bool winner;
-    enum game_winner {user, cpu, playing};
+    enum game_winner {user_1, user_2, playing};
     //state machine
-    enum game_state {begin, set_ships, user_turn, cpu_turn, end_game };
+    enum game_state {begin, set_ships, user1_turn, user2_turn, end_game };
 
 public:
 
