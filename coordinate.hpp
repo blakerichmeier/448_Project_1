@@ -21,7 +21,7 @@ private:
 	@param y coord
 	*/
 public:
-	Coordinate(int x_coord, int y_coord){}
+	Coordinate(int x_coord, int y_coord);
 
-	
+
 };
