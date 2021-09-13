@@ -234,7 +234,7 @@ bool GameBoard::setGameSpace(int p_row, int p_col) {
 bool GameBoard::isValidMove(char test_char) {
     bool move_valid = false;
     //has move been made?
-    if (test_char == '?'){
+    if (test_char == ' '){
         move_valid = true;
     }
     return move_valid;

@@ -87,28 +87,32 @@ void Executive::runApp() {
 		user_gameBoard.set_ships(numShips);
                 //user set ships
 		for(int i=1; i <= numShips; i++){
-			char x_input;
-			int x_coord;
-			int y_coord;
-			char dir;
-			//while((y_coord < 1 || y_coord > 9) || (dir != 'v' || dir != 'h') || (x_coord < 1 || x_coord > 9 )){
-	 
-			cout << "Please choose an x coordinate (A-J):";
-			cin >> x_input;
-			cout << "Please choose a y coordinate (1-9):";
-			cin >> y_coord;
-			cout << "Please choose a direction (v for vertical or h for horizontal";
-			cin >> dir;
-			cout << endl;
-			
+                        char x_input;
+                        int x_coord;
+                        int y_coord;
+                        char dir;
+                        char name = static_cast<char>(i);
+                        while((y_coord < 1 || y_coord > 9) || (dir != 'v' && dir != 'h') || (x_coord < 0 || x_coord > 9 )){
+                        cout << "Ship placement for ship #" << i  << endl;
+
+                        cout << "Please choose an x coordinate (A-J): ";
+                        cin >> x_input;
+                        cout << "Please choose a y coordinate (1-9): ";
+                        cin >> y_coord;
+                        cout << "Please choose a direction (v for vertical or h for horizontal) ";
+                        cin >> dir;
+                        cout << endl;
+	
 			x_coord = testInput.let_2_num(x_input);
-			//}
-			char name = static_cast<char>(i);
+			}
+			
 			
 			//Ship ship = Ship(name, i, x_coord, y_coord, dir); 
 			//place ship
 			user_gameBoard.place_ship(y_coord-1, x_coord, i, dir);
 			user_gameBoard.printBoard(true);
+			
+			dir = 'z';
 
 
 		}
