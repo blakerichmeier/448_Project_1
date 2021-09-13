@@ -1,9 +1,9 @@
 //
-// 
+//
 // @author Michael Talaga
 //
 // ship.hpp
-// 
+//
 // Ship object
 
 #pragma once
@@ -16,33 +16,35 @@
 using namespace std;
 
 class Ship{
-	
+
 
 
 	private:
+		//TODO: would an emum with ship namese be better? ie enum shipType = {battleship, frigate, destroyer}
 		char id;
 		int length; //Length of the ship determines which ship it is
 		int startCol; //First x coordinate (Converted from A-J)
 		int startRow; //First y coordinate
 		int numHits; //Times ship has been hit (will need to prevent hitting same spot)
+		//TODO: wouldn't it be easier to have a bool isHorizontal.  if true, ship horizontal, false vertical
 		char direction; //starting direction:"Vertical" or "horizontal"
 		bool sunken; //True if it has been sunk
 		//std::vector<Coordinate> coordinates;//vector of ship coords
-		
-		
-	 /** with param
-		@pre none
-		@post ship object constructor with parameters
-		@param s_len length or size of ship
-		@param s_col starting x coordinate (seen as a letter and may take as char)
-		@param s_row starting y coordinate
-		@param s_direction direction represented as a char*/
+
+
+
 
 	public:
-		Ship(char s_id, int s_len, int s_col, int s_row, char s_dir){
-		}
+		/** with param
+ 		@pre none
+ 		@post ship object constructor with parameters
+ 		@param s_len length or size of ship
+ 		@param s_col starting x coordinate (seen as a letter and may take as char)
+ 		@param s_row starting y coordinate
+ 		@param s_direction direction represented as a char */
+		Ship(char s_id, int s_len, int s_col, int s_row, char s_dir);
 
-		
+
 		//Destructor
 
 
@@ -63,7 +65,7 @@ class Ship{
 		@pre none
 		@post s_col becomes input
 		@param starting x coord as an int */
-		void set_col(int c); 
+		void set_col(int c);
 
 		/** set direction of ship
 		@pre none
@@ -107,24 +109,23 @@ class Ship{
 
 		//Get # of times ship has been hit
 		int get_hits();
-		
-		
-		
+
+
+
 
 
 
 		/*MARK: Methods*/
-
-		/** Adds a hit to object in increments of one 
+		//TODO: would be better to have return a bool and change func name to isHit?
+		/** Adds a hit to object in increments of one
 		@pre none
-		@post none
-		@param coordinate*/
+		@post none */
 		void hit();
 
 		/** Returns whether or not the ship has sunk
 		@pre none
 		@post none
-		@return bool if ship has sunk (true)*/
+		@return true if ship has sunk, false else */
 		bool isSunken();
 
 		/** Creates coordinates and adds them to internal coordinate array
@@ -138,21 +139,21 @@ class Ship{
 		@post none
 		@param Either the element of the vector or desired coordinate
 		@return returns updated vector*/
-		//void remove_coord(vector<Coordinate> coords, int element); 
+		//void remove_coord(vector<Coordinate> coords, int element);
 
-		
+
 		/** Prints current coordinate vector
 		@pre none
 		@post none
 		@param updated coordinate vector*/
 		//void print_coords(vector<Coordinate> coords);
-		
-		
-		
+
+
+
 		//coordinate array
-		
-		
 
 
-		
+
+
+
 };

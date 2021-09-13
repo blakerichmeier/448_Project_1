@@ -1,6 +1,6 @@
 //
 // @author Michael Talaga
-// 
+//
 //
 // ship.cpp
 
@@ -9,69 +9,62 @@
 
 using namespace std;
 
-Ship::Ship(){
-}
 
-Ship::Ship(){
-//constructor
-		Ship(char s_id, int s_len, int s_col, int s_row, char s_dir){
+Ship::Ship(char s_id, int s_len, int s_col, int s_row, char s_dir){
 			id = s_id;
-			length = set_length(s_len)
-			startCol = set_column(s_col);
-			startRow = set_row(s_row);
-			direction = set_direction(s_dir);
+			length = s_len;
+			startCol = s_col;
+			startRow = s_row;
+			direction = s_dir;
 			//std::vector<Coordinate> coordinates = create_coords(s_len, s_col, s_row);
 			sunken = false;
 }
-	
-		
-
-		void Ship::set_length(int len){length = len;}
-
-		void Ship::set_row(int r) { startRow = r; }
-
-		void Ship::set_col(int c) { startCol = c; }
-
-		void Ship::set_direction(char dir) { direction = dir; }
 
 
 
+void Ship::set_length(int len) {length = len;}
 
-		
-		int Ship::get_id()const { return id; };
-
-		int Ship::get_length()const{return length;}
-
-		int Ship::get_row()const{return startRow;}
-
-		int Ship::get_col()const{return startCol;}
-		
-		char Ship::get_direction()const { return direction; };
-
-		int Ship::get_hits() { return numHits; };
+void Ship::set_row(int r) {startRow = r;
 
 
-		/**
-		Methods
-		
-		*/
+void Ship::set_col(int c) {startCol = c;}
 
-		void Ship::hit() {
-			numHits += 1;
-			//isSunken();
-		}
+void Ship::set_direction(char dir) {direction = dir;}
+
+int Ship::get_id()const {return id;}
+
+int Ship::get_length()const{return length;}
+
+int Ship::get_row()const{return startRow;}
+
+int Ship::get_col()const{return startCol;}
+
+char Ship::get_direction()const { return direction; };
+
+int Ship::get_hits() { return numHits; };
 
 
-		bool Ship::isSunken() {
-			if (numHits >= length) {
-				sunken = true;
-			}
-			//sunken = true;
-			return sunken;
-		}
+/**
+Methods
+
+*/
+
+void Ship::hit() {
+	numHits += 1;
+	//isSunken();
+}
+
+
+bool Ship::isSunken() {
+	if (numHits >= length) {
+		sunken = true;
+	}
+	//sunken = true;
+	return sunken;
+}
 		/**
 		vector<Coordinate> Ship::create_coords(int len, int x_coord, int y_coord) {
-			
+
 			std::vector<Coordinate> coords(len);
 			if (get_direction() == 'v') {
 				for (int i = 0; i < len; i++) {
@@ -85,7 +78,7 @@ Ship::Ship(){
 					coords[i] = coord;
 				}
 			}
-			
+
 			return coords;
 		}
 
@@ -101,9 +94,3 @@ Ship::Ship(){
 			}
 		}
 		*/
-};
-	
-
-
-
-
