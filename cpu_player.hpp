@@ -25,13 +25,43 @@ public:
      @post CPUPlayer object */
     CPUPlayer();
     
+    /** with param
+     @pre none
+     @post CPUPlayer object with params passed */
+    CPUPlayer(int p_ships);
+    
     /*MARK: Destructor*/
+    //TODO: make destructor
     
     /*MARK: Setters*/
+    /**
+     @pre none
+     @post num_ships assigned value passed */
+    void setNumShips(int p_ships);
+    
+    /**
+     @pre none
+     @post lastMove set to string passed */
+    void setLastMove(string p_move);
 
     /*MARK: Getters*/
-
+    /**
+     @pre
+     @retun value assigned to num_ships */
+    int getNumShips() const;
+    
+    /**
+     @pre
+     @return the previous move made */
+    string getLastMove() const;
     /*MARK: Methods*/
+    /** initiate cpu move
+     @pre
+     @post */
+    
+    /** check previous move for a hit
+     @pre none
+     @post*/
     
 };
 

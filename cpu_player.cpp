@@ -21,6 +21,11 @@ CPUPlayer::CPUPlayer() {
     
 }
 
+CPUPlayer::CPUPlayer(int p_ships) {
+    num_ships = p_ships;
+    lastMove = "00";
+}
+
 /*******************************************************************************
  **
  **MARK: Destructor
@@ -33,11 +38,27 @@ CPUPlayer::CPUPlayer() {
  **
  ******************************************************************************/
 
+void CPUPlayer::setNumShips(int p_ships) {
+    num_ships = p_ships;
+}
+
+void CPUPlayer::setLastMove(string p_move) {
+    lastMove = p_move;
+}
+
 /*******************************************************************************
  **
  **MARK: Getter Methods
  **
  ******************************************************************************/
+
+int CPUPlayer::getNumShips() const{
+    return num_ships;
+}
+
+string CPUPlayer::getLastMove() const{
+    return lastMove;
+}
 
 /*******************************************************************************
  **
