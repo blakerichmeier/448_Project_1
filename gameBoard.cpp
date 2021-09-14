@@ -271,15 +271,14 @@ void GameBoard::place_ship(int ship_row, int ship_col, int ship_size, char direc
 //TODO: finish proto
 bool GameBoard::place_ship_return(Ship p_ship) {
     for (int i = 0; i < p_ship.get_length(); i++) {
-        if (i == 0) {
-            ship_arr[p_ship.get_row()][p_ship.get_col()] = 'S';
-        }
+        //TODO: catch case when not enough room to place ship
         if (p_ship.get_direction() == 'v') {
             ship_arr[p_ship.get_row() - i][p_ship.get_col()] = 'S';
         } else {
             ship_arr[p_ship.get_row()][p_ship.get_col() + i] = 'S';
         }
+        
     }
-    //TODO: make recursive to use this
+    //TODO: make recursive to use this bool
     return true;
 }
