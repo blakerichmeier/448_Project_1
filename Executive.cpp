@@ -86,7 +86,7 @@ void Executive::runApp() {
                     //get & place users ships
                     //moved code commented out to bottom see old_00
                     for(int i=1; i <= userInput.getNumShips(); i++) {
-                        cout << "Ship placement for ship #" << i  << endl;
+                        cout << "Ship placement for ship # " << i  << endl;
                         userInput.getShipDir_Input();
                         userInput.getShip_Input();
                         
@@ -97,24 +97,19 @@ void Executive::runApp() {
                                 cout << "Ship " << i << " placed" << endl;
                             }
                         } else {
-                            user2_gameBoard.place_ship(userInput.getRow(),
-                                                       userInput.getColumn(),
-                                                       userInput.getShipSize(),
-                                                       userInput.getShipChar() );
+                            Ship ship_2_place = Ship(TEST_SHIP_ID, SHIP_LENGTH, userInput.getColumn(), userInput.getRow(), userInput.getShipChar());
+                            if (user2_gameBoard.place_ship_return(ship_2_place)) {
+                                cout << "Ship " << i << " placed" << endl;
+                            }
                         }
                         //moved code commented out to bottom see old_01
                     } //end for i
-                    
-                    //?????print ship board?????
-                    
+        //?????print ship board?????
                 } //end for n
                 //TODO: do we want a whole board or keep track of the spots in the ship class?
                 //advance state machine
                 state = user1_turn;
-                
                 break;
-                
-                
                 
             case user1_turn:
                 //get turn input
@@ -161,9 +156,7 @@ void Executive::runApp() {
         }
     }
     
-    
     //end game
-    
 }
 
 void Executive::exitApp() {
