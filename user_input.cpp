@@ -18,6 +18,7 @@ User_Input::User_Input() {
     ship_size = 99;
     ship_horiz_dir = true;
     ship_dir_char = 'h';
+    num_ships = 0;
     
 }
 
@@ -45,6 +46,11 @@ void User_Input::setShipChar(char p_char) {
 void User_Input::setMoveDir(bool p_dir) {
     ship_horiz_dir = p_dir;
 }
+
+void User_Input::setNumShips(int p_ships) {
+    num_ships = p_ships;
+}
+
     
 /*******************************************************************************
  **
@@ -70,6 +76,10 @@ char User_Input::getShipChar() const{
 
 bool User_Input::getMoveDir() const{
     return ship_horiz_dir;
+}
+
+int User_Input::getNumShips() const{
+    return num_ships;
 }
 /*******************************************************************************
  **
@@ -108,7 +118,7 @@ int User_Input::let_2_num(char convert) {
     return i;
 }
 
-void User_Input::getShipInput() {
+void User_Input::getShip_Input() {
     string user_input;
     char move[3];
     //ask user for input
@@ -138,7 +148,7 @@ void User_Input::getShipDir_Input() {
 }
 
 
-void User_Input::getMoveInput() {
+void User_Input::getMove_Input() {
     string user_input;
     char move[3];
     //ask user for input
@@ -151,6 +161,23 @@ void User_Input::getMoveInput() {
     //set inputs
     setRow(move[0] - 1);
     setColumn(let_2_num(move[1]));
+}
+
+void User_Input::getNumShips_Input() {
+    int numShips;
+    cout << "Enter number of ships to play with: ";
+    cin >> numShips;
+    cout << endl;
+    while (numShips < 1 || numShips > 6)
+    {
+        if (numShips < 1 || numShips >> 6)
+        {
+            cout << "Enter number of ships to play with: ";
+            cin >> numShips;
+            cout << endl;
+        }
+    }
+    
 }
 
 

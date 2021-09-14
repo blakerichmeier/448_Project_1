@@ -18,6 +18,7 @@ private:
     int ship_size;
     bool ship_horiz_dir;
     char ship_dir_char;
+    int num_ships;
     
 public:
     /*MARK: Constructors*/
@@ -53,6 +54,13 @@ public:
      @post assign ship_horiz_dir */
     void setMoveDir(bool p_dir);
     
+    /**
+     @pre
+     @post assign num_ships
+     @param p_ships number of ships in game
+     */
+    void setNumShips(int p_ships);
+    
     /*MARK: Getters*/
     /**
      @pre
@@ -79,6 +87,12 @@ public:
      @return direction input */
     bool getMoveDir() const;
     
+    /**
+     @pre
+     @return num_ships
+     */
+    int getNumShips() const;
+    
     /*MARK: Methods*/
     /**
      @pre
@@ -88,15 +102,20 @@ public:
     /** prompts user for an input to set a ship
      @pre
      @post */
-    void getShipInput();
+    void getShip_Input();
     
     void getShipDir_Input();
     
     /** prompts user for an input to make a move
      @pre
      @post */
-    void getMoveInput();
+    void getMove_Input();
     
+    /**
+     @pre
+     @post
+     */
+    void getNumShips_Input();
 };
 
 #endif /* USER_INPUT_HPP */
