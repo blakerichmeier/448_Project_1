@@ -36,15 +36,24 @@ GameBoard::GameBoard() {
             board_arr[r][c] = col_head[10];
         }
     }
+    
+    ship_arr = new char*[num_rows];
+
+    for (int r = 0; r<ROWS; r++) {
+        ship_arr[r] = new char[COLUMNS];
+        for (int c = 0; c<COLUMNS; c++){
+            ship_arr[r][c] = col_head[10];
+        }
+    }
 
 
 }
 
 //with param
-GameBoard::GameBoard(int p_rows, int p_cols, int p_ships) {
+GameBoard::GameBoard(int p_rows, int p_cols, int n_ships) {
     num_rows = p_rows;
     num_col = p_cols;
-    num_ships = p_ships;
+    num_ships = n_ships;
 
     board_arr = new char*[p_rows];
 
@@ -54,6 +63,16 @@ GameBoard::GameBoard(int p_rows, int p_cols, int p_ships) {
             board_arr[r][c] = col_head[11];
         }
     }
+    
+    ship_arr = new char*[p_rows];
+
+    for (int r = 0; r<p_rows; r++) {
+        ship_arr[r] = new char[p_cols];
+        for (int c = 0; c<p_cols; c++){
+            ship_arr[r][c] = col_head[11];
+        }
+    }
+    
 }
 
 /*******************************************************************************
@@ -70,6 +89,14 @@ GameBoard::~GameBoard() {
         delete [] board_arr;
     }
     board_arr = nullptr;
+    
+    if (ship_arr != nullptr) {
+        for (int r = 0; r<num_rows; r++) {
+            delete ship_arr[r];
+        }
+        delete [] ship_arr;
+    }
+    ship_arr = nullptr;
 }
 
 /*******************************************************************************
@@ -86,8 +113,8 @@ void GameBoard::set_col(int col) {
     num_col = col;
 }
 
-void GameBoard::set_ships(int ship) {
-    num_ships = ship;
+void GameBoard::set_ships(int n_ship) {
+    num_ships = n_ship;
 }
 
 /*******************************************************************************
@@ -228,14 +255,31 @@ void GameBoard::place_ship(int ship_row, int ship_col, int ship_size, char direc
 	{
 		for (int i = 0; i < ship_size; i++)
 		{
-			board_arr[ship_row][ship_col+i] = 'S';
+			ship_arr[ship_row][ship_col+i] = 'S';
 		}
 	}
 	else if (direction == 'v' || direction == 'V')
 	{
 		for (int j = 0; j < ship_size; j++)
 		{
-			board_arr[ship_row+j][ship_col] = 'S';
+			ship_arr[ship_row+j][ship_col] = 'S';
 		}
 	}
+}
+
+
+//TODO: finish proto
+bool GameBoard::place_ship_return(Ship p_ship) {
+    for (int i = 0; i < p_ship.get_length(); i++) {
+        if (i == 0) {
+            ship_arr[p_ship.get_row()][p_ship.get_col()] = 'S';
+        }
+        if (p_ship.get_direction() == 'v') {
+            ship_arr[p_ship.get_row() - i][p_ship.get_col()] = 'S';
+        } else {
+            ship_arr[p_ship.get_row()][p_ship.get_col() + i] = 'S';
+        }
+    }
+    //TODO: make recursive to use this
+    return true;
 }

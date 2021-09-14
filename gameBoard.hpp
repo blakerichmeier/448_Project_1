@@ -12,6 +12,7 @@
 #define GAMEBOARD_HPP
 
 #include "myDefines.h"
+#include "ship.hpp"
 
 using namespace std;
 
@@ -22,6 +23,7 @@ private:
     int num_col; //number of board columns
     int num_ships; //number of ships used in game
     char **board_arr; //will hold the state of the current board
+    char **ship_arr;//holds placed ships
     //array of letters used for the column header labels and ? to fill new board
     char col_head[12] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', ' '};
 
@@ -38,7 +40,7 @@ public:
     @param p_rows number of rows
     @param p_cols number of columns
     @param p_ships number of ships in game */
-    GameBoard(int p_rows, int p_cols, int p_ships);
+    GameBoard(int p_rows, int p_cols, int n_ships);
 
     /*MARK: Destructor*/
     /** deletes array of pointers
@@ -63,7 +65,7 @@ public:
     @pre none
     @post num_ships is assigned passed value
     @param ship # of ships */
-    void set_ships(int ship);
+    void set_ships(int n_ship);
 
     /*MARK: Getters*/
     /**
@@ -148,8 +150,13 @@ public:
      @param ship_col column of desired ship placement
      @param ship_size size of ship
      @param direction direction of ship */
-     void place_ship(int ship_row, int ship_col, int ship_size, char direction);
-
+    void place_ship(int ship_row, int ship_col, int ship_size, char direction);
+    
+    /**fill ships
+     @pre
+     @post
+     @return */
+    bool place_ship_return(Ship p_ship);
 };
 
 #endif /* GAMEBOARD_HPP */

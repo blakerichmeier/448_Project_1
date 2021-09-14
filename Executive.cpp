@@ -8,7 +8,11 @@
 //
 
 #include "myDefines.h"
-#include "gameBoard.hpp"
+
+#define NUM_PLAYERS 2
+//FOR TESTING
+#define TEST_SHIP_ID '2'
+#define SHIP_LENGTH 3
 
 //macros
 using namespace std;
@@ -58,6 +62,8 @@ void Executive::runApp() {
     //new state tracker
     game_state state = begin;
     game_winner who_won = playing;
+    //user input object
+    User_Input userInput;
     
     //testing
     Test_Input testInput;
@@ -73,66 +79,50 @@ void Executive::runApp() {
                 state = set_ships;
                 break;
             case set_ships:
-                //user decides how many ships to play with
-                int numShips;
-                cout << "Enter number of ships to play with: ";
-                cin >> numShips;
-                cout << endl;
-                while (numShips < 1 || numShips > 6)
-                {
-                    if (numShips < 1 || numShips >> 6)
-                    {
-                        cout << "Enter number of ships to play with: ";
-                        cin >> numShips;
-                        cout << endl;
-                    }
-                }
-                user1_gameBoard.set_ships(numShips);
-                //user set ships
-                for(int i=1; i <= numShips; i++){
-                    char x_input;
-                    int x_coord;
-                    int y_coord;
-                    char dir;
-                    char name = static_cast<char>(i);
-                    while((y_coord < 1 || y_coord > 9) || (dir != 'v' && dir != 'h') || (x_coord < 0 || x_coord > 9 )){
-                        cout << "Ship placement for ship #" << i  << endl;
-                        
-                        cout << "Please choose an x coordinate (A-J): ";
-                        cin >> x_input;
-                        cout << "Please choose a y coordinate (1-9): ";
-                        cin >> y_coord;
-                        cout << "Please choose a direction (v for vertical or h for horizontal) ";
-                        cin >> dir;
-                        cout << endl;
-                        
-                        x_coord = testInput.let_2_num(x_input);
-                    }
-                    
-                    
-                    //Ship ship = Ship(name, i, x_coord, y_coord, dir);
-                    //place ship
-                    user1_gameBoard.place_ship(y_coord-1, x_coord, i, dir);
-                    user1_gameBoard.printBoard(true);
-                    
-                    dir = 'z';
-                    
-                    
-                }
-                //user2 set ships
                 
-                //print ship board
+                //user decides how many ships to play with
+                userInput.getNumShips_Input();
+                for (int n = 0; n<NUM_PLAYERS; n++){
+                    //get & place users ships
+                    //moved code commented out to bottom see old_00
+                    for(int i=1; i <= userInput.getNumShips(); i++) {
+                        cout << "Ship placement for ship #" << i  << endl;
+                        userInput.getShipDir_Input();
+                        userInput.getShip_Input();
+                        
+                        if (n == 0) {
+                            Ship ship_2_place = Ship(TEST_SHIP_ID, SHIP_LENGTH, userInput.getColumn(), userInput.getRow(), userInput.getShipChar());
+                            //TODO: maybe add error check here
+                            if (user1_gameBoard.place_ship_return(ship_2_place)) {
+                                cout << "Ship " << i << " placed" << endl;
+                            }
+                        } else {
+                            user2_gameBoard.place_ship(userInput.getRow(),
+                                                       userInput.getColumn(),
+                                                       userInput.getShipSize(),
+                                                       userInput.getShipChar() );
+                        }
+                        //moved code commented out to bottom see old_01
+                    } //end for i
+                    
+                    //?????print ship board?????
+                    
+                } //end for n
                 //TODO: do we want a whole board or keep track of the spots in the ship class?
                 //advance state machine
                 state = user1_turn;
+                
                 break;
+                
+                
                 
             case user1_turn:
                 //get turn input
+                userInput.getMove_Input();
                 //testing
-                testInput.get_input();
+//                testInput.get_input();
                 //test move
-                if (user1_gameBoard.setGameSpace(testInput.getRow(), testInput.getColumn())) {
+                if (user1_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn())) {
                     cout << "MOVE MADE" << endl;
                     //advance state
                     user1_gameBoard.printBoard(false);
@@ -186,3 +176,55 @@ bool Executive::check_winner() {
     
     return true;
 }
+
+
+//MARK: OLD CODE
+
+/**************************************
+        //MARK: old 00
+        int numShips;
+        cout << "Enter number of ships to play with: ";
+        cin >> numShips;
+        cout << endl;
+        while (numShips < 1 || numShips > 6)
+        {
+            if (numShips < 1 || numShips >> 6)
+            {
+                cout << "Enter number of ships to play with: ";
+                cin >> numShips;
+                cout << endl;
+            }
+        }
+        user1_gameBoard.set_ships(numShips);
+ ************************/
+
+/************************
+                    //MARK: old_01
+                    char x_input;
+                    int x_coord;
+                    int y_coord;
+                    char dir;
+                    char name = static_cast<char>(i);
+                    while((y_coord < 1 || y_coord > 9) || (dir != 'v' && dir != 'h') || (x_coord < 0 || x_coord > 9 )){
+                        cout << "Ship placement for ship #" << i  << endl;
+
+                        cout << "Please choose an x coordinate (A-J): ";
+                        cin >> x_input;
+                        cout << "Please choose a y coordinate (1-9): ";
+                        cin >> y_coord;
+                        cout << "Please choose a direction (v for vertical or h for horizontal) ";
+                        cin >> dir;
+                        cout << endl;
+
+                        x_coord = testInput.let_2_num(x_input);
+                    }
+
+
+                    //Ship ship = Ship(name, i, x_coord, y_coord, dir);
+                    //place ship
+                    user1_gameBoard.place_ship(y_coord-1, x_coord, i, dir);
+                    user1_gameBoard.printBoard(true);
+
+                    dir = 'z';
+ 
+**************************************/
