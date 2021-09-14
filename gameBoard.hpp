@@ -34,7 +34,7 @@ public:
      @post GameBoard object */
     GameBoard();
 
-    /** constructor with param
+    /** with param
     @pre none
     @post GameBoard object with passed params
     @param p_rows number of rows
@@ -149,6 +149,7 @@ public:
     bool isShipHere(){return false;};
 
     /**
+     @author
      @pre col and row chosen for ship placement
      @post
      @param ship_row of desired position
@@ -157,10 +158,11 @@ public:
      @param direction direction of ship */
     void place_ship(int ship_row, int ship_col, int ship_size, char direction);
     
-    /**fill ships
-     @pre
-     @post
-     @return */
+    /** place ships in ship_arr
+     @pre none
+     @post ship_arr is populated with ship passed
+     @param p_ship Ship object
+     @return true if ship is placed, false else */
     bool place_ship_return(Ship p_ship);
 };
 
