@@ -55,10 +55,6 @@ void Executive::runApp() {
     //new user game board
     GameBoard user1_gameBoard;
     GameBoard user2_gameBoard;
-    //new user 1
-    Player user1;
-    //new user 2
-    Player user2;
     //new state tracker
     game_state state = begin;
     game_winner who_won = playing;
