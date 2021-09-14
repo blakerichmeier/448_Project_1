@@ -39,7 +39,7 @@ public:
     @post GameBoard object with passed params
     @param p_rows number of rows
     @param p_cols number of columns
-    @param p_ships number of ships in game */
+     @param n_ships number of ships in game */
     GameBoard(int p_rows, int p_cols, int n_ships);
 
     /*MARK: Destructor*/
@@ -64,7 +64,7 @@ public:
     /**
     @pre none
     @post num_ships is assigned passed value
-    @param ship # of ships */
+     @param n_ship # of ships */
     void set_ships(int n_ship);
 
     /*MARK: Getters*/

@@ -15,13 +15,9 @@
 
 using namespace std;
 
-class Ship{
-
-
-
+class Ship {
+    
 	private:
-		//TODO: would an emum with ship namese be better? ie enum shipType = {battleship, frigate, destroyer}
-		char id;
 		int length; //Length of the ship determines which ship it is
 		int startCol; //First x coordinate (Converted from A-J)
 		int startRow; //First y coordinate
@@ -31,9 +27,6 @@ class Ship{
 		bool sunken; //True if it has been sunk
 		//std::vector<Coordinate> coordinates;//vector of ship coords
 
-
-
-
 	public:
 		/** with param
  		@pre none
@@ -41,36 +34,32 @@ class Ship{
  		@param s_len length or size of ship
  		@param s_col starting x coordinate (seen as a letter and may take as char)
  		@param s_row starting y coordinate
- 		@param s_direction direction represented as a char */
-		Ship(char s_id, int s_len, int s_col, int s_row, char s_dir);
-
-
-		//Destructor
-
+ 		@param s_dir direction represented as a char */
+		Ship(int s_len, int s_col, int s_row, char s_dir);
 
 		/*MARK: Setters*/
 		/** Set length of ship object
 		@pre none
-		@post s_len becomes input
-		@param size of ship as int */
+		@post lenght becomes input
+		@param len ship length */
 		void set_length(int len);
 
 		/** set first (starting) y coordinate
 		@pre none
-		@post s_row becomes input
-		@param starting y coord as an int */
-		void set_row(int r); //set x coord
+		@post startRow becomes input
+		@param r starting y coord as an int */
+		void set_row(int r);
 
 		/** set first (starting) x coordinate
 		@pre none
-		@post s_col becomes input
-		@param starting x coord as an int */
+		@post startCol becomes input
+		@param c starting x coord as an int */
 		void set_col(int c);
 
 		/** set direction of ship
 		@pre none
 		@post s_direction becomes input
-		@param direction represented as a v or h (horizontal and vertical) */
+		@param dir direction represented as a v or h, horizontal or vertical respectivly */
 		void set_direction(char dir);
 
 
@@ -109,51 +98,18 @@ class Ship{
 
 		//Get # of times ship has been hit
 		int get_hits();
-
-
-
-
-
-
+    
 		/*MARK: Methods*/
-		//TODO: would be better to have return a bool and change func name to isHit?
+		//TODO: can be removed, can parse gameBoard or track there
 		/** Adds a hit to object in increments of one
 		@pre none
 		@post none */
 		void hit();
 
+        //TODO: can be removed, can parse gameBoard or track there
 		/** Returns whether or not the ship has sunk
 		@pre none
 		@post none
 		@return true if ship has sunk, false else */
 		bool isSunken();
-
-		/** Creates coordinates and adds them to internal coordinate array
-		@pre none
-		@post none
-		@return coordinate array for the ship based on direction and size*/
-		//vector<Coordinate> create_coords(int len, int x_coord, int y_coord);
-
-		/** Removes a coordinate from the vector
-		@pre none
-		@post none
-		@param Either the element of the vector or desired coordinate
-		@return returns updated vector*/
-		//void remove_coord(vector<Coordinate> coords, int element);
-
-
-		/** Prints current coordinate vector
-		@pre none
-		@post none
-		@param updated coordinate vector*/
-		//void print_coords(vector<Coordinate> coords);
-
-
-
-		//coordinate array
-
-
-
-
-
 };

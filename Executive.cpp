@@ -86,8 +86,7 @@ void Executive::runApp() {
                         userInput.getShip_Input();
                         
                         if (np == 0) {
-                            Ship ship_2_place = Ship(TEST_SHIP_ID, i,
-                                                     userInput.getColumn(),
+                            Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
                             //TODO: maybe add error check here
@@ -95,8 +94,7 @@ void Executive::runApp() {
                                 cout << "Ship " << i << " placed" << endl;
                             }
                         } else {
-                            Ship ship_2_place = Ship(TEST_SHIP_ID, i,
-                                                     userInput.getColumn(),
+                            Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
                             if (user2_gameBoard.place_ship_return(ship_2_place)) {

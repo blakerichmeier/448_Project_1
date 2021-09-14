@@ -37,8 +37,8 @@ public:
 
     /*MARK: Methods*/
     /** main method that controls the app
-     @pre
-     @post */
+     @pre none
+     @post game has run, winner declared */
     void runApp();
 
     //prints a message. future useability
