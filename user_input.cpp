@@ -154,7 +154,7 @@ void User_Input::getMove_Input() {
     //ask user for input
     cout << "Please enter row of shot, 1-9" << endl;
     cin >> user_input;
-    //TODO: error here if wrong input
+    //TODO: error here
     move[0] = stoi(user_input);
     cout << "Please enter a column, A-J" << endl;
     cin >> user_input;
