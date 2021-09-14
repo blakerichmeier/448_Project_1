@@ -105,9 +105,11 @@ void Executive::runApp() {
                         }
                     } //end for i
                     cout << endl;
-        //?????print ship board?????
+                    //print ship board
                     if (np == 0) {
                         user1_gameBoard.printShipBoard();
+                    } else {
+                        user2_gameBoard.printShipBoard();
                     }
                 } //end for n
                 //TODO: do we want a whole board or keep track of the spots in the ship class?
@@ -143,7 +145,12 @@ void Executive::runApp() {
                 //let player know what state
                 cout << "Player 1 Turn" << endl;
                 //get turn input
-                
+                userInput.getMove_Input();
+                // test move
+                if (user2_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn())) {
+                    cout << "MOVE MADE";
+                    user2_gameBoard.printPlayBoard(false);
+                }
                 //winner check & advance state
                 if (check_winner()){
                     state = end_game;
