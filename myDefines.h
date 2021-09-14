@@ -31,7 +31,6 @@
 #include "gameBoard.hpp"
 #include "test_input.hpp"
 #include "ship.hpp"
-#include "coordinate.hpp"
 #include "Player.hpp"
 #include "user_input.hpp"
 
