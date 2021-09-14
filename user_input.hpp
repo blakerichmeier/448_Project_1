@@ -116,6 +116,9 @@ public:
      @post
      */
     void getNumShips_Input();
+    
+    /** "erases" previous inputs */
+    
 };
 
 #endif /* USER_INPUT_HPP */

@@ -135,7 +135,7 @@ void User_Input::getShip_Input() {
 
 void User_Input::getShipDir_Input() {
     string input;
-    cout << "Please choose a direction (v for vertical or h for horizontal) ";
+    cout << "Please choose a direction (v for vertical or h for horizontal): ";
     cin >> input;
     //TODO: try catch here
     if (input[0] == 'h' || input[0] == 'H') {
@@ -177,6 +177,7 @@ void User_Input::getNumShips_Input() {
             cout << endl;
         }
     }
+    num_ships = numShips;
     
 }
 
