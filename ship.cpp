@@ -10,14 +10,16 @@
 using namespace std;
 
 
-Ship::Ship(char s_id, int s_len, int s_col, int s_row, char s_dir){
-			id = s_id;
-			length = s_len;
-			startCol = s_col;
-			startRow = s_row;
-			direction = s_dir;
-			//std::vector<Coordinate> coordinates = create_coords(s_len, s_col, s_row);
-			sunken = false;
+Ship::Ship(char s_id, int s_len, int s_col, int s_row, char s_dir) {
+    id = s_id;
+    length = s_len;
+    startCol = s_col;
+    startRow = s_row;
+    direction = s_dir;
+    //std::vector<Coordinate> coordinates = create_coords(s_len, s_col, s_row);
+    sunken = false;
+    numHits = s_len;
+        
 }
 
 
