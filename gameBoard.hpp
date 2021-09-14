@@ -97,7 +97,12 @@ public:
      @post board printed on screen
      @param inst true = will print the instructions,
                  false = no instructions printed */
-    void printBoard(bool inst);
+    void printPlayBoard(bool inst);
+    
+    /**
+     @pre none
+     @post outputs ship board to console */
+    void printShipBoard();
 
     /**
     @pre none

@@ -147,7 +147,7 @@ char* GameBoard::get_char(int p_row, int p_col) {
  **
  *******************************************************************************/
 
-void GameBoard::printBoard(bool inst) {
+void GameBoard::printPlayBoard(bool inst) {
     if (inst) {
         printInstructions();
     }
@@ -159,6 +159,14 @@ void GameBoard::printBoard(bool inst) {
     printHeader();
 }
 
+void GameBoard::printShipBoard() {
+    printLegend();
+    printHeader();
+    printDotted();
+    print_play(ship_arr);
+    printHeader();
+}
+
 void GameBoard::printInstructions() {
     cout << "inst line 1" << endl;
     cout << "inst line 2" << endl;
@@ -166,7 +174,7 @@ void GameBoard::printInstructions() {
 
 void GameBoard::printLegend() {
     cout << "       ************* LEGEND ************" << endl;
-    cout << "       X => HIT  O => MISS  ? => UNKNOWN" << endl;
+    cout << "        X => HIT  O => MISS  S => SHIPS" << endl;
     cout << "       *********************************" << endl;
 }
 
@@ -267,7 +275,6 @@ void GameBoard::place_ship(int ship_row, int ship_col, int ship_size, char direc
 	}
 }
 
-
 //TODO: finish proto
 bool GameBoard::place_ship_return(Ship p_ship) {
     for (int i = 0; i < p_ship.get_length(); i++) {
@@ -277,7 +284,6 @@ bool GameBoard::place_ship_return(Ship p_ship) {
         } else {
             ship_arr[p_ship.get_row()][p_ship.get_col() + i] = 'S';
         }
-        
     }
     //TODO: make recursive to use this bool
     return true;

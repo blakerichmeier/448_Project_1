@@ -75,7 +75,7 @@ void Executive::runApp() {
                 //start the game
                 // print banner
                 cout << "Welcome to BattleShip" << endl;
-                user1_gameBoard.printBoard(true);
+                user1_gameBoard.printPlayBoard(true);
                 state = set_ships;
                 break;
             case set_ships:
@@ -110,6 +110,9 @@ void Executive::runApp() {
                     } //end for i
                     cout << endl;
         //?????print ship board?????
+                    if (np == 0) {
+                        user1_gameBoard.printShipBoard();
+                    }
                 } //end for n
                 //TODO: do we want a whole board or keep track of the spots in the ship class?
                 //advance state machine
@@ -117,6 +120,8 @@ void Executive::runApp() {
                 break;
                 
             case user1_turn:
+                //let player know what state
+                cout << "Player 1 Turn" << endl;
                 //get turn input
                 userInput.getMove_Input();
                 //testing
@@ -125,7 +130,7 @@ void Executive::runApp() {
                 if (user1_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn())) {
                     cout << "MOVE MADE" << endl;
                     //advance state
-                    user1_gameBoard.printBoard(false);
+                    user1_gameBoard.printPlayBoard(false);
                 } else {
                     cout << "MOVE ERROR" << endl;
                 }
@@ -139,6 +144,8 @@ void Executive::runApp() {
                 break;
                 
             case user2_turn:
+                //let player know what state
+                cout << "Player 1 Turn" << endl;
                 //get turn input
                 
                 //winner check & advance state
