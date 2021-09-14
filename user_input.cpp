@@ -17,6 +17,7 @@ User_Input::User_Input() {
     move_col = 99;
     ship_size = 99;
     ship_horiz_dir = true;
+    ship_dir_char = 'h';
     
 }
 
@@ -37,6 +38,10 @@ void User_Input::setShipSize(int p_size) {
     ship_size = p_size;
 }
 
+void User_Input::setShipChar(char p_char) {
+    ship_dir_char = p_char;
+}
+
 void User_Input::setMoveDir(bool p_dir) {
     ship_horiz_dir = p_dir;
 }
@@ -55,8 +60,12 @@ int User_Input::getColumn() const{
     return move_col;
 }
     
-int User_Input::getShipSize() const {
+int User_Input::getShipSize() const{
     return ship_size;
+}
+
+char User_Input::getShipChar() const{
+    return ship_dir_char;
 }
 
 bool User_Input::getMoveDir() const{
@@ -116,13 +125,15 @@ void User_Input::getShipInput() {
 
 void User_Input::getShipDir_Input() {
     string input;
-    cout << "Is ship horizontal or vertical? 1 = Horizontal, 0 = Vertical" << endl;
+    cout << "Please choose a direction (v for vertical or h for horizontal) ";
     cin >> input;
     //TODO: try catch here
-    if (stoi(input)) {
+    if (input[0] == 'h' || input[0] == 'H') {
         ship_horiz_dir = true;
+        ship_dir_char = input[0];
     } else {
         ship_horiz_dir = false;
+        ship_dir_char = 'v';
     }
 }
 
@@ -140,14 +151,6 @@ void User_Input::getMoveInput() {
     //set inputs
     setRow(move[0] - 1);
     setColumn(let_2_num(move[1]));
-}
-
-char User_Input::bool_2_char(bool convert) {
-    if (convert) {
-        return 'h';
-    } else {
-        return 'v';
-    }
 }
 
 

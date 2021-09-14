@@ -17,6 +17,8 @@ private:
     int move_col;
     int ship_size;
     bool ship_horiz_dir;
+    char ship_dir_char;
+    
 public:
     /*MARK: Constructors*/
     //default
@@ -43,7 +45,12 @@ public:
     
     /**
      @pre none
-     @post assign isHorizontal */
+     @post assign ship_dir_char */
+    void setShipChar(char p_char);
+    
+    /**
+     @pre none
+     @post assign ship_horiz_dir */
     void setMoveDir(bool p_dir);
     
     /*MARK: Getters*/
@@ -61,6 +68,11 @@ public:
      @pre
      @return size input */
     int getShipSize() const;
+    
+    /**
+     @pre none
+     @post assign ship_dir_char */
+    char getShipChar() const;
     
     /**
      @pre
@@ -84,13 +96,6 @@ public:
      @pre
      @post */
     void getMoveInput();
-    
-    /** converts bool to 'h' or 'v'
-     @pre none
-     @post none
-     @param convert ture = 'h', false = 'v'
-     @return 'h' for horizontal, 'v' for vertical */
-    char bool_2_char(bool convert);
     
 };
 
