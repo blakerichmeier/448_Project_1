@@ -106,6 +106,11 @@ public:
      @pre none
      @return current hits in game */
     int get_currHits() const;
+    
+    /**
+     @pre
+     @return the ship_arr pointer */
+    char **get_shipArr() const;
 
     /*MARK: Methods*/
 
@@ -152,14 +157,15 @@ public:
      @post space is set to hit or miss
      @param p_row row of desired position
      @param p_col column od desired position
+     @param arr ship board of opponet
      @return true if sucess, false else */
-    bool setGameSpace(int p_row, int p_col);
+    bool setGameSpace(int p_row, int p_col, char **arr);
 
     /** checks char passed for previous move, ie is there a '?' in space passed
      @pre none
      @post none
      @param test_char char used in comparison
-     @return true if '?' occupies the space passed, false else */
+     @return true if ' ' occupies the space passed, false else */
     bool isValidMove(char test_char);
 
     //for testing, havent seen ship class yet
@@ -173,7 +179,7 @@ public:
      @param ship_col column of desired ship placement
      @param ship_size size of ship
      @param direction direction of ship */
-    void place_ship(int ship_row, int ship_col, int ship_size, char direction);
+//    void place_ship(int ship_row, int ship_col, int ship_size, char direction);
     
     /** place ships in ship_arr, recursive
      @pre none

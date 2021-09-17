@@ -82,7 +82,9 @@ void Executive::runApp() {
                     for(int i=1; i <= userInput.getNumShips(); i++) {
                         cout << "Player " << np + 1 << endl;
                         cout << "Placing ship " << i  << " of " << userInput.getNumShips() << " ships" << endl;
-                        userInput.getShipDir_Input();
+                        if ( i > 1) {
+                            userInput.getShipDir_Input();
+                        }
                         userInput.getShip_Input();
                         
                         if (np == 0) {
@@ -110,7 +112,6 @@ void Executive::runApp() {
                         user2_gameBoard.printShipBoard();
                     }
                 } //end for n
-                //TODO: do we want a whole board or keep track of the spots in the ship class?
                 //advance state machine
                 state = user1_turn;
                 break;
@@ -120,10 +121,8 @@ void Executive::runApp() {
                 cout << "Player 1 Turn" << endl;
                 //get turn input
                 userInput.getMove_Input();
-                //testing
-//                testInput.get_input();
                 //test move
-                if (user1_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn())) {
+                if (user1_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(), user2_gameBoard.get_shipArr())) {
                     cout << "MOVE MADE" << endl;
                     //advance state
                     user1_gameBoard.printPlayBoard(false);
@@ -145,7 +144,7 @@ void Executive::runApp() {
                 //get turn input
                 userInput.getMove_Input();
                 // test move
-                if (user2_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn())) {
+                if (user2_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(), user1_gameBoard.get_shipArr())) {
                     cout << "MOVE MADE";
                     user2_gameBoard.printPlayBoard(false);
                 }

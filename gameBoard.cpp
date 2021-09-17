@@ -163,6 +163,10 @@ int GameBoard::get_currHits() const{
     return current_hits;
 }
 
+char** GameBoard::get_shipArr() const{
+    return ship_arr;
+}
+
 /*******************************************************************************
  **
  **MARK: Methods
@@ -252,22 +256,18 @@ END:
     cout << endl;
 }
 
-bool GameBoard::setGameSpace(int p_row, int p_col) {
-    bool set_result = false;
-    //check for a previous move
-    if (isValidMove(board_arr[p_row][p_col])){
-        //check for ship & set space
-        if (!isShipHere()){
+bool GameBoard::setGameSpace(int p_row, int p_col, char **arr) {
+    if (board_arr[p_row][p_col] == ' ') {
+        if (arr[p_row][p_col] == 'S') {
             board_arr[p_row][p_col] = 'X';
-        } else {
+            current_hits++;
+            return true;
+        } else if (arr[p_row][p_col] == ' ')  {
             board_arr[p_row][p_col] = 'O';
+            return true;
         }
-        set_result = true;
-    } else {
-        //TODO: throw error here or flag and alert user
-        // have something like this already in test input class
     }
-    return set_result;
+    return false;
 }
 
 bool GameBoard::isValidMove(char test_char) {
@@ -280,22 +280,22 @@ bool GameBoard::isValidMove(char test_char) {
 }
 
 // Work in progress
-void GameBoard::place_ship(int ship_row, int ship_col, int ship_size, char direction) {
-	if (direction == 'h' || direction == 'H')
-	{
-		for (int i = 0; i < ship_size; i++)
-		{
-			ship_arr[ship_row][ship_col+i] = 'S';
-		}
-	}
-	else if (direction == 'v' || direction == 'V')
-	{
-		for (int j = 0; j < ship_size; j++)
-		{
-			ship_arr[ship_row+j][ship_col] = 'S';
-		}
-	}
-}
+//void GameBoard::place_ship(int ship_row, int ship_col, int ship_size, char direction) {
+//	if (direction == 'h' || direction == 'H')
+//	{
+//		for (int i = 0; i < ship_size; i++)
+//		{
+//			ship_arr[ship_row][ship_col+i] = 'S';
+//		}
+//	}
+//	else if (direction == 'v' || direction == 'V')
+//	{
+//		for (int j = 0; j < ship_size; j++)
+//		{
+//			ship_arr[ship_row+j][ship_col] = 'S';
+//		}
+//	}
+//}
 
 bool GameBoard::place_ship_return(Ship p_ship, int control) {
     if (control == p_ship.get_length()) {
