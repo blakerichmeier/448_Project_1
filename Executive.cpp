@@ -131,7 +131,7 @@ void Executive::runApp() {
                     cout << "MOVE ERROR" << endl;
                 }
                 //winner check& advance state
-                if (check_winner()){
+                if (user1_gameBoard.check_winner()){
                     state = end_game;
                     who_won = user_1;
                 } else {
@@ -150,7 +150,7 @@ void Executive::runApp() {
                     user2_gameBoard.printPlayBoard(false);
                 }
                 //winner check & advance state
-                if (check_winner()){
+                if (user2_gameBoard.check_winner()){
                     state = end_game;
                     who_won = user_2;
                 } else {
@@ -177,8 +177,3 @@ void Executive::exitApp() {
     //future use
 }
 
-bool Executive::check_winner() {
-    //TODO: proto winner check
-    
-    return true;
-}

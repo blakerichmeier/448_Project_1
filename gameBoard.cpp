@@ -127,6 +127,10 @@ void GameBoard::set_ships(int n_ship) {
     num_ships = n_ship;
 }
 
+void GameBoard::set_totalHits(int tot_hits) {
+    total_hits = tot_hits;
+}
+
 /*******************************************************************************
  **
  **MARK: Getter Methods
@@ -149,6 +153,14 @@ char* GameBoard::get_char(int p_row, int p_col) {
     //    char return_char = board_arr[p_row][p_col];
     //    return return_char;
     return &board_arr[p_row][p_col];
+}
+
+int GameBoard::get_totalHits() const{
+    return total_hits;
+}
+
+int GameBoard::get_currHits() const{
+    return current_hits;
 }
 
 /*******************************************************************************
@@ -300,6 +312,13 @@ bool GameBoard::place_ship_return(Ship p_ship, int control) {
         if (place_ship_return(p_ship, control+1)) {
             return true;
         }
+    }
+    return false;
+}
+
+bool GameBoard::check_winner() {
+    if (total_hits == current_hits) {
+        return true;
     }
     return false;
 }
