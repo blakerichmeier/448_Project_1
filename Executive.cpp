@@ -61,9 +61,6 @@ void Executive::runApp() {
     //user input object
     User_Input userInput;
     
-    //testing
-    Test_Input testInput;
-    
     //State Machine
     while (!winner) {
         switch (state) {
