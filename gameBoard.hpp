@@ -170,16 +170,6 @@ public:
 
     //for testing, havent seen ship class yet
     bool isShipHere(){return false;};
-
-    /**
-     @author
-     @pre col and row chosen for ship placement
-     @post
-     @param ship_row of desired position
-     @param ship_col column of desired ship placement
-     @param ship_size size of ship
-     @param direction direction of ship */
-//    void place_ship(int ship_row, int ship_col, int ship_size, char direction);
     
     /** place ships in ship_arr, recursive
      @pre none

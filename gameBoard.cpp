@@ -275,24 +275,6 @@ bool GameBoard::isValidMove(char test_char) {
     return move_valid;
 }
 
-// Work in progress
-//void GameBoard::place_ship(int ship_row, int ship_col, int ship_size, char direction) {
-//	if (direction == 'h' || direction == 'H')
-//	{
-//		for (int i = 0; i < ship_size; i++)
-//		{
-//			ship_arr[ship_row][ship_col+i] = 'S';
-//		}
-//	}
-//	else if (direction == 'v' || direction == 'V')
-//	{
-//		for (int j = 0; j < ship_size; j++)
-//		{
-//			ship_arr[ship_row+j][ship_col] = 'S';
-//		}
-//	}
-//}
-
 bool GameBoard::place_ship_return(Ship p_ship, int control) {
     if (control == p_ship.get_length()) {
         return true;
