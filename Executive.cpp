@@ -53,8 +53,8 @@ Executive::Executive() {
 
 void Executive::runApp() {
     //new user game board
-    GameBoard user1_gameBoard;
-    GameBoard user2_gameBoard;
+    GameBoard user1_gameBoard = GameBoard();
+    GameBoard user2_gameBoard = GameBoard();
     //new state tracker
     game_state state = begin;
     game_winner who_won = playing;
@@ -77,6 +77,10 @@ void Executive::runApp() {
             case set_ships:
                 //user decides how many ships to play with
                 userInput.getNumShips_Input();
+                user1_gameBoard.set_ships(userInput.getNumShips());
+                user2_gameBoard.set_ships(userInput.getNumShips());
+                user1_gameBoard.set_totalHits(userInput.getNumShips());
+                user2_gameBoard.set_totalHits(userInput.getNumShips());
                 for (int np = 0; np<NUM_PLAYERS; np++){
                     //get & place users ships
                     for(int i=1; i <= userInput.getNumShips(); i++) {
@@ -122,21 +126,24 @@ void Executive::runApp() {
                 //get turn input
                 userInput.getMove_Input();
                 //test move
-                if (user1_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(), user2_gameBoard.get_shipArr())) {
+                if (user1_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
+                                                 user2_gameBoard.get_shipArr()))
+                {
                     cout << "MOVE MADE" << endl;
-                    //advance state
+                    //print board
                     user1_gameBoard.printPlayBoard(false);
+                    //winner check & advance state
+                    if (user1_gameBoard.check_winner()){
+                        state = end_game;
+                        who_won = user_1;
+                    } else {
+                        state = user2_turn;
+                    }
+                    break;
                 } else {
                     cout << "MOVE ERROR" << endl;
+                    break;
                 }
-                //winner check& advance state
-                if (user1_gameBoard.check_winner()){
-                    state = end_game;
-                    who_won = user_1;
-                } else {
-                    state = user2_turn;
-                }
-                break;
                 
             case user2_turn:
                 //let player know what state
@@ -144,28 +151,35 @@ void Executive::runApp() {
                 //get turn input
                 userInput.getMove_Input();
                 // test move
-                if (user2_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(), user1_gameBoard.get_shipArr())) {
+                if (user2_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
+                                                 user1_gameBoard.get_shipArr()))
+                {
                     cout << "MOVE MADE";
                     user2_gameBoard.printPlayBoard(false);
-                }
-                //winner check & advance state
-                if (user2_gameBoard.check_winner()){
-                    state = end_game;
-                    who_won = user_2;
+                    //winner check & advance state
+                    if (user2_gameBoard.check_winner()){
+                        state = end_game;
+                        who_won = user_2;
+                    } else {
+                        state = user1_turn;
+                    }
+                    break;
                 } else {
-                    state = user1_turn;
+                    cout << "MOVE ERROR" << endl;
+                    break;
                 }
-                break;
                 
             case end_game:
+                string winOut;
+                if (who_won == user_1) {
+                    winOut = "1";
+                } else {
+                    winOut = "2";
+                }
+                cout << "Player " << winOut << " Won!" << endl;
                 winner = true;
-                //troubleshooting
-                cout << "game won" << endl;
                 break;
-                //should never reach default
-            default:
-                break;
-        }
+        } //end switch
     }
     
     //end game

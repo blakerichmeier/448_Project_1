@@ -27,10 +27,7 @@ GameBoard::GameBoard() {
     num_rows = ROWS;
     num_col = COLUMNS;
     num_ships = TEST_SHIPS;
-    total_hits = 1;
-    for (int h = 0; h<TEST_SHIPS; h++) {
-        total_hits += h;
-    }
+    total_hits = 0;
     current_hits = 0;
 
     board_arr = new char*[num_rows];
@@ -59,10 +56,7 @@ GameBoard::GameBoard(int p_rows, int p_cols, int n_ships) {
     num_rows = p_rows;
     num_col = p_cols;
     num_ships = n_ships;
-    total_hits = 1;
-    for (int h = 0; h<n_ships; h++) {
-        total_hits += h;
-    }
+    total_hits = 0;
     current_hits = 0;
     
     board_arr = new char*[p_rows];
@@ -127,8 +121,10 @@ void GameBoard::set_ships(int n_ship) {
     num_ships = n_ship;
 }
 
-void GameBoard::set_totalHits(int tot_hits) {
-    total_hits = tot_hits;
+void GameBoard::set_totalHits(int total_ships) {
+    for (int s = 0; s<total_ships; s++) {
+        total_hits++;
+    }
 }
 
 /*******************************************************************************

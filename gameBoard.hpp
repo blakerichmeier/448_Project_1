@@ -71,8 +71,8 @@ public:
     
     /**
      @pre none
-     @post total_hits is set to passed vaalue */
-    void set_totalHits(int tot_hits);
+     @post total_hits is calculated by the ship scaling rules */
+    void set_totalHits(int total_hits);
 
     /*MARK: Getters*/
     /**
@@ -194,6 +194,7 @@ public:
      @post none
      @return true if winner, false else*/
     bool check_winner ();
+    
 };
 
 #endif /* GAMEBOARD_HPP */

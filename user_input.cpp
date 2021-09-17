@@ -122,12 +122,12 @@ void User_Input::getShip_Input() {
     string user_input;
     char move[3];
     //ask user for input
-    cout << "Please enter row of ship start, 1-9" << endl;
-    cin >> user_input;
-    move[0] = stoi(user_input);
     cout << "Please enter a column, A-J" << endl;
     cin >> user_input;
     move[1] = user_input[0];
+    cout << "Please enter row of ship start, 1-9" << endl;
+    cin >> user_input;
+    move[0] = stoi(user_input);
     //set inputs
     setRow(move[0] - 1);
     setColumn(let_2_num(move[1]));
@@ -152,13 +152,14 @@ void User_Input::getMove_Input() {
     string user_input;
     char move[3];
     //ask user for input
+    cout << "Please enter a column, A-J" << endl;
+    cin >> user_input;
+    move[1] = user_input[0];
     cout << "Please enter row of shot, 1-9" << endl;
     cin >> user_input;
     //TODO: error here
     move[0] = stoi(user_input);
-    cout << "Please enter a column, A-J" << endl;
-    cin >> user_input;
-    move[1] = user_input[0];
+    
     //set inputs
     setRow(move[0] - 1);
     setColumn(let_2_num(move[1]));
