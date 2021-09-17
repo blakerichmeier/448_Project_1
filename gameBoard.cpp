@@ -280,13 +280,13 @@ bool GameBoard::place_ship_return(Ship p_ship, int control) {
         return true;
     }
     if (p_ship.get_direction() == 'v') {
-        ship_arr[p_ship.get_row()][p_ship.get_col() + control] = 'S';
+        ship_arr[p_ship.get_row() - control][p_ship.get_col()] = 'S';
         if (place_ship_return(p_ship, control+1)) {
             return true;
         }
     }
     if (p_ship.get_direction() == 'h') {
-        ship_arr[p_ship.get_row()+control][p_ship.get_col()] = 'S';
+        ship_arr[p_ship.get_row()][p_ship.get_col() + control] = 'S';
         if (place_ship_return(p_ship, control+1)) {
             return true;
         }
