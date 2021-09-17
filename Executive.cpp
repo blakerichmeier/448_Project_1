@@ -90,14 +90,14 @@ void Executive::runApp() {
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
                             //TODO: maybe add error check here
-                            if (user1_gameBoard.place_ship_return(ship_2_place)) {
+                            if (user1_gameBoard.place_ship_return(ship_2_place, 0)) {
                                 cout << "Ship " << i << " placed" << endl;
                             }
                         } else {
                             Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
-                            if (user2_gameBoard.place_ship_return(ship_2_place)) {
+                            if (user2_gameBoard.place_ship_return(ship_2_place, 0)) {
                                 cout << "Ship " << i << " placed" << endl;
                             }
                         }

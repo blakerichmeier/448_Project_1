@@ -44,11 +44,6 @@ public:
     //prints a message. future useability
     void exitApp();
     
-    /** checks for winning conditions
-     @pre a gameBoard object
-     @post true if winning conditons are met */
-    bool check_winner ();
-    
     //TODO: ADD ANY NEEDED FUNCTIONS
 };
 

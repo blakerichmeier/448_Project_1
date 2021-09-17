@@ -22,6 +22,8 @@ private:
     int num_rows;//number of board rows
     int num_col; //number of board columns
     int num_ships; //number of ships used in game
+    int total_hits; //track total num hits to win
+    int current_hits; //hits to point in the game to time sampled, external read only
     char **board_arr; //will hold the state of the current board
     char **ship_arr;//holds placed ships
     //array of letters used for the column header labels and ? to fill new board
@@ -66,6 +68,11 @@ public:
     @post num_ships is assigned passed value
      @param n_ship # of ships */
     void set_ships(int n_ship);
+    
+    /**
+     @pre none
+     @post total_hits is set to passed vaalue */
+    void set_totalHits(int tot_hits);
 
     /*MARK: Getters*/
     /**
@@ -89,6 +96,16 @@ public:
      @param p_col column of desired position
      @return pointer to the char in the position */
     char* get_char(int p_row, int p_col);
+    
+    /**
+     @pre none
+     @return total_hits */
+    int get_totalHits() const;
+    
+    /**
+     @pre none
+     @return current hits in game */
+    int get_currHits() const;
 
     /*MARK: Methods*/
 
@@ -158,12 +175,19 @@ public:
      @param direction direction of ship */
     void place_ship(int ship_row, int ship_col, int ship_size, char direction);
     
-    /** place ships in ship_arr
+    /** place ships in ship_arr, recursive
      @pre none
      @post ship_arr is populated with ship passed
      @param p_ship Ship object
+     @param control recursive control
      @return true if ship is placed, false else */
-    bool place_ship_return(Ship p_ship);
+    bool place_ship_return(Ship p_ship, int control);
+    
+    /** checks for winning conditions
+     @pre a gameBoard object
+     @post none
+     @return true if winner, false else*/
+    bool check_winner ();
 };
 
 #endif /* GAMEBOARD_HPP */

@@ -21,12 +21,17 @@ using namespace std;
  **
  **MARK: Constructors
  **
- *******************************************************************************/
+*******************************************************************************/
 //default
 GameBoard::GameBoard() {
     num_rows = ROWS;
     num_col = COLUMNS;
     num_ships = TEST_SHIPS;
+    total_hits = 1;
+    for (int h = 0; h<TEST_SHIPS; h++) {
+        total_hits += h;
+    }
+    current_hits = 0;
 
     board_arr = new char*[num_rows];
 
@@ -54,7 +59,12 @@ GameBoard::GameBoard(int p_rows, int p_cols, int n_ships) {
     num_rows = p_rows;
     num_col = p_cols;
     num_ships = n_ships;
-
+    total_hits = 1;
+    for (int h = 0; h<n_ships; h++) {
+        total_hits += h;
+    }
+    current_hits = 0;
+    
     board_arr = new char*[p_rows];
 
     for (int r = 0; r<p_rows; r++) {
@@ -275,16 +285,21 @@ void GameBoard::place_ship(int ship_row, int ship_col, int ship_size, char direc
 	}
 }
 
-//TODO: finish proto
-bool GameBoard::place_ship_return(Ship p_ship) {
-    for (int i = 0; i < p_ship.get_length(); i++) {
-        //TODO: catch case when not enough room to place ship
-        if (p_ship.get_direction() == 'v') {
-            ship_arr[p_ship.get_row() - i][p_ship.get_col()] = 'S';
-        } else {
-            ship_arr[p_ship.get_row()][p_ship.get_col() + i] = 'S';
+bool GameBoard::place_ship_return(Ship p_ship, int control) {
+    if (control == p_ship.get_length()) {
+        return true;
+    }
+    if (p_ship.get_direction() == 'v') {
+        ship_arr[p_ship.get_row()][p_ship.get_col() + control] = 'S';
+        if (place_ship_return(p_ship, control+1)) {
+            return true;
         }
     }
-    //TODO: make recursive to use this bool
-    return true;
+    if (p_ship.get_direction() == 'h') {
+        ship_arr[p_ship.get_row()+control][p_ship.get_col()] = 'S';
+        if (place_ship_return(p_ship, control+1)) {
+            return true;
+        }
+    }
+    return false;
 }
