@@ -38,7 +38,7 @@ GameBoard::GameBoard() {
             board_arr[r][c] = col_head[10];
         }
     }
-    
+
     ship_arr = new char*[num_rows];
 
     for (int r = 0; r<ROWS; r++) {
@@ -58,7 +58,7 @@ GameBoard::GameBoard(int p_rows, int p_cols, int n_ships) {
     num_ships = n_ships;
     total_hits = 0;
     current_hits = 0;
-    
+
     board_arr = new char*[p_rows];
 
     for (int r = 0; r<p_rows; r++) {
@@ -67,7 +67,7 @@ GameBoard::GameBoard(int p_rows, int p_cols, int n_ships) {
             board_arr[r][c] = col_head[11];
         }
     }
-    
+
     ship_arr = new char*[p_rows];
 
     for (int r = 0; r<p_rows; r++) {
@@ -76,7 +76,7 @@ GameBoard::GameBoard(int p_rows, int p_cols, int n_ships) {
             ship_arr[r][c] = col_head[11];
         }
     }
-    
+
 }
 
 /*******************************************************************************
@@ -93,7 +93,7 @@ GameBoard::~GameBoard() {
         delete [] board_arr;
     }
     board_arr = nullptr;
-    
+
     if (ship_arr != nullptr) {
         for (int r = 0; r<num_rows; r++) {
             delete ship_arr[r];
@@ -279,13 +279,17 @@ bool GameBoard::place_ship_return(Ship p_ship, int control) {
     if (control == p_ship.get_length()) {
         return true;
     }
+    //if vertical option chosen
     if (p_ship.get_direction() == 'v') {
+        //marks S on position
         ship_arr[p_ship.get_row() - control][p_ship.get_col()] = 'S';
         if (place_ship_return(p_ship, control+1)) {
             return true;
         }
     }
+    //if horizontal option is chosen
     if (p_ship.get_direction() == 'h') {
+        //marks S on position
         ship_arr[p_ship.get_row()][p_ship.get_col() + control] = 'S';
         if (place_ship_return(p_ship, control+1)) {
             return true;

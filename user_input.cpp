@@ -19,7 +19,7 @@ User_Input::User_Input() {
     ship_horiz_dir = true;
     ship_dir_char = 'h';
     num_ships = 0;
-    
+
 }
 
 /*******************************************************************************
@@ -51,7 +51,7 @@ void User_Input::setNumShips(int p_ships) {
     num_ships = p_ships;
 }
 
-    
+
 /*******************************************************************************
  **
  **MARK: Getter Methods
@@ -65,7 +65,7 @@ int User_Input::getRow() const{
 int User_Input::getColumn() const{
     return move_col;
 }
-    
+
 int User_Input::getShipSize() const{
     return ship_size;
 }
@@ -159,7 +159,7 @@ void User_Input::getMove_Input() {
     cin >> user_input;
     //TODO: error here
     move[0] = stoi(user_input);
-    
+
     //set inputs
     setRow(move[0] - 1);
     setColumn(let_2_num(move[1]));
@@ -167,11 +167,13 @@ void User_Input::getMove_Input() {
 
 void User_Input::getNumShips_Input() {
     int numShips;
+    //ask user for number of ships
     cout << "Enter number of ships to play with: ";
     cin >> numShips;
     cout << endl;
     while (numShips < 1 || numShips > 6)
     {
+        //if wrong number of ships is inputted
         if (numShips < 1 || numShips >> 6)
         {
             cout << "Enter number of ships to play with: ";
@@ -180,7 +182,5 @@ void User_Input::getNumShips_Input() {
         }
     }
     num_ships = numShips;
-    
+
 }
-
-
