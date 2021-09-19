@@ -1,3 +1,5 @@
+
+
 //
 //  user_input.cpp
 //
@@ -138,15 +140,22 @@ void User_Input::getShipDir_Input() {
     cout << "Please choose a direction (v for vertical or h for horizontal): ";
     cin >> input;
     //TODO: try catch here
-    if (input[0] == 'h' || input[0] == 'H') {
+    try{
+      if (input[0] == 'h' || input[0] == 'H') {
         ship_horiz_dir = true;
         ship_dir_char = input[0];
-    } else {
+      }
+      else if (input[0] == 'v' || input[0] == 'V'){
         ship_horiz_dir = false;
         ship_dir_char = 'v';
+      }
+      else { throw input;}
     }
+    catch (...){
+      cout << "Try that again.\n";
+      getShipDir_Input(); 
 }
-
+}
 
 void User_Input::getMove_Input() {
     string user_input;
