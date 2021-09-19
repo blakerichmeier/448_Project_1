@@ -139,7 +139,7 @@ void User_Input::getShipDir_Input() {
     string input;
     cout << "Please choose a direction (v for vertical or h for horizontal): ";
     cin >> input;
-    //TODO: try catch here
+    
     try{
       if (input[0] == 'h' || input[0] == 'H') {
         ship_horiz_dir = true;
@@ -149,7 +149,10 @@ void User_Input::getShipDir_Input() {
         ship_horiz_dir = false;
         ship_dir_char = 'v';
       }
-      else { throw input;}
+      else {
+	 throw input;
+	 cout << "Input error\n";
+	}
     }
     catch (...){
       cout << "Try that again.\n";
@@ -164,14 +167,27 @@ void User_Input::getMove_Input() {
     cout << "Please enter a column, A-J" << endl;
     cin >> user_input;
     move[1] = user_input[0];
-    cout << "Please enter row of shot, 1-9" << endl;
-    cin >> user_input;
-    //TODO: error here
-    move[0] = stoi(user_input);
-
+    //set column
+    setColumn(let_2_num(move[1]));
+    
+    CHECKPOINT:
+    try{
+       cout << "Please enter row of shot, 1-9" << endl;
+       cin >> user_input;
+       //TODO: error here
+       int attempt = stoi(user_input);
+       if (attempt > 0 && attempt <10){
+          move[0] = attempt;
+       }
+       else{ throw (user_input); }
+       }
+	catch(...){
+	cout <<"Please try again with a number between 1-9\n";
+	goto CHECKPOINT;
+	}
     //set inputs
     setRow(move[0] - 1);
-    setColumn(let_2_num(move[1]));
+    
 }
 
 void User_Input::getNumShips_Input() {
