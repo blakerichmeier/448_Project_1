@@ -94,14 +94,14 @@ void Executive::runApp() {
                                                      userInput.getShipChar() );
                             //TODO: maybe add error check here
                             if (user1_gameBoard.place_ship_return(ship_2_place, 0)) {
-                                cout << "Ship " << i << " placed" << endl;
+                                cout << "Ship " << i << " placed\n" << endl;
                             }
                         } else {
                             Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
                             if (user2_gameBoard.place_ship_return(ship_2_place, 0)) {
-                                cout << "Ship " << i << " placed" << endl;
+                                cout << "Ship " << i << " placed\n" << endl;
                             }
                         }
                     } //end for i
@@ -144,7 +144,7 @@ void Executive::runApp() {
                 
             case user2_turn:
                 //let player know what state
-                cout << "Player 1 Turn" << endl;
+                cout << "Player 2 Turn" << endl;
                 //get turn input
                 userInput.getMove_Input();
                 // test move
