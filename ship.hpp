@@ -9,7 +9,7 @@
 #pragma once
 
 
-#include<vector>
+
 #include "myDefines.h"
 
 
@@ -24,8 +24,7 @@ class Ship {
 		int numHits; //Times ship has been hit (will need to prevent hitting same spot)
 		//TODO: wouldn't it be easier to have a bool isHorizontal.  if true, ship horizontal, false vertical
 		char direction; //starting direction:"Vertical" or "horizontal"
-		bool sunken; //True if it has been sunk
-		//std::vector<Coordinate> coordinates;//vector of ship coords
+	
 
 	public:
 		/** with param
@@ -96,20 +95,8 @@ class Ship {
 		 @return direction as a char */
 		char get_direction()const;
 
-		//Get # of times ship has been hit
-		int get_hits();
+		
     
 		/*MARK: Methods*/
-		//TODO: can be removed, can parse gameBoard or track there
-		/** Adds a hit to object in increments of one
-		@pre none
-		@post none */
-		void hit();
-
-        //TODO: can be removed, can parse gameBoard or track there
-		/** Returns whether or not the ship has sunk
-		@pre none
-		@post none
-		@return true if ship has sunk, false else */
-		bool isSunken();
+	
 };
