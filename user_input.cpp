@@ -193,7 +193,7 @@ void User_Input::getMove_Input() {
 void User_Input::getNumShips_Input() {
     int numShips;
     //ask user for number of ships
-    cout << "Enter number of ships to play with: ";
+    cout << "\nEnter number of ships to play with: ";
     cin >> numShips;
     cout << endl;
     while (numShips < 1 || numShips > 6)
@@ -201,7 +201,7 @@ void User_Input::getNumShips_Input() {
         //if wrong number of ships is inputted
         if (numShips < 1 || numShips >> 6)
         {
-            cout << "Enter number of ships to play with: ";
+            cout << "\nEnter number of ships to play with: ";
             cin >> numShips;
             cout << endl;
         }
