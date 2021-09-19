@@ -257,9 +257,11 @@ bool GameBoard::setGameSpace(int p_row, int p_col, char **arr) {
         if (arr[p_row][p_col] == 'S') {
             board_arr[p_row][p_col] = 'X';
             current_hits++;
+	    cout << "HIT" << endl;
             return true;
         } else if (arr[p_row][p_col] == ' ')  {
             board_arr[p_row][p_col] = 'O';
+	    cout << "MISS" <<endl;
             return true;
         }
     }
