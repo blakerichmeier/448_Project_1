@@ -122,8 +122,8 @@ void GameBoard::set_ships(int n_ship) {
 }
 
 void GameBoard::set_totalHits(int total_ships) {
-    for (int s = 0; s<total_ships; s++) {
-        total_hits++;
+    for (int s = total_ships; s > 0; s--) {
+        total_hits += s;
     }
 }
 
