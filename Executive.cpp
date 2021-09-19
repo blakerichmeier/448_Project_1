@@ -81,7 +81,7 @@ void Executive::runApp() {
                 for (int np = 0; np<NUM_PLAYERS; np++){
                     //get & place users ships
                     for(int i=1; i <= userInput.getNumShips(); i++) {
-                        cout << "Player " << np + 1 << endl;
+                        cout << "----------------\nPlayer " << np + 1 << endl;
                         cout << "Placing ship " << i  << " of " << userInput.getNumShips() << " ships" << endl;
                         if ( i > 1) {
                             userInput.getShipDir_Input();
@@ -114,12 +114,14 @@ void Executive::runApp() {
                     }
                 } //end for n
                 //advance state machine
-                state = user1_turn;
+		cout << "\n\n\n ------------GAME PHASE-----------" << endl;                
+		state = user1_turn;
+		
                 break;
                 
             case user1_turn:
                 //let player know what state
-                cout << "Player 1 Turn" << endl;
+                cout << "\n################\nPlayer 1 Turn" << endl;
                 //get turn input
                 userInput.getMove_Input();
                 //test move
@@ -144,7 +146,7 @@ void Executive::runApp() {
                 
             case user2_turn:
                 //let player know what state
-                cout << "Player 2 Turn" << endl;
+                cout << "\n################\nPlayer 2 Turn" << endl;
                 //get turn input
                 userInput.getMove_Input();
                 // test move
@@ -186,4 +188,3 @@ void Executive::exitApp() {
     cout << "you just called exitApp() function" << endl;
     //future use
 }
-
