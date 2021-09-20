@@ -8,6 +8,7 @@
 //
 
 #include "myDefines.h"
+#include <iostream>
 
 #define NUM_PLAYERS 2
 //FOR TESTING
@@ -81,6 +82,7 @@ void Executive::runApp() {
                 for (int np = 0; np<NUM_PLAYERS; np++){
                     //get & place users ships
                     for(int i=1; i <= userInput.getNumShips(); i++) {
+			
                         cout << "----------------\nPlayer " << np + 1 << endl;
                         cout << "Placing ship " << i  << " of " << userInput.getNumShips() << " ships" << endl;
                         if ( i > 1) {
@@ -104,24 +106,35 @@ void Executive::runApp() {
                                 cout << "Ship " << i << " placed\n" << endl;
                             }
                         }
-                    } //end for i
+                    } 
+			//end for i
                     cout << endl;
                     //print ship board
                     if (np == 0) {
                         user1_gameBoard.printShipBoard();
+			userInput.pause();
+			cout << string(150, '\n');
+			user1_gameBoard.printPlayBoard(false);
+			
                     } else {
                         user2_gameBoard.printShipBoard();
+			userInput.pause();
+			cout << string(150, '\n');
+			user2_gameBoard.printPlayBoard(false);
+			
                     }
                 } //end for n
                 //advance state machine
-		cout << "\n\n\n ------------GAME PHASE-----------" << endl;                
+		cout << "\n\n\n ------------GAME PHASE-----------" << flush;                
 		state = user1_turn;
 		
                 break;
                 
             case user1_turn:
                 //let player know what state
-                cout << "\n################\nPlayer 1 Turn" << endl;
+                cout << "\n################\nPlayer 1 Turn\n" << endl;
+		user1_gameBoard.printPlayBoard(false);
+		cout << "---Current Opponent Board---" << endl;
                 //get turn input
                 userInput.getMove_Input();
                 //test move
@@ -132,12 +145,17 @@ void Executive::runApp() {
                     //print board
                     user1_gameBoard.printPlayBoard(false);
                     //winner check & advance state
+		    
+	            
+		    
                     if (user1_gameBoard.check_winner()){
                         state = end_game;
                         who_won = user_1;
                     } else {
                         state = user2_turn;
                     }
+		    userInput.pause();
+		    cout << string(40, '\n');
                     break;
                 } else {
                     cout << "MOVE ERROR" << endl;
@@ -146,7 +164,10 @@ void Executive::runApp() {
                 
             case user2_turn:
                 //let player know what state
-                cout << "\n################\nPlayer 2 Turn" << endl;
+		
+                cout << "\n################\nPlayer 2 Turn\n" << endl;
+		user2_gameBoard.printPlayBoard(false);
+		cout << "---Current Opponent Board---" << endl;
                 //get turn input
                 userInput.getMove_Input();
                 // test move
@@ -162,6 +183,8 @@ void Executive::runApp() {
                     } else {
                         state = user1_turn;
                     }
+		    userInput.pause();
+		    cout << string(40, '\n');
                     break;
                 } else {
                     cout << "MOVE ERROR" << endl;
