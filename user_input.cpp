@@ -170,29 +170,34 @@ void User_Input::getMove_Input() {
     //set column
     setColumn(let_2_num(move[1]));
     
+    string input;
+    int attempt;
     CHECKPOINT:
-    try{
-       int attempt;
+    
+    bool check = false;
+    while (!(check)){
        cout << "Please enter row of shot, 1-9" << endl;
-       cin >> user_input;
+       cin >> input;
        //TODO: error here
        try{
-       	attempt = stoi(user_input);
+       attempt = stoi(input);
+       check = true;
        }
-	catch(...){
-          cout << "Please try again with a number between 1-9\n";
-          goto CHECKPOINT;
+       catch(...){
+       cout << "Please try again with a number between 1-9\n";
+       goto CHECKPOINT;
+       }
+    }
+    try{
+    	if (attempt > 0 && attempt <10){
+       	   move[0] = attempt;
+    	}
+    	else{ throw (input); }
         }
-	
-       if (attempt > 0 && attempt <10){
-         move[0] = attempt;
-       }
-       else{ throw (user_input); }
-       }
-	catch(...){
-	cout <<"Please try again with a number between 1-9\n";
-	goto CHECKPOINT;
-	}
+    	catch(...){
+       	   cout <<"Please try again with a number between 1-9\n";
+           goto CHECKPOINT;
+    }
     //set inputs
     setRow(move[0] - 1);
     
@@ -201,6 +206,7 @@ void User_Input::getMove_Input() {
 void User_Input::getNumShips_Input() {
     int numShips;
     //ask user for number of ships
+    //TODO: Needs error handling
     cout << "\nEnter number of ships to play with: ";
     cin >> numShips;
     cout << endl;
@@ -220,6 +226,7 @@ void User_Input::getNumShips_Input() {
 
 void User_Input::pause(){
    bool waiting = true;
+
    cout <<"Other player's turn" << endl;
    cout <<"Press the letter n to continue..." << endl;
    while (waiting){
