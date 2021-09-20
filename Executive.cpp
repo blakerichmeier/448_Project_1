@@ -94,7 +94,6 @@ void Executive::runApp() {
                             Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
-                            //TODO: maybe add error check here
                             if (user1_gameBoard.place_ship_return(ship_2_place, 0)) {
                                 cout << "Ship " << i << " placed\n" << endl;
                             }
@@ -203,11 +202,9 @@ void Executive::runApp() {
                 break;
         } //end switch
     }
-    
     //end game
 }
 
 void Executive::exitApp() {
     cout << "you just called exitApp() function" << endl;
-    //future use
 }
