@@ -5,7 +5,7 @@
 //  Created by Adam Abernathy on sept 8 2021
 //  Copyright © 2021 Adam Abernathy. All rights reserved.
 //
-// game board implemntation
+// game board implementation
 //
 
 #include "myDefines.h"
@@ -22,6 +22,7 @@ using namespace std;
  **MARK: Constructors
  **
 *******************************************************************************/
+
 //default
 GameBoard::GameBoard() {
     num_rows = ROWS;
@@ -47,11 +48,8 @@ GameBoard::GameBoard() {
             ship_arr[r][c] = col_head[10];
         }
     }
-
-
 }
-
-//with param
+//with parameters
 GameBoard::GameBoard(int p_rows, int p_cols, int n_ships) {
     num_rows = p_rows;
     num_col = p_cols;
@@ -146,8 +144,6 @@ int GameBoard::get_ships() const{
 }
 
 char* GameBoard::get_char(int p_row, int p_col) {
-    //    char return_char = board_arr[p_row][p_col];
-    //    return return_char;
     return &board_arr[p_row][p_col];
 }
 
