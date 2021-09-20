@@ -43,8 +43,7 @@ public:
 
     //prints a message. future useability
     void exitApp();
-    
-    //TODO: ADD ANY NEEDED FUNCTIONS
+
 };
 
 #endif /* EXECUTIVE_HPP */
