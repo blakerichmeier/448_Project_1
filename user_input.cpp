@@ -172,12 +172,20 @@ void User_Input::getMove_Input() {
     
     CHECKPOINT:
     try{
+       int attempt;
        cout << "Please enter row of shot, 1-9" << endl;
        cin >> user_input;
        //TODO: error here
-       int attempt = stoi(user_input);
+       try{
+       	attempt = stoi(user_input);
+       }
+	catch(...){
+          cout << "Please try again with a number between 1-9\n";
+          goto CHECKPOINT;
+        }
+	
        if (attempt > 0 && attempt <10){
-          move[0] = attempt;
+         move[0] = attempt;
        }
        else{ throw (user_input); }
        }
@@ -209,3 +217,15 @@ void User_Input::getNumShips_Input() {
     num_ships = numShips;
 
 }
+
+void User_Input::pause(){
+   bool waiting = true;
+   cout <<"Other player's turn" << endl;
+   cout <<"Press the letter n to continue..." << endl;
+   while (waiting){
+     //cin >> input;
+     if (cin.get() == 'n'){ break;}
+   }
+}
+     
+   

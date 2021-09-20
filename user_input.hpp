@@ -118,6 +118,8 @@ public:
     void getNumShips_Input();
     
     /** "erases" previous inputs */
+
+    void pause();
     
 };
 
