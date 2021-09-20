@@ -193,7 +193,6 @@ void User_Input::getMove_Input() {
     string input;
     cout << "Please enter row of shot, 1-9" << endl;
     cin >> input;
-       //TODO: error here getting seg fault
     int attempt = domainCheck(input);
      
     move[0] = attempt;
@@ -208,7 +207,7 @@ void User_Input::getMove_Input() {
 void User_Input::getNumShips_Input() {
     int numShips;
     //ask user for number of ships
-    //TODO: Needs error handling
+    //error handling
     cout << "\nEnter number of ships to play with: ";
     cin >> numShips;
     cout << endl;
@@ -236,5 +235,3 @@ void User_Input::pause(){
      if (cin.get() == 'n'){ break;}
    }
 }
-     
-   
