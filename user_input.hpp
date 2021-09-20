@@ -119,6 +119,9 @@ public:
     
     /** "erases" previous inputs */
 
+    /** Pauses game until a letter is typed
+    @pre
+    @post */
     void pause();
     
 };
