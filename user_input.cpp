@@ -120,6 +120,25 @@ int User_Input::let_2_num(char convert) {
     return i;
 }
 
+int User_Input::domainCheck(string convert){
+   int num = 99;
+   RESTART:
+   if ("1" == convert){num = 1;}
+   else if ("2" == convert){num = 2;}
+   else if ("3" == convert){num = 3;}
+   else if ("4" == convert){num = 4;}
+   else if ("5" == convert){num = 5;}
+   else if ("6" == convert){num = 6;}
+   else if ("7" == convert){num = 7;}
+   else if ("8" == convert){num = 8;}
+   else if ("9" == convert){num = 9;}
+   else{
+     cout << "Try again" << endl;
+     cin >> convert;
+     goto RESTART;
+  }
+  return num;
+}
 void User_Input::getShip_Input() {
     string user_input;
     char move[3];
@@ -129,8 +148,9 @@ void User_Input::getShip_Input() {
     move[1] = user_input[0];
     cout << "Please enter row of ship start, 1-9" << endl;
     cin >> user_input;
-    move[0] = stoi(user_input);
+    int attempt = domainCheck(user_input);
     //set inputs
+    move[0] = attempt;
     setRow(move[0] - 1);
     setColumn(let_2_num(move[1]));
 }
@@ -171,35 +191,17 @@ void User_Input::getMove_Input() {
     setColumn(let_2_num(move[1]));
     
     string input;
-    int attempt;
-    CHECKPOINT:
-    
-    bool check = false;
-    while (!(check)){
-       cout << "Please enter row of shot, 1-9" << endl;
-       cin >> input;
-       //TODO: error here
-       try{
-       attempt = stoi(input);
-       check = true;
-       }
-       catch(...){
-       cout << "Please try again with a number between 1-9\n";
-       goto CHECKPOINT;
-       }
-    }
-    try{
-    	if (attempt > 0 && attempt <10){
-       	   move[0] = attempt;
-    	}
-    	else{ throw (input); }
-        }
-    	catch(...){
-       	   cout <<"Please try again with a number between 1-9\n";
-           goto CHECKPOINT;
-    }
-    //set inputs
+    cout << "Please enter row of shot, 1-9" << endl;
+    cin >> input;
+       //TODO: error here getting seg fault
+    int attempt = domainCheck(input);
+     
+    move[0] = attempt;
     setRow(move[0] - 1);
+    	
+    
+    //set inputs
+    
     
 }
 
@@ -227,7 +229,7 @@ void User_Input::getNumShips_Input() {
 void User_Input::pause(){
    bool waiting = true;
 
-   cout <<"Other player's turn" << endl;
+   cout <<"\nOther player's turn" << endl;
    cout <<"Press the letter n to continue..." << endl;
    while (waiting){
      //cin >> input;
