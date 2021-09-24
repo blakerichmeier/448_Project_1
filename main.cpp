@@ -6,6 +6,7 @@
 //
 
 #include "myDefines.h"
+#include "ai.hpp" //for testing the class, delete later
 
 using namespace std;
 
@@ -14,6 +15,7 @@ int main(int argc, const char * argv[]) {
     Executive exec;
 
     exec.runApp();
+	AI computer(1); //doesn't do anything for now, just to make sure the class can be made (remove later)
 
 
     //memory troubleshooting
