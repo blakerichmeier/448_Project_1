@@ -184,7 +184,7 @@ void User_Input::getMove_Input() {
     string user_input;
     char move[3];
     //ask user for input
-    cout << "Please enter a column, A-J" << endl;
+    cout << "Please enter a column, A-J " << endl;
     cin >> user_input;
     move[1] = user_input[0];
     //set column
@@ -209,17 +209,12 @@ void User_Input::getNumShips_Input() {
     //ask user for number of ships
     //error handling
     cout << "\nEnter number of ships to play with: ";
-    cin >> numShips;
-    cout << endl;
-    while (numShips < 1 || numShips > 6)
+    while (!(cin >> numShips) || numShips < 1 || numShips > 6)
     {
         //if wrong number of ships is inputted
-        if (numShips < 1 || numShips >> 6)
-        {
-            cout << "\nEnter number of ships to play with: ";
-            cin >> numShips;
-            cout << endl;
-        }
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "\nInvalid input, please input a number of ships between 1 and 6: ";
     }
     num_ships = numShips;
 
