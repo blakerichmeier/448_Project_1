@@ -133,18 +133,32 @@ int User_Input::domainCheck(string convert){
    else if ("8" == convert){num = 8;}
    else if ("9" == convert){num = 9;}
    else{
-     cout << "Try again" << endl;
+     cout << "Invalid input, please enter an integer between 1 and 9" << endl;
      cin >> convert;
      goto RESTART;
   }
   return num;
 }
+
 void User_Input::getShip_Input() {
     string user_input;
+    bool inp = false;
     char move[3];
+    string letters = "ABCDEFGHIJabcdefghij";
     //ask user for input
     cout << "Please enter a column, A-J" << endl;
-    cin >> user_input;
+    while(inp == false) {
+        cin >> user_input;
+        for(int i = 0; i < 20; i++) {
+            if(user_input[0] == letters.at(i)) {
+                inp = true;
+            }
+        }
+        if(inp == false){
+            cout << "Invalid input, please input a column between A-J\n";
+            cin.clear();
+        }
+    }
     move[1] = user_input[0];
     cout << "Please enter row of ship start, 1-9" << endl;
     cin >> user_input;
@@ -182,10 +196,23 @@ void User_Input::getShipDir_Input() {
 
 void User_Input::getMove_Input() {
     string user_input;
+    bool inp = false;
     char move[3];
+    string letters = "ABCDEFGHIJabcdefghij";
     //ask user for input
     cout << "Please enter a column, A-J " << endl;
-    cin >> user_input;
+    while(inp == false) {
+        cin >> user_input;
+        for(int i = 0; i < 20; i++) {
+            if(user_input[0] == letters.at(i)) {
+                inp = true;
+            }
+        }
+        if(inp == false){
+            cout << "Invalid input, please input a column between A-J\n";
+            cin.clear();
+        }
+    }
     move[1] = user_input[0];
     //set column
     setColumn(let_2_num(move[1]));
