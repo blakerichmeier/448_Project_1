@@ -186,8 +186,8 @@ void GameBoard::printShipBoard() {
 }
 
 void GameBoard::printInstructions() {
-    cout << "inst line 1" << endl;
-    cout << "inst line 2" << endl;
+    // cout << "inst line 1" << endl;
+    // cout << "inst line 2" << endl;
 }
 
 void GameBoard::printLegend() {

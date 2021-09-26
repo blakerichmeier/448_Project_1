@@ -150,7 +150,7 @@ void User_Input::getShip_Input() {
     while(inp == false) {
         cin >> user_input;
         for(int i = 0; i < 20; i++) {
-            if(user_input[0] == letters.at(i)) {
+            if(user_input[0] == letters.at(i) && user_input.length() == 1) {
                 inp = true;
             }
         }
@@ -204,7 +204,7 @@ void User_Input::getMove_Input() {
     while(inp == false) {
         cin >> user_input;
         for(int i = 0; i < 20; i++) {
-            if(user_input[0] == letters.at(i)) {
+            if(user_input[0] == letters.at(i) && user_input.length() == 1) {
                 inp = true;
             }
         }
@@ -215,15 +215,14 @@ void User_Input::getMove_Input() {
     }
     move[1] = user_input[0];
     //set column
-    setColumn(let_2_num(move[1]));
     
     string input;
     cout << "Please enter row of shot, 1-9" << endl;
     cin >> input;
     int attempt = domainCheck(input);
-     
     move[0] = attempt;
     setRow(move[0] - 1);
+    setColumn(let_2_num(move[1]));
     	
     
     //set inputs
