@@ -94,6 +94,12 @@ void Executive::runApp() {
                             Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
+                            while(user1_gameBoard.check_if_occupied(ship_2_place.get_row(),ship_2_place.get_col())) {
+                                userInput.getShip_Input();
+                                ship_2_place = Ship(i, userInput.getColumn(),
+                                                     userInput.getRow(),
+                                                     userInput.getShipChar());
+                            }
                             if (user1_gameBoard.place_ship_return(ship_2_place, 0)) {
                                 cout << "Ship " << i << " placed\n" << endl;
                             }
@@ -101,6 +107,12 @@ void Executive::runApp() {
                             Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
+                            while(user2_gameBoard.check_if_occupied(ship_2_place.get_row(),ship_2_place.get_col())) {
+                                userInput.getShip_Input();
+                                ship_2_place = Ship(i, userInput.getColumn(),
+                                                     userInput.getRow(),
+                                                     userInput.getShipChar() );
+                            }
                             if (user2_gameBoard.place_ship_return(ship_2_place, 0)) {
                                 cout << "Ship " << i << " placed\n" << endl;
                             }

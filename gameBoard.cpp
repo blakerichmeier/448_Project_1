@@ -302,3 +302,12 @@ bool GameBoard::check_winner() {
     }
     return false;
 }
+
+bool GameBoard::check_if_occupied(int row,int col) {
+    if(ship_arr[row][col] == 'S') {
+        cout << "\nThere is a ship already there, please try again\n";
+        return true;
+    } else {
+        return false;
+    }
+}

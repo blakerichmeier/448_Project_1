@@ -184,6 +184,8 @@ public:
      @post none
      @return true if winner, false else*/
     bool check_winner ();
+
+    bool check_if_occupied(int row,int col);
     
 };
 
