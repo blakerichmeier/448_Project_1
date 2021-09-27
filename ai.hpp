@@ -1,8 +1,6 @@
 #ifndef AI
 #define AI_H
 
-#include "myDefines.h"
-
 using namespace std;
 
 class AI
@@ -11,7 +9,8 @@ class AI
     int m_difficulty; //1 for easy, 2 for medium, 3 for hard
   public:
     AI(int difficulty);
-    void aiMove();
+    int* aiMove(GameBoard playerBoard);
+	void placeShips();
 
     //getters/setters
     int getDifficulty();

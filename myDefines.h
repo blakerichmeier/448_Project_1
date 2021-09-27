@@ -31,5 +31,6 @@
 #include "gameBoard.hpp"
 #include "ship.hpp"
 #include "user_input.hpp"
+#include "ai.hpp"
 
 #endif /* MYDEFINES_H */

@@ -2,7 +2,7 @@
 battleship: main.o Executive.o gameBoard.o user_input.o ship.o ai.o
 	g++ -g -std=c++11 -Wall main.o Executive.o gameBoard.o user_input.o ship.o ai.o -o battleship
 
-main.o: main.cpp Executive.hpp myDefines.h ai.hpp
+main.o: main.cpp Executive.hpp myDefines.h
 	g++ -g -std=c++11 -Wall -c main.cpp
 
 Executive.o: Executive.cpp Executive.hpp myDefines.h
@@ -17,7 +17,7 @@ user_input.o: user_input.cpp user_input.hpp myDefines.h
 ship.o: ship.cpp ship.hpp myDefines.h
 	g++ -g -std=c++11 -Wall -c ship.cpp
 
-ai.o: ai.cpp ai.hpp myDefines.h
+ai.o: ai.cpp ai.hpp myDefines.h gameBoard.hpp
 	g++ -g -std=c++11 -Wall -c ai.cpp
 
 clean:

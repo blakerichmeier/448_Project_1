@@ -125,6 +125,15 @@ public:
     @pre
     @post */
     void pause();
+	
+	/**
+	@author Sam Jerguson
+	@post Checks whether or not the user wants to play an AI or a person
+	@return returns true if vs AI and false otherwise
+	*/
+	bool checkVsAI();
+	
+	int aiDifficulty();
     
 };
 

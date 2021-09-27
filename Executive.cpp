@@ -61,6 +61,8 @@ void Executive::runApp() {
     game_winner who_won = playing;
     //user input object
     User_Input userInput;
+	bool vsAI = false; //keeps track of if we're playing an ai
+	int difficulty; //ai difficulty
     
     //State Machine
     while (!winner) {
@@ -71,6 +73,9 @@ void Executive::runApp() {
                 cout << "Welcome to BattleShip" << endl;
                 user1_gameBoard.printPlayBoard(true);
                 state = set_ships;
+				vsAI = userInput.checkVsAI();
+				if(vsAI == true)
+					difficulty = userInput.aiDifficulty();
                 break;
             case set_ships:
                 //user decides how many ships to play with
