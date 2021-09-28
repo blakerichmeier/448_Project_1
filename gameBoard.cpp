@@ -30,6 +30,8 @@ GameBoard::GameBoard() {
     num_ships = TEST_SHIPS;
     total_hits = 0;
     current_hits = 0;
+    is_up = false;
+    is_right = false;
 
     board_arr = new char*[num_rows];
 
@@ -280,7 +282,11 @@ bool GameBoard::place_ship_return(Ship p_ship, int control) {
     //if vertical option chosen
     if (p_ship.get_direction() == 'v') {
         //marks S on position
-        ship_arr[p_ship.get_row() - control][p_ship.get_col()] = 'S';
+        if(is_up) {
+            ship_arr[p_ship.get_row() - control][p_ship.get_col()] = 'S';
+        } else {
+            ship_arr[p_ship.get_row() + control][p_ship.get_col()] = 'S';
+        }
         if (place_ship_return(p_ship, control+1)) {
             return true;
         }
@@ -288,7 +294,12 @@ bool GameBoard::place_ship_return(Ship p_ship, int control) {
     //if horizontal option is chosen
     if (p_ship.get_direction() == 'h') {
         //marks S on position
-        ship_arr[p_ship.get_row()][p_ship.get_col() + control] = 'S';
+        if(is_right) {
+            ship_arr[p_ship.get_row()][p_ship.get_col() + control] = 'S';
+        } else {
+            ship_arr[p_ship.get_row()][p_ship.get_col() - control] = 'S';
+        }
+        
         if (place_ship_return(p_ship, control+1)) {
             return true;
         }
@@ -303,11 +314,54 @@ bool GameBoard::check_winner() {
     return false;
 }
 
-bool GameBoard::check_if_occupied(int row,int col) {
-    if(ship_arr[row][col] == 'S') {
-        cout << "\nThere is a ship already there, please try again\n";
-        return true;
-    } else {
-        return false;
+bool GameBoard::check_if_occupied_positive(Ship p_ship,int row,int col) {
+    for(int i = 0; i < p_ship.get_length(); i++) {
+        if(p_ship.get_direction() == 'h' || p_ship.get_direction() == 'H') {
+            if(col+i > 9) {
+                is_right = false;
+            } else {
+                if(ship_arr[row][col+i] == 'S') {
+                is_right = false;
+                cout << "Invalid Input, please try again\n";
+                return true;
+                }
+            }
+        } else {
+            if(row+i > 8) {
+                is_up = true;
+            } else {
+                if(ship_arr[row+i][col] == 'S') {
+                is_up = false;
+                cout << "Invalid Input, please try again\n";
+                return true;
+                }
+            }
+        }
     }
+    return false;
+}
+
+bool GameBoard::check_if_occupied_negative(Ship p_ship,int row,int col) {
+    for(int i = 0; i < p_ship.get_length(); i++) {
+        if(p_ship.get_direction() == 'h' || p_ship.get_direction() == 'H') {
+            if(col-i < 0) {
+                is_right = true;
+            }
+            if(ship_arr[row][col-i] == 'S') {
+                is_right = false;
+                cout << "Invalid Input, please try again\n";
+                return true;
+            }
+        } else {
+            if(row-i < 0) {
+                is_up = false;
+            }
+            else if(ship_arr[row-i][col] == 'S') {
+                is_up = true;
+                cout << "Invalid Input, please try again\n";
+                return true;
+            }
+        }
+    }
+    return false;
 }

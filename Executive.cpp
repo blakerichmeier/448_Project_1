@@ -87,8 +87,13 @@ void Executive::runApp() {
                 for (int np = 0; np<NUM_PLAYERS; np++){
                     //get & place users ships
                     for(int i=1; i <= userInput.getNumShips(); i++) {
-			
-                        cout << "----------------\nPlayer " << np + 1 << endl;
+                        system("clear");
+                        if(np == 0) {
+                            user1_gameBoard.printShipBoard();
+                        } else {
+                            user2_gameBoard.printShipBoard();
+                        }
+                        cout << "\nPlayer " << np + 1 << endl;
                         cout << "Placing ship " << i  << " of " << userInput.getNumShips() << " ships" << endl;
                         if ( i > 1) {
                             userInput.getShipDir_Input();
@@ -99,7 +104,8 @@ void Executive::runApp() {
                             Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
-                            while(user1_gameBoard.check_if_occupied(ship_2_place.get_row(),ship_2_place.get_col())) {
+                            while(user1_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) ||
+                                  user1_gameBoard.check_if_occupied_negative(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col())) {
                                 userInput.getShip_Input();
                                 ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
@@ -112,7 +118,8 @@ void Executive::runApp() {
                             Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
-                            while(user2_gameBoard.check_if_occupied(ship_2_place.get_row(),ship_2_place.get_col())) {
+                            while(user2_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) ||
+                                  user2_gameBoard.check_if_occupied_negative(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col())) {
                                 userInput.getShip_Input();
                                 ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),

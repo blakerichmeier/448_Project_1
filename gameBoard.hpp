@@ -28,6 +28,8 @@ private:
     char **ship_arr;//holds placed ships
     //array of letters used for the column header labels and ? to fill new board
     char col_head[12] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', ' '};
+    bool is_up;
+    bool is_right;
 
 public:
     /*MARK: Constructors*/
@@ -185,7 +187,8 @@ public:
      @return true if winner, false else*/
     bool check_winner ();
 
-    bool check_if_occupied(int row,int col);
+    bool check_if_occupied_positive(Ship p_ship, int row,int col);
+    bool check_if_occupied_negative(Ship p_ship, int row,int col);
     
 };
 
