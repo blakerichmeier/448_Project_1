@@ -369,7 +369,7 @@ bool GameBoard::check_if_occupied_negative(Ship p_ship,int row,int col) {
 //ability//
 bool GameBoard::ability(int p_row, int p_col, char **arr) 
 {
-  int x,y;
+  int p_row,p_col;
   cout << "Please enter shot x value" << \nl;
   cin >>p_row;
   cout << "Please enter shot y value" << \n;
