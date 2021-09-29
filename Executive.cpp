@@ -53,6 +53,7 @@ Executive::Executive() {
  ******************************************************************************/
 
 void Executive::runApp() {
+	srand(time(NULL)); //randomize seed
     //new user game board
     GameBoard user1_gameBoard = GameBoard();
     GameBoard user2_gameBoard = GameBoard();
@@ -99,12 +100,26 @@ void Executive::runApp() {
                             user2_gameBoard.printShipBoard();
                         }
                         cout << "\nPlayer " << np + 1 << endl;
-                        cout << "Placing ship " << i  << " of " << userInput.getNumShips() << " ships" << endl;
-                        if ( i > 1) {
-                            userInput.getShipDir_Input();
+                        cout << "Placing ship " << i  << " of " << userInput.getNumShips() << " ship(s)" << endl;
+						if(vsAI == false) //ask both players for input if not playing ai
+						{
+							if ( i > 1) {
+								userInput.getShipDir_Input();
+							}
+							userInput.getShip_Input();
                         }
-                        userInput.getShip_Input();
-                        
+						else
+						{
+							if(np == 0) //only ask player 1 for input when playing ai
+							{
+								if ( i > 1) 
+								{
+									userInput.getShipDir_Input();
+								}
+								userInput.getShip_Input();
+							}
+						}
+						
                         if (np == 0) {
                             Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
@@ -119,21 +134,42 @@ void Executive::runApp() {
                             if (user1_gameBoard.place_ship_return(ship_2_place, 0)) {
                                 cout << "Ship " << i << " placed\n" << endl;
                             }
-                        } else {
-                            Ship ship_2_place = Ship(i, userInput.getColumn(),
+                        } 
+						else if(vsAI == false) //place player 2's ships
+						{
+							Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
-                            while(user2_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) ||
+							while(user2_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) ||
                                   user2_gameBoard.check_if_occupied_negative(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col())) {
-                                userInput.getShip_Input();
-                                ship_2_place = Ship(i, userInput.getColumn(),
+								userInput.getShip_Input();
+								ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
-                            }
-                            if (user2_gameBoard.place_ship_return(ship_2_place, 0)) {
-                                cout << "Ship " << i << " placed\n" << endl;
-                            }
-                        }
+							}
+							if (user2_gameBoard.place_ship_return(ship_2_place, 0)) {
+								cout << "Ship " << i << " placed\n" << endl;
+							}
+						}
+						else //place ai's ships
+						{
+							int randCol = rand() % 9 + 0; //random column between 0 and 9
+							int randRow = rand() % 8 + 0; //random row between 0 and 8
+							int direcInt = rand() % 1 + 0; //random num, either 1 or 0 fir the randDirec[] index
+							char randDirec[2] = {'v', 'h'};
+							Ship ship_2_place = Ship(i, randCol, randRow, randDirec[direcInt]);
+							while(user2_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) ||
+                                  user2_gameBoard.check_if_occupied_negative(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col())) {
+								//previous random position already had a ship, get a new one
+								randCol = rand() % 9 + 0;
+								randRow = rand() % 8 + 0;
+								direcInt = rand() % 1 + 0;
+								ship_2_place = Ship(i, randCol, randRow, randDirec[direcInt]);
+							}
+							if (user2_gameBoard.place_ship_return(ship_2_place, 0)) {
+								cout << "Ship " << i << " placed\n" << endl;
+							}
+						}
                     } 
 			//end for i
                     cout << endl;
@@ -146,7 +182,8 @@ void Executive::runApp() {
 			
                     } else {
                         user2_gameBoard.printShipBoard();
-			userInput.pause();
+			if(vsAI == false)
+				userInput.pause();
 			cout << string(150, '\n');
 			user2_gameBoard.printPlayBoard(false);
 			
@@ -252,14 +289,14 @@ void Executive::runApp() {
 					if(vsAI == false)
 						winOut = "Player 1";
 					else
-						winOut = "the player";
+						winOut = "The player";
                 } else {
 					if(vsAI == false)
 						winOut = "Player 2";
 					else
-						winOut = "the computer";
+						winOut = "The computer";
                 }
-                cout << "The winner is " << winOut << "!" << endl;
+                cout << winOut << " wins!" << endl;
                 winner = true;
                 break;
         } //end switch

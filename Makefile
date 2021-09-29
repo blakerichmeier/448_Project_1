@@ -17,7 +17,7 @@ user_input.o: user_input.cpp user_input.hpp myDefines.h
 ship.o: ship.cpp ship.hpp myDefines.h
 	g++ -g -std=c++11 -Wall -c ship.cpp
 
-ai.o: ai.cpp ai.hpp myDefines.h gameBoard.hpp
+ai.o: ai.cpp ai.hpp myDefines.h
 	g++ -g -std=c++11 -Wall -c ai.cpp
 
 clean:

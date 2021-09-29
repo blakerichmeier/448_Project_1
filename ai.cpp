@@ -27,12 +27,12 @@ int* AI::aiMove(GameBoard& playerBoard)
 	  {
 		  for(int j = 0; j < 11; j++)
 		  {
-			  if((playerBoard.get_shipArr()[i][j] == 'S') && (hitsArr[i][j] != 1))
+			  if((playerBoard.get_shipArr()[i][j] == 'S') && (hitsArr[i][j] != 1)) //checks to ensure
 			  {
 				  guess[0] = i;
 				  guess[1] = j;
-				  hitsArr[i][j] = 1;
-				  return guess;
+				  hitsArr[i][j] = 1; //marks where the ai has already hit
+				  return guess; //returns an array containing the row and column of the ai's guess
 			  }
 		  }
 	  }
@@ -43,11 +43,6 @@ int* AI::aiMove(GameBoard& playerBoard)
     default:
       cout << "Invalid difficulty\n";
   }
-}
-
-void AI::placeShips()
-{
-	
 }
 
 void AI::initializeHitsArr()

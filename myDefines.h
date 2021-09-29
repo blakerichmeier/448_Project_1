@@ -25,6 +25,7 @@
 #include <time.h>
 #include <random>
 #include <vector>
+#include <stdlib.h>
 
 //Class Header
 #include "Executive.hpp"
