@@ -397,8 +397,21 @@ bool GameBoard::ability(int p_row, int p_col, char **arr)
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row-1][p_col-1] == ' ')  {
+                    } 
+			else if (arr[p_row-1][p_col-1] == ' ')  {
                         board_arr[p_row-1][p_col-1] = 'O';
+            	        cout << "MISS" <<endl;
+                        return true;
+                    }
+		if (board_arr[p_row-1][p_col-2] == ' ') {
+                    if (arr[p_row-1][p_col-2] == 'S') {
+                        board_arr[p_row-1][p_col-2] = 'X';
+                        current_hits++;
+            	        cout << "HIT" << endl;
+                        return true;
+                    } 
+			else if (arr[p_row-1][p_col-2] == ' ')  {
+                        board_arr[p_row-1][p_col-2] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
                     }
@@ -411,6 +424,18 @@ bool GameBoard::ability(int p_row, int p_col, char **arr)
                         return true;
                     } else if (arr[p_row-2][p_col-2] == ' ')  {
                         board_arr[p_row-2][p_col-2] = 'O';
+            	        cout << "MISS" <<endl;
+                        return true;
+                    }
+		if (board_arr[p_row-2][p_col-1] == ' ') {
+                    if (arr[p_row-2][p_col-1] == 'S') {
+                        board_arr[p_row-2][p_col-1] = 'X';
+                        current_hits++;
+            	        cout << "HIT" << endl;
+                        return true;
+                    } 
+			else if (arr[p_row-2][p_col-1] == ' ')  {
+                        board_arr[p_row-2][p_col-1] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
                     }
@@ -431,7 +456,8 @@ bool GameBoard::ability(int p_row, int p_col, char **arr)
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row-2][p_col] == ' ')  {
+                    }
+			else if (arr[p_row-2][p_col] == ' ')  {
                         board_arr[p_row-2][p_col] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
@@ -443,7 +469,8 @@ bool GameBoard::ability(int p_row, int p_col, char **arr)
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row][p_col-1] == ' ')  {
+                    } 
+			else if (arr[p_row][p_col-1] == ' ')  {
                         board_arr[p_row][p_col-1] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
@@ -454,7 +481,8 @@ bool GameBoard::ability(int p_row, int p_col, char **arr)
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row][p_col-2] == ' ')  {
+                    } 
+			else if (arr[p_row][p_col-2] == ' ')  {
                         board_arr[p_row][p_col-2] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
@@ -472,19 +500,44 @@ else if(p_row == 0 &&  p_col == 0  )
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row][p_col] == ' ')  {
+                    } 
+			else if (arr[p_row][p_col] == ' ')  {
                         board_arr[p_row][p_col] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
                     }
                 if (board_arr[p_row+1][p_col+1] == ' ') {
                     if (arr[p_row+1][p_col+1] == 'S') {
-                        board_arr[p_row-1][p_col-1] = 'X';
+                        board_arr[p_row+1][p_col+1] = 'X';
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row+1][p_col+1] == ' ')  {
+                    } 
+			else if (arr[p_row+1][p_col+1] == ' ')  {
                         board_arr[p_row+1][p_col+1] = 'O';
+            	        cout << "MISS" <<endl;
+                        return true;
+                    }
+		if (board_arr[p_row+1][p_col+2] == ' ') {
+                    if (arr[p_row+1][p_col+2] == 'S') {
+                        board_arr[p_row+1][p_col+2] = 'X';
+                        current_hits++;
+            	        cout << "HIT" << endl;
+                        return true;
+                    } else if (arr[p_row+1][p_col+2] == ' ')  {
+                        board_arr[p_row+1][p_col+2] = 'O';
+            	        cout << "MISS" <<endl;
+                        return true;
+                    }
+		if (board_arr[p_row+2][p_col+1] == ' ') {
+                    if (arr[p_row+2][p_col+1] == 'S') {
+                        board_arr[p_row+2][p_col-1] = 'X';
+                        current_hits++;
+            	        cout << "HIT" << endl;
+                        return true;
+                    }
+			else if (arr[p_row+2][p_col+1] == ' ')  {
+                        board_arr[p_row+2][p_col+1] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
                     }
@@ -495,7 +548,8 @@ else if(p_row == 0 &&  p_col == 0  )
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row+2][p_col+2] == ' ')  {
+                    }
+			else if (arr[p_row+2][p_col+2] == ' ')  {
                         board_arr[p_row+2][p_col+2] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
@@ -511,13 +565,15 @@ else if(p_row == 0 &&  p_col == 0  )
             	        cout << "MISS" <<endl;
                         return true;
                     }
+		
                 if (board_arr[p_row+2][p_col] == ' ') {
                     if (arr[p_row+2][p_col] == 'S') {
                         board_arr[p_row+2][p_col] = 'X';
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row+2][p_col] == ' ')  {
+                    } 
+			else if (arr[p_row+2][p_col] == ' ')  {
                         board_arr[p_row+2][p_col] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
@@ -555,7 +611,8 @@ else if(p_row == 0 &&  p_col == 9  )
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row][p_col] == ' ')  {
+                    }
+		else if (arr[p_row][p_col] == ' ')  {
                         board_arr[p_row][p_col] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
@@ -566,11 +623,38 @@ else if(p_row == 0 &&  p_col == 9  )
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row+1][p_col-1] == ' ')  {
+		    
+                    } 
+			else if (arr[p_row+1][p_col-1] == ' ')  {
                         board_arr[p_row+1][p_col-1] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
                     }
+		if (board_arr[p_row+1][p_col-2] == ' ') {
+                    if (arr[p_row+1][p_col-2] == 'S') {
+                        board_arr[p_row+1][p_col-2] = 'X';
+                        current_hits++;
+            	        cout << "HIT" << endl;
+                        return true;
+		    }
+                    } else if (arr[p_row+1][p_col-2] == ' ')  {
+                        board_arr[p_row+1][p_col-2] = 'O';
+            	        cout << "MISS" <<endl;
+                        return true;
+                    }
+		if (board_arr[p_row+2][p_col-1] == ' ') {
+                    if (arr[p_row+2][p_col-1] == 'S') {
+                        board_arr[p_row+2][p_col-1] = 'X';
+                        current_hits++;
+            	        cout << "HIT" << endl;
+                        return true;
+                    } 
+			else if (arr[p_row+2][p_col-1] == ' ')  {
+                        board_arr[p_row+2][p_col-1] = 'O';
+            	        cout << "MISS" <<endl;
+                        return true;
+                    }
+			
                     
                 if (board_arr[p_row+2][p_col-2] == ' ') {
                     if (arr[p_row+2][p_col-2] == 'S') {
@@ -578,7 +662,9 @@ else if(p_row == 0 &&  p_col == 9  )
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row+2][p_col-2] == ' ')  {
+		    
+                    } 
+			else if (arr[p_row+2][p_col-2] == ' ')  {
                         board_arr[p_row+2][p_col-2] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
@@ -612,6 +698,7 @@ else if(p_row == 0 &&  p_col == 9  )
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
+		    }
                     } else if (arr[p_row][p_col-1] == ' ')  {
                         board_arr[p_row][p_col-1] = 'O';
             	        cout << "MISS" <<endl;
@@ -654,6 +741,18 @@ else if(p_row == 8 &&  p_col == 0  )
             	        cout << "MISS" <<endl;
                         return true;
                     }
+			
+			if (board_arr[p_row-1][p_col+2] == ' ') {
+                    if (arr[p_row-1][p_col+2] == 'S') {
+                        board_arr[p_row-1][p_col+2] = 'X';
+                        current_hits++;
+            	        cout << "HIT" << endl;
+                        return true;
+                    } else if (arr[p_row-1][p_col+2] == ' ')  {
+                        board_arr[p_row-1][p_col+2] = 'O';
+            	        cout << "MISS" <<endl;
+                        return true;
+                    }
                     
                 if (board_arr[p_row-2][p_col+2] == ' ') {
                     if (arr[p_row-2][p_col+2] == 'S') {
@@ -672,6 +771,7 @@ else if(p_row == 8 &&  p_col == 0  )
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
+		    }
                     } else if (arr[p_row-1][p_col] == ' ')  {
                         board_arr[p_row-1][p_col] = 'O';
             	        cout << "MISS" <<endl;
@@ -685,6 +785,17 @@ else if(p_row == 8 &&  p_col == 0  )
                         return true;
                     } else if (arr[p_row-2][p_col] == ' ')  {
                         board_arr[p_row-2][p_col] = 'O';
+            	        cout << "MISS" <<endl;
+                        return true;
+                    }
+		if (board_arr[p_row-2][p_col+1] == ' ') {
+                    if (arr[p_row-2][p_col+1] == 'S') {
+                        board_arr[p_row-2][p_col+1] = 'X';
+                        current_hits++;
+            	        cout << "HIT" << endl;
+                        return true;
+                    } else if (arr[p_row-2][p_col+1] == ' ')  {
+                        board_arr[p_row-2][p_col+1] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
                     }
@@ -726,11 +837,14 @@ else
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row][p_col] == ' ')  {
+                    } 
+			
+			else if (arr[p_row][p_col] == ' ')  {
                         board_arr[p_row][p_col] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
                     }
+			
                 if (board_arr[p_row][p_col+1] == ' ') {
                     if (arr[p_row][p_col+1] == 'S') {
                         board_arr[p_row][p_col+1] = 'X';
@@ -741,16 +855,19 @@ else
                         board_arr[p_row][p_col+1] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
+		    }
                 if (board_arr[p_row][p_col-1] == ' ') {
                     if (arr[p_row][p_col-1] == 'S') {
                         board_arr[p_row][p_col-1] = 'X';
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row][p_col-1] == ' ')  {
+                    } 
+			else if (arr[p_row][p_col-1] == ' ')  {
                         board_arr[p_row][p_col-1] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
+		    }
                 if (board_arr[p_row-1][p_col] == ' ') {
                     if (arr[p_row-1][p_col] == 'S') {
                         board_arr[p_row-1][p_col] = 'X';
@@ -762,13 +879,14 @@ else
             	        cout << "MISS" <<endl;
                         return true;
                     }
-                    if (board_arr[p_row+1][p_col] == ' ') {
-                if (arr[p_row+1][p_col] == 'S') {
+                  if (board_arr[p_row+1][p_col] == ' ') {
+                	if (arr[p_row+1][p_col] == 'S') {
                         board_arr[p_row+1][p_col] = 'X';
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row+1][p_col] == ' ')  {
+                    }
+			    else if (arr[p_row+1][p_col] == ' ')  {
                         board_arr[p_row+1][p_col] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
@@ -779,7 +897,8 @@ else
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row+1][p_col-1] == ' ')  {
+                    } 
+			else if (arr[p_row+1][p_col-1] == ' ')  {
                         board_arr[p_row+1][p_col-1] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
@@ -790,8 +909,35 @@ else
                         current_hits++;
             	        cout << "HIT" << endl;
                         return true;
-                    } else if (arr[p_row-1][p_col-1] == ' ')  {
+                    }
+			else if (arr[p_row-1][p_col-1] == ' ')  {
                         board_arr[p_row-1][p_col-1] = 'O';
+            	        cout << "MISS" <<endl;
+                        return true;
+                    }
+		
+                if (board_arr[p_row+1][p_col+1] == ' ') {
+                    if (arr[p_row+1][p_col+1] == 'S') {
+                        board_arr[p_row+1][p_col+1] = 'X';
+                        current_hits++;
+            	        cout << "HIT" << endl;
+                        return true;
+                    } 
+			else if (arr[p_row+1][p_col+1] == ' ')  {
+                        board_arr[p_row+1][p_col+1] = 'O';
+            	        cout << "MISS" <<endl;
+                        return true;
+                    }
+		
+                if (board_arr[p_row-1][p_col+1] == ' ') {
+                    if (arr[p_row]-1[p_col+1] == 'S') {
+                        board_arr[p_row+-11][p_col+1] = 'X';
+                        current_hits++;
+            	        cout << "HIT" << endl;
+                        return true;
+                    } 
+			else if (arr[p_row-1][p_col+1] == ' ')  {
+                        board_arr[p_row-1][p_col+1] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
                     }
