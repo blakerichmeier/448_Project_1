@@ -1,7 +1,7 @@
 #include "myDefines.h"
-AI::AI(int difficulty)
+AI::AI()
 {
-  m_difficulty = difficulty;
+	initializeHitsArr();
 }
 
 
@@ -9,7 +9,7 @@ AI::AI(int difficulty)
 /*
 @author Sam Jerguson
 */
-int* AI::aiMove(GameBoard playerBoard)
+int* AI::aiMove(GameBoard& playerBoard)
 {
   int* guess = new int[2];
   switch(m_difficulty)
@@ -23,18 +23,20 @@ int* AI::aiMove(GameBoard playerBoard)
     case 3:
 	{
       //hard code here
-	  for(int i = 0; i < playerBoard.get_col(); i++)
+	  for(int i = 0; i < 10; i++)
 	  {
-		  for(int j = 0; j < playerBoard.get_rows(); j++)
+		  for(int j = 0; j < 11; j++)
 		  {
-			  if(playerBoard.get_shipArr()[i][j] == 'S')
+			  if((playerBoard.get_shipArr()[i][j] == 'S') && (hitsArr[i][j] != 1))
 			  {
 				  guess[0] = i;
 				  guess[1] = j;
+				  hitsArr[i][j] = 1;
 				  return guess;
 			  }
 		  }
 	  }
+	  return guess;
 	  
       break;
 	}
@@ -46,5 +48,26 @@ int* AI::aiMove(GameBoard playerBoard)
 void AI::placeShips()
 {
 	
+}
+
+void AI::initializeHitsArr()
+{
+	for(int i = 0; i < 10; i++)
+	{
+		for(int j = 0; j < 11; j++)
+		{
+			hitsArr[i][j] = 0;
+		}
+	}
+}
+
+void AI::setDifficulty(int diff)
+{
+	m_difficulty = diff;
+}
+
+int AI::getDifficulty()
+{
+	return m_difficulty;
 }
 

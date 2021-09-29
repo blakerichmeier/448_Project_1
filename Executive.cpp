@@ -61,6 +61,8 @@ void Executive::runApp() {
     game_winner who_won = playing;
     //user input object
     User_Input userInput;
+	AI* computer;
+	computer = new AI();
 	bool vsAI = false; //keeps track of if we're playing an ai
 	int difficulty; //ai difficulty
     
@@ -75,7 +77,10 @@ void Executive::runApp() {
                 state = set_ships;
 				vsAI = userInput.checkVsAI();
 				if(vsAI == true)
+				{
 					difficulty = userInput.aiDifficulty();
+					computer->setDifficulty(difficulty);
+				}
                 break;
             case set_ships:
                 //user decides how many ships to play with
@@ -191,37 +196,70 @@ void Executive::runApp() {
                 cout << "\n################\nPlayer 2 Turn\n" << endl;
 		user2_gameBoard.printPlayBoard(false);
 		cout << "---Current Opponent Board---" << endl;
-                //get turn input
-                userInput.getMove_Input();
-                // test move
-                if (user2_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
+                
+                
+				if(vsAI == false)
+				{
+					//get turn input
+					userInput.getMove_Input();
+					// test move
+					if (user2_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
                                                  user1_gameBoard.get_shipArr()))
-                {
-                    cout << "MOVE MADE";
-                    user2_gameBoard.printPlayBoard(false);
-                    //winner check & advance state
-                    if (user2_gameBoard.check_winner()){
-                        state = end_game;
-                        who_won = user_2;
-                    } else {
-                        state = user1_turn;
-                    }
-		    userInput.pause();
-		    cout << string(40, '\n');
-                    break;
-                } else {
-                    cout << "MOVE ERROR" << endl;
-                    break;
-                }
+					{
+						cout << "MOVE MADE";
+						user2_gameBoard.printPlayBoard(false);
+						//winner check & advance state
+						if (user2_gameBoard.check_winner()){
+							state = end_game;
+							who_won = user_2;
+						} else {
+							state = user1_turn;
+						}
+				userInput.pause();
+				cout << string(40, '\n');
+						break;
+					} else {
+						cout << "MOVE ERROR" << endl;
+						break;
+					}
+				}
+				else
+				{
+					int* guess = computer->aiMove(user1_gameBoard);
+					if (user2_gameBoard.setGameSpace(guess[0], guess[1], user1_gameBoard.get_shipArr()))
+					{
+						cout << "MOVE MADE";
+						user2_gameBoard.printPlayBoard(false);
+						//winner check & advance state
+						if (user2_gameBoard.check_winner()){
+							state = end_game;
+							who_won = user_2;
+						} else {
+							state = user1_turn;
+						}
+				userInput.pause();
+				cout << string(40, '\n');
+						break;
+					} else {
+						cout << "MOVE ERROR" << endl;
+						break;
+					}
+				}
                 
             case end_game:
                 string winOut;
                 if (who_won == user_1) {
-                    winOut = "1";
+					if(vsAI == false)
+						winOut = "Player 1";
+					else
+						winOut = "the player";
                 } else {
-                    winOut = "2";
+					if(vsAI == false)
+						winOut = "Player 2";
+					else
+						winOut = "the computer";
                 }
-                cout << "Player " << winOut << " Won!" << endl;
+                cout << "The winner is " << winOut << "!" << endl;
                 winner = true;
                 break;
         } //end switch
