@@ -153,17 +153,17 @@ void Executive::runApp() {
 						}
 						else //place ai's ships
 						{
-							int randCol = rand() % 9 + 0; //random column between 0 and 9
-							int randRow = rand() % 8 + 0; //random row between 0 and 8
-							int direcInt = rand() % 1 + 0; //random num, either 1 or 0 fir the randDirec[] index
+							int randCol = rand() % 10; //random column between 0 and 9
+							int randRow = rand() % 9; //random row between 0 and 8
+							int direcInt = rand() % 2; //random num, either 1 or 0 fir the randDirec[] index
 							char randDirec[2] = {'v', 'h'};
 							Ship ship_2_place = Ship(i, randCol, randRow, randDirec[direcInt]);
 							while(user2_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) ||
                                   user2_gameBoard.check_if_occupied_negative(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col())) {
 								//previous random position already had a ship, get a new one
-								randCol = rand() % 9 + 0;
-								randRow = rand() % 8 + 0;
-								direcInt = rand() % 1 + 0;
+								randCol = rand() % 9;
+								randRow = rand() % 8;
+								direcInt = rand() % 2;
 								ship_2_place = Ship(i, randCol, randRow, randDirec[direcInt]);
 							}
 							if (user2_gameBoard.place_ship_return(ship_2_place, 0)) {
