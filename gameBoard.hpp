@@ -189,6 +189,7 @@ public:
 
     bool check_if_occupied_positive(Ship p_ship, int row,int col);
     bool check_if_occupied_negative(Ship p_ship, int row,int col);
+    bool ability(int p_row, int p_col, char **arr);
     
 };
 
