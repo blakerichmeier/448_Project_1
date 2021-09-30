@@ -1157,13 +1157,12 @@ bool GameBoard::ability(int p_row, int p_col, char **arr)
                         return true;
                         }
                 
-		            else if (arr[p_row-1][p_col+1] == ' ') 
-		                {
+		      else if (arr[p_row-1][p_col+1] == ' ') 
+		        {
                         board_arr[p_row-1][p_col+1] = 'O';
             	        cout << "MISS" <<endl;
                         return true;
                         }
                     }
     }
-
 }
