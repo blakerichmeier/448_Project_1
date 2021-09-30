@@ -124,8 +124,15 @@ void Executive::runApp() {
                             Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
-                            while(user1_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) ||
+                            while(user1_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) &&
                                   user1_gameBoard.check_if_occupied_negative(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col())) {
+								system("clear");
+                        		if(np == 0) {
+                            		user1_gameBoard.printShipBoard();
+                        		} else {
+                            		user2_gameBoard.printShipBoard();
+                        		}
+								cout << "\nInvalid Input, please try again\n";
                                 userInput.getShip_Input();
                                 ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
@@ -140,8 +147,15 @@ void Executive::runApp() {
 							Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
                                                      userInput.getShipChar() );
-							while(user2_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) ||
+							while(user2_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) &&
                                   user2_gameBoard.check_if_occupied_negative(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col())) {
+								system("clear");
+                        		if(np == 0) {
+                            		user1_gameBoard.printShipBoard();
+                        		} else {
+                            		user2_gameBoard.printShipBoard();
+                        		}
+								cout << "\nInvalid Input, please try again\n";
 								userInput.getShip_Input();
 								ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
@@ -158,7 +172,7 @@ void Executive::runApp() {
 							int direcInt = rand() % 2; //random num, either 1 or 0 fir the randDirec[] index
 							char randDirec[2] = {'v', 'h'};
 							Ship ship_2_place = Ship(i, randCol, randRow, randDirec[direcInt]);
-							while(user2_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) ||
+							while(user2_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) &&
                                   user2_gameBoard.check_if_occupied_negative(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col())) {
 								//previous random position already had a ship, get a new one
 								randCol = rand() % 9;

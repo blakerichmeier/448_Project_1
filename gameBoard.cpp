@@ -315,53 +315,65 @@ bool GameBoard::check_winner() {
 }
 
 bool GameBoard::check_if_occupied_positive(Ship p_ship,int row,int col) {
+    bool is_OB = false;
+    bool is_OnShip = false;
     for(int i = 0; i < p_ship.get_length(); i++) {
         if(p_ship.get_direction() == 'h' || p_ship.get_direction() == 'H') {
             if(col+i > 9) {
+                is_OB = true;
                 is_right = false;
             } else {
                 if(ship_arr[row][col+i] == 'S') {
-                is_right = false;
-                cout << "Invalid Input, please try again\n";
-                return true;
+                    is_OnShip = true;
+                    is_right = false;
                 }
             }
         } else {
             if(row+i > 8) {
+                is_OB = true;
                 is_up = true;
             } else {
                 if(ship_arr[row+i][col] == 'S') {
-                is_up = false;
-                cout << "Invalid Input, please try again\n";
-                return true;
+                is_OnShip = true;
+                is_up = true;
                 }
             }
         }
     }
-    return false;
+    if(is_OB || is_OnShip) {
+        return true;
+    } else {
+        check_if_occupied_negative(p_ship,row,col);
+        return false;
+    }
 }
 
 bool GameBoard::check_if_occupied_negative(Ship p_ship,int row,int col) {
+    bool is_OB = false;
+    bool is_OnShip = false;
     for(int i = 0; i < p_ship.get_length(); i++) {
         if(p_ship.get_direction() == 'h' || p_ship.get_direction() == 'H') {
             if(col-i < 0) {
+                is_OB = true;
                 is_right = true;
             }
             if(ship_arr[row][col-i] == 'S') {
-                is_right = false;
-                cout << "Invalid Input, please try again\n";
-                return true;
+                is_OnShip = true;
+                is_right = true;
             }
         } else {
             if(row-i < 0) {
+                is_OB = true;
                 is_up = false;
             }
             else if(ship_arr[row-i][col] == 'S') {
-                is_up = true;
-                cout << "Invalid Input, please try again\n";
-                return true;
+                is_OnShip = true;
+                is_up = false;
             }
         }
+    }
+    if(is_OB || is_OnShip) {
+        return true;
     }
     return false;
 }

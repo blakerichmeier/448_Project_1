@@ -266,17 +266,16 @@ bool User_Input::checkVsAI()
 	while(input != 1 && input != 2) //only allows 1 or 2
 	{
 		cout << "\nWould you like to\n\t(1) Play A 2 Player Game\n\t(2) Play Against the Computer\n\tEnter 1 or 2: ";
-		cin >> input;
+        while (!(cin >> input) || input < 1 || input > 2) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input, please try again\n";
+        }
 		if(input == 2)
 		{
 			vsAI = true;
 			return vsAI; //This bool will be used in executive when we play against an ai
-		}
-		if(input != 1 && input != 2)
-		{
-			cout << "Invalid input, please try again\n";
-			//still need to account for non-integer input
-		}						
+		}					
 	}
 	return vsAI;
 }
@@ -289,15 +288,11 @@ int User_Input::aiDifficulty()
 	{
 		input = 0;
 		cout << "\nWhat difficulty do you want to play at?\n\t(1) Easy\n\t(2) Medium\n\t(3) Hard\n\tEnter 1, 2, or 3: ";
-		cin >> input;
-		if(input > 0 && input < 4)
-		{
-			break;
-		}
-		else
-		{
-			cout << "Invalid input, please enter a value between 1 and 3\n";
-		}
+        while (!(cin >> input) || input < 1 || input > 2) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input, please enter a value between 1 and 3\n";
+        }
 	}
 	cout << "\nPlaying on " + diff[input] + " difficulty\n";
 	return input;
