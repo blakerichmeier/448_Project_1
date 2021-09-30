@@ -1166,3 +1166,4 @@ bool GameBoard::ability(int p_row, int p_col, char **arr)
                     }
     }
 
+}
