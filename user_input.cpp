@@ -21,7 +21,6 @@ User_Input::User_Input() {
     ship_horiz_dir = true;
     ship_dir_char = 'h';
     num_ships = 0;
-
 }
 
 /*******************************************************************************
@@ -247,14 +246,17 @@ void User_Input::getNumShips_Input() {
 }
 
 void User_Input::pause(){
-   bool waiting = true;
-
-   cout <<"\nOther player's turn" << endl;
-   cout <<"Press the letter n to continue..." << endl;
-   while (waiting){
-     //cin >> input;
-     if (cin.get() == 'n'){ break;}
-   }
+    bool waiting = true;
+    if(is_ai) {
+        cout << "\nAI's turn\n";
+    } else {
+        cout <<"\nOther player's turn" << endl;
+    }
+    cout <<"Press the letter n to continue..." << endl;
+    while (waiting){
+      //cin >> input;
+      if (cin.get() == 'n'){ break;}
+    }
 }
 
 bool User_Input::checkVsAI()
@@ -265,7 +267,7 @@ bool User_Input::checkVsAI()
 				
 	while(input != 1 && input != 2) //only allows 1 or 2
 	{
-		cout << "\nWould you like to\n\t(1) Play A 2 Player Game\n\t(2) Play Against the Computer\n\tEnter 1 or 2: ";
+		cout << "\nWould you like to\n\t(1) Play a two player game\n\t(2) Play against the computer\n\tEnter 1 or 2: ";
         while (!(cin >> input) || input < 1 || input > 2) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -277,6 +279,7 @@ bool User_Input::checkVsAI()
 			return vsAI; //This bool will be used in executive when we play against an ai
 		}					
 	}
+    is_ai = vsAI;
 	return vsAI;
 }
 
@@ -288,7 +291,7 @@ int User_Input::aiDifficulty()
 	{
 		input = 0;
 		cout << "\nWhat difficulty do you want to play at?\n\t(1) Easy\n\t(2) Medium\n\t(3) Hard\n\tEnter 1, 2, or 3: ";
-        while (!(cin >> input) || input < 1 || input > 2) {
+        while (!(cin >> input) || input < 1 || input > 3) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Invalid input, please enter a value between 1 and 3\n";

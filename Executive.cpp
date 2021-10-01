@@ -213,7 +213,8 @@ void Executive::runApp() {
                 //let player know what state
                 cout << "\n################\nPlayer 1 Turn\n" << endl;
 		user1_gameBoard.printPlayBoard(false);
-		cout << "---Current Opponent Board---" << endl;
+		cout << "         ---Current Opponent Board---" << endl;
+		cout << "\nYour turn!\n";
                 //get turn input
                 userInput.getMove_Input();
                 //test move
@@ -246,7 +247,8 @@ void Executive::runApp() {
 		
                 cout << "\n################\nPlayer 2 Turn\n" << endl;
 		user2_gameBoard.printPlayBoard(false);
-		cout << "---Current Opponent Board---" << endl;
+		cout << "         ---Current Opponent Board---" << endl;
+		cout << "\nYour turn!\n";
                 
                 
 				if(vsAI == false)

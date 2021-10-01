@@ -19,6 +19,7 @@ private:
     bool ship_horiz_dir;
     char ship_dir_char;
     int num_ships;
+    bool is_ai;
     
 public:
     /*MARK: Constructors*/
