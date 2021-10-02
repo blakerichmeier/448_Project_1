@@ -23,7 +23,7 @@ int* AI::aiMove(GameBoard& playerBoard)
 		  if (i == 1) {
 			  rand_x = rand() % 9;
 		  } else {
-			  rand_y = rand() % 8;
+			  rand_y = rand() % 10;
 		  }
 	  }
 	  if(hitsArr[rand_x][rand_y] == 1) {
