@@ -253,6 +253,7 @@ void Executive::runApp() {
                 
 				if(vsAI == false)
 				{
+					system("clear");
 					//get turn input
 					userInput.getMove_Input();
 					// test move
@@ -278,6 +279,7 @@ void Executive::runApp() {
 				}
 				else
 				{
+					system("clear");
 					int* guess = computer->aiMove(user1_gameBoard);
 					if (user2_gameBoard.setGameSpace(guess[0], guess[1], user1_gameBoard.get_shipArr()))
 					{

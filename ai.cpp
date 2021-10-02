@@ -16,6 +16,23 @@ int* AI::aiMove(GameBoard& playerBoard)
   {
     case 1:
       //easy code here
+	  int rand_x,rand_y;
+	  srand(time(NULL));
+	  REDO:;
+	  for(int i = 0; i < 2; i++) {
+		  if (i == 1) {
+			  rand_x = rand() % 9;
+		  } else {
+			  rand_y = rand() % 8;
+		  }
+	  }
+	  if(hitsArr[rand_x][rand_y] == 1) {
+		  goto REDO;
+	  }
+	  guess[0] = rand_x;
+	  guess[1] = rand_y;
+	  hitsArr[rand_x][rand_y] = 1;
+	  return guess;
       break;
     case 2:
       //medium code here
