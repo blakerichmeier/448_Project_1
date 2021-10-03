@@ -22,6 +22,7 @@ private:
     enum game_winner {user_1, user_2, playing};
     //state machine
     enum game_state {begin, set_ships, user1_turn, user2_turn, end_game };
+    bool ability_fired;
 
 public:
 

@@ -25,7 +25,7 @@ using namespace std;
  ******************************************************************************/
 //default
 Executive::Executive() {
-    
+    ability_fired = false;
     winner = false;
     
 }
@@ -149,9 +149,8 @@ void Executive::runApp() {
                                                      userInput.getShipChar() );
 							while(user2_gameBoard.check_if_occupied_positive(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col()) &&
                                   user2_gameBoard.check_if_occupied_negative(ship_2_place,ship_2_place.get_row(),ship_2_place.get_col())) {
-								system("clear");
                         		if(np == 0) {
-                            		user1_gameBoard.printShipBoard();
+                            		user2_gameBoard.printShipBoard();
                         		} else {
                             		user2_gameBoard.printShipBoard();
                         		}
@@ -216,31 +215,45 @@ void Executive::runApp() {
 		cout << "         ---Current Opponent Board---" << endl;
 		cout << "\nYour turn!\n";
                 //get turn input
-                userInput.getMove_Input();
-                //test move
-                if (user1_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
+				int special_ability;
+				cout << "Would you like to use the special ability? (1 = yes, 2 = no)\n";
+				cin >> special_ability;
+				if (special_ability == 1 && !ability_fired) {
+					user1_gameBoard.ability(userInput,user1_gameBoard.get_shipArr());
+					ability_fired = true;
+				}
+				else if(ability_fired) {
+					cout << "Ability already fired, firing a normal shot\n";
+					userInput.getMove_Input();
+				}
+				else {
+					userInput.getMove_Input();
+				}
+
+				if (user1_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
                                                  user2_gameBoard.get_shipArr()))
-                {
-                    cout << "MOVE MADE" << endl;
-                    //print board
-                    user1_gameBoard.printPlayBoard(false);
-                    //winner check & advance state
-		    
-	            
-		    
-                    if (user1_gameBoard.check_winner()){
-                        state = end_game;
-                        who_won = user_1;
-                    } else {
-                        state = user2_turn;
-                    }
-		    userInput.pause();
-		    cout << string(40, '\n');
-                    break;
-                } else {
-                    cout << "MOVE ERROR" << endl;
-                    break;
-                }
+				{
+				cout << "MOVE MADE" << endl;
+				//print board
+				user1_gameBoard.printPlayBoard(false);
+				//winner check & advance state
+		
+			
+		
+				if (user1_gameBoard.check_winner()){
+					state = end_game;
+					who_won = user_1;
+				} else {
+					state = user2_turn;
+				}
+				userInput.pause();
+				cout << string(40, '\n');
+				break;
+				} else {
+					cout << "MOVE ERROR" << endl;
+					break;
+				}
+                //test move
                 
             case user2_turn:
                 //let player know what state
@@ -253,12 +266,24 @@ void Executive::runApp() {
                 
 				if(vsAI == false)
 				{
-					system("clear");
 					//get turn input
-					userInput.getMove_Input();
+					int special_ability;
+					cout << "Would you like to use the special ability? (1 = yes, 2 = no)\n";
+					cin >> special_ability;
+					if (special_ability == 1 && !ability_fired) {
+						user2_gameBoard.ability(userInput,user2_gameBoard.get_shipArr());
+						ability_fired = true;
+					}
+					else if(ability_fired) {
+						cout << "Ability already fired, firing a normal shot\n";
+						userInput.getMove_Input();
+					}
+					else {
+						userInput.getMove_Input();
+					}
 					// test move
 					if (user2_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
-                                                 user1_gameBoard.get_shipArr()))
+                                                 user2_gameBoard.get_shipArr()))
 					{
 						cout << "MOVE MADE";
 						user2_gameBoard.printPlayBoard(false);

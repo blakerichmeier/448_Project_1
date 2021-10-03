@@ -247,8 +247,12 @@ void User_Input::getNumShips_Input() {
 
 void User_Input::pause(){
     bool waiting = true;
-    cout <<"\nOther player's turn" << endl;
-    cout <<"Tile has been guessed, press the letter n to continue..." << endl;
+    if(is_ai) {
+        cout << "\nAI's turn\n";
+    } else {
+        cout <<"\nOther player's turn" << endl;
+    }
+    cout <<"Press the letter n to continue..." << endl;
     while (waiting){
       //cin >> input;
       if (cin.get() == 'n'){ break;}

@@ -381,12 +381,12 @@ bool GameBoard::check_if_occupied_negative(Ship p_ship,int row,int col) {
 //ability//
 
 
-bool GameBoard::ability(int p_row, int p_col, char **arr) 
+bool GameBoard::ability(User_Input user,char **arr) 
 {
-  cout << "Please enter shot x value" << "\n";
-  cin >>p_row;
-  cout << "Please enter shot y value" << "\n";
-  cin >>p_col;
+  user.getMove_Input();
+  int p_row = user.getRow();
+  int p_col = user.getColumn();
+  
   
   if( p_row == 8 &&  p_col == 9 )
 	    {

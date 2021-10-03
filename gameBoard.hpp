@@ -12,6 +12,7 @@
 #define GAMEBOARD_HPP
 
 #include "myDefines.h"
+#include "user_input.hpp"
 #include "ship.hpp"
 
 using namespace std;
@@ -189,7 +190,7 @@ public:
 
     bool check_if_occupied_positive(Ship p_ship, int row,int col);
     bool check_if_occupied_negative(Ship p_ship, int row,int col);
-    bool ability(int p_row, int p_col, char **arr);
+    bool ability(User_Input user,char **arr);
     
 };
 
