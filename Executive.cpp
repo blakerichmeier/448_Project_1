@@ -233,16 +233,12 @@ void Executive::runApp() {
 		cout << "         ---Current Opponent Board---" << endl;
 		cout << "\nYour turn!\n";
                 //get turn input
-				int special_ability;
-				cout << "Would you like to use the special ability? (1 = yes, 2 = no)\n";
-				cin >> special_ability;
-				if (special_ability == 1 && !ability_fired) {
-					user1_gameBoard.ability(userInput,user1_gameBoard.get_shipArr());
+				if (ability_fired == false) {
+					int special_ability;
+					cout << "Would you like to use the special ability? (1 = yes, 2 = no)\n";
+					cin >> special_ability;
+					user1_gameBoard.ability(userInput,user2_gameBoard.get_shipArr());
 					ability_fired = true;
-				}
-				else if(ability_fired) {
-					cout << "Ability already fired, firing a normal shot\n";
-					userInput.getMove_Input();
 				}
 				else {
 					userInput.getMove_Input();
@@ -292,16 +288,12 @@ void Executive::runApp() {
 				if(vsAI == false)
 				{
 					//get turn input
-					int special_ability2;
-					cout << "Would you like to use the special ability? (1 = yes, 2 = no)\n";
-					cin >> special_ability2;
-					if (special_ability2 == 1 && !ability_fired2) {
-						user2_gameBoard.ability(userInput,user2_gameBoard.get_shipArr());
+					if (ability_fired2 == false) {
+						int special_ability2;
+						cout << "Would you like to use the special ability? (1 = yes, 2 = no)\n";
+						cin >> special_ability2;
+						user2_gameBoard.ability(userInput,user1_gameBoard.get_shipArr());
 						ability_fired2 = true;
-					}
-					else if(ability_fired2) {
-						cout << "Ability already fired, firing a normal shot\n";
-						userInput.getMove_Input();
 					}
 					else {
 						userInput.getMove_Input();
