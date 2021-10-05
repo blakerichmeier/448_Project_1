@@ -283,7 +283,7 @@ void Executive::runApp() {
 					}
 					// test move
 					if (user2_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
-                                                 user2_gameBoard.get_shipArr()))
+                                                 user1_gameBoard.get_shipArr()))
 					{
 						cout << "MOVE MADE";
 						user2_gameBoard.printPlayBoard(false);
