@@ -18,11 +18,17 @@ class Executive {
 
 private:
     //used to throw state machine loop
+    int turns = 0;
+    int p1Hits = 0;
+    int p1Misses = 0;
+    int p2Hits = 0;
+    int p2Misses = 0;
     bool winner;
     enum game_winner {user_1, user_2, playing};
     //state machine
     enum game_state {begin, set_ships, user1_turn, user2_turn, end_game };
     bool ability_fired;
+    bool ability_fired2;
 
 public:
 

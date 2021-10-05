@@ -26,8 +26,9 @@ using namespace std;
 //default
 Executive::Executive() {
     ability_fired = false;
+    ability_fired2 = false;
     winner = false;
-    
+
 }
 
 /*******************************************************************************
@@ -66,7 +67,7 @@ void Executive::runApp() {
 	computer = new AI();
 	bool vsAI = false; //keeps track of if we're playing an ai
 	int difficulty; //ai difficulty
-    
+
     //State Machine
     while (!winner) {
         switch (state) {
@@ -112,14 +113,14 @@ void Executive::runApp() {
 						{
 							if(np == 0) //only ask player 1 for input when playing ai
 							{
-								if ( i > 1) 
+								if ( i > 1)
 								{
 									userInput.getShipDir_Input();
 								}
 								userInput.getShip_Input();
 							}
 						}
-						
+
                         if (np == 0) {
                             Ship ship_2_place = Ship(i, userInput.getColumn(),
                                                      userInput.getRow(),
@@ -141,7 +142,7 @@ void Executive::runApp() {
                             if (user1_gameBoard.place_ship_return(ship_2_place, 0)) {
                                 cout << "Ship " << i << " placed\n" << endl;
                             }
-                        } 
+                        }
 						else if(vsAI == false) //place player 2's ships
 						{
 							Ship ship_2_place = Ship(i, userInput.getColumn(),
@@ -183,7 +184,7 @@ void Executive::runApp() {
 								cout << "Ship " << i << " placed\n" << endl;
 							}
 						}
-                    } 
+                    }
 			//end for i
                     cout << endl;
                     //print ship board
@@ -192,25 +193,42 @@ void Executive::runApp() {
 			userInput.pause();
 			cout << string(150, '\n');
 			user1_gameBoard.printPlayBoard(false);
-			
+
                     } else {
                         user2_gameBoard.printShipBoard();
 			if(vsAI == false)
 				userInput.pause();
 			cout << string(150, '\n');
 			user2_gameBoard.printPlayBoard(false);
-			
+
                     }
                 } //end for n
                 //advance state machine
-		cout << "\n\n\n ------------GAME PHASE-----------" << flush;                
+		cout << "\n\n\n ------------GAME PHASE-----------\n\n" << flush;
 		state = user1_turn;
-		
+
                 break;
-                
+
             case user1_turn:
                 //let player know what state
-                cout << "\n################\nPlayer 1 Turn\n" << endl;
+                if(!vsAI){
+                  cout << "       ************* SCORE ************" << endl;
+                  cout << "        Player 1's Misses: " << user1_gameBoard.Misses << endl;
+                  cout << "        Player 1's Hits: " << user1_gameBoard.Hits << endl;
+                  cout << "        Player 2's Misses: " << user2_gameBoard.Misses << endl;
+                  cout << "        Player 2's Hits: " << user2_gameBoard.Hits << endl;
+                  cout << "       *********************************" << endl;
+                }
+                else{
+                    cout << "       ************* SCORE ************" << endl;
+                    cout << "        Player 1's Misses: " << user1_gameBoard.Misses << endl;
+                    cout << "        Player 1's Hits: " << user1_gameBoard.Hits << endl;
+                    cout << "        AI's Misses: " << user2_gameBoard.Misses << endl;
+                    cout << "        AI's Hits: " << user2_gameBoard.Hits << endl;
+                    cout << "       *********************************" << endl;
+                }
+
+                cout << "\n################\nPlayer 1 Turn" << endl;
 		user1_gameBoard.printPlayBoard(false);
 		cout << "         ---Current Opponent Board---" << endl;
 		cout << "\nYour turn!\n";
@@ -237,9 +255,9 @@ void Executive::runApp() {
 				//print board
 				user1_gameBoard.printPlayBoard(false);
 				//winner check & advance state
-		
-			
-		
+
+
+
 				if (user1_gameBoard.check_winner()){
 					state = end_game;
 					who_won = user_1;
@@ -254,27 +272,34 @@ void Executive::runApp() {
 					break;
 				}
                 //test move
-                
+
             case user2_turn:
                 //let player know what state
-		
-                cout << "\n################\nPlayer 2 Turn\n" << endl;
+
+                cout << "       ************* SCORE ************" << endl;
+                cout << "        Player 1's Misses: " << user1_gameBoard.Misses << endl;
+                cout << "        Player 1's Hits: " << user1_gameBoard.Hits << endl;
+                cout << "        Player 2's Misses: " << user2_gameBoard.Misses << endl;
+                cout << "        Player 2's Hits: " << user2_gameBoard.Hits << endl;
+                cout << "       *********************************" << endl;
+
+                cout << "\n################\nPlayer 2 Turn" << endl;
 		user2_gameBoard.printPlayBoard(false);
 		cout << "         ---Current Opponent Board---" << endl;
 		cout << "\nYour turn!\n";
-                
-                
+
+
 				if(vsAI == false)
 				{
 					//get turn input
-					int special_ability;
+					int special_ability2;
 					cout << "Would you like to use the special ability? (1 = yes, 2 = no)\n";
-					cin >> special_ability;
-					if (special_ability == 1 && !ability_fired) {
+					cin >> special_ability2;
+					if (special_ability2 == 1 && !ability_fired2) {
 						user2_gameBoard.ability(userInput,user2_gameBoard.get_shipArr());
-						ability_fired = true;
+						ability_fired2 = true;
 					}
-					else if(ability_fired) {
+					else if(ability_fired2) {
 						cout << "Ability already fired, firing a normal shot\n";
 						userInput.getMove_Input();
 					}
@@ -325,7 +350,7 @@ void Executive::runApp() {
 						break;
 					}
 				}
-                
+
             case end_game:
                 string winOut;
                 if (who_won == user_1) {
@@ -346,6 +371,7 @@ void Executive::runApp() {
     }
     //end game
 }
+
 
 void Executive::exitApp() {
     cout << "you just called exitApp() function" << endl;

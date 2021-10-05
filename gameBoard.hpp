@@ -33,11 +33,16 @@ private:
     bool is_right;
 
 public:
+    int Hits = 0;
+    int Misses = 0;
     /*MARK: Constructors*/
     /** default constructor
      @pre none
      @post GameBoard object */
     GameBoard();
+
+    int countHits(char** arr);
+    int countMisses(char** arr);
 
     /** with param
     @pre none
@@ -71,7 +76,7 @@ public:
     @post num_ships is assigned passed value
      @param n_ship # of ships */
     void set_ships(int n_ship);
-    
+
     /**
      @pre none
      @post total_hits is calculated by the ship scaling rules */
@@ -99,17 +104,17 @@ public:
      @param p_col column of desired position
      @return pointer to the char in the position */
     char* get_char(int p_row, int p_col);
-    
+
     /**
      @pre none
      @return total_hits */
     int get_totalHits() const;
-    
+
     /**
      @pre none
      @return current hits in game */
     int get_currHits() const;
-    
+
     /**
      @pre
      @return the ship_arr pointer */
@@ -123,7 +128,7 @@ public:
      @param inst true = will print the instructions,
                  false = no instructions printed */
     void printPlayBoard(bool inst);
-    
+
     /**
      @pre none
      @post outputs ship board to console */
@@ -173,7 +178,7 @@ public:
 
     //for testing, havent seen ship class yet
     bool isShipHere(){return false;};
-    
+
     /** place ships in ship_arr, recursive
      @pre none
      @post ship_arr is populated with ship passed
@@ -181,7 +186,7 @@ public:
      @param control recursive control
      @return true if ship is placed, false else */
     bool place_ship_return(Ship p_ship, int control);
-    
+
     /** checks for winning conditions
      @pre a gameBoard object
      @post none
@@ -191,7 +196,7 @@ public:
     bool check_if_occupied_positive(Ship p_ship, int row,int col);
     bool check_if_occupied_negative(Ship p_ship, int row,int col);
     void ability(User_Input user,char **arr);
-    
+
 };
 
 #endif /* GAMEBOARD_HPP */
