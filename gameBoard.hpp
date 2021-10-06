@@ -41,7 +41,16 @@ public:
      @post GameBoard object */
     GameBoard();
 
+    /**
+    @pre none
+    @post the array you are counting hits on is passed in as the parameter
+    @param arr the array you want to count hits for */
     int countHits(char** arr);
+
+    /**
+    @pre none
+    @post the array you are counting misses on is passed in as the parameter
+    @param arr the array you want to count misses for */
     int countMisses(char** arr);
 
     /** with param
@@ -49,7 +58,7 @@ public:
     @post GameBoard object with passed params
     @param p_rows number of rows
     @param p_cols number of columns
-     @param n_ships number of ships in game */
+    @param n_ships number of ships in game */
     GameBoard(int p_rows, int p_cols, int n_ships);
 
     /*MARK: Destructor*/
@@ -169,6 +178,13 @@ public:
      @return true if sucess, false else */
     bool setGameSpaceBool(int p_row, int p_col, char **arr);
 
+    /**
+    @pre none
+    @return true if the space was set 
+    @return true if the space was not set 
+    @param row the row of the ship
+    @param col the column of the ship
+    @param arr the array to be set*/
     bool setGameSpace(int p_row, int p_col, char **arr);
 
     /** checks char passed for previous move, ie is there a '?' in space passed
@@ -195,8 +211,27 @@ public:
      @return true if winner, false else*/
     bool check_winner ();
 
+    /**
+    @pre none
+    @post the function will return a boolean showing if a certain spot already contains a ship
+    @param Ship location of a ship
+    @param row the row of the ship
+    @param col the column of the ship*/
     bool check_if_occupied_positive(Ship p_ship, int row,int col);
+
+    /**
+    @pre none
+    @post the function will return a boolean showing if a certain spot is not already containing a ship
+    @param Ship location of a ship
+    @param row the row of the ship
+    @param col the column of the ship*/
     bool check_if_occupied_negative(Ship p_ship, int row,int col);
+
+    /**
+    @pre none
+    @post this function will do a super 3x3 move at a position of the player's choosing
+    @param user player 1, player 2, or the AI
+    @param arr the player array game board to be used with the ability*/
     void ability(User_Input user,char **arr);
 
 };

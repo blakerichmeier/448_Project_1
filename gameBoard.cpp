@@ -1111,13 +1111,13 @@ void GameBoard::ability(User_Input user,char **arr)
                     {
                     if (arr[p_row-1][p_col+1] == 'S')
                         {
-                        board_arr[p_row+-11][p_col+1] = 'X';
+                        board_arr[p_row-1][p_col+1] = 'X';
                         current_hits++;
             	        cout << "HIT" << endl;
                         }
 
-		      else if (arr[p_row-1][p_col+1] == ' ')
-		        {
+		            else if (arr[p_row-1][p_col+1] == ' ')
+		            {
                         board_arr[p_row-1][p_col+1] = 'O';
             	        cout << "MISS" <<endl;
                         }

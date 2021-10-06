@@ -1,1 +1,5 @@
 Text file to document the final number of hours it took to complete the project
+
+Blake Richmeier - Monday  10/4   - 3 hours scoreboard
+                - Tuesday 10/5   - 3 hours scoreboard and super move bug fixes
+                - Wednesday 10/6 - 4 hours documentation, bug fixes, and finishing score board

@@ -1,3 +1,4 @@
 This is a text file to document what everyone thinks the number of hours to complete the project will be
 
 Benjamin Moeller - 30 hours
+Blake Richmeier - 15 hours

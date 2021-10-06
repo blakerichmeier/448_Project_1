@@ -99,7 +99,7 @@ public:
      @pre
      @post */
     int let_2_num(char convert);
-
+    
     int domainCheck(string convert);
     
     /** prompts user for an input to set a ship
