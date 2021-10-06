@@ -285,7 +285,20 @@ END:
     cout << endl;
 }
 
+bool GameBoard::setGameSpaceBool(int p_row, int p_col, char **arr) {
+    cout << "In setgamespace bool" << endl;
+    if (board_arr[p_row][p_col] == ' ') {
+        if (arr[p_row][p_col] == 'S') {
+            return true;
+        } else if (arr[p_row][p_col] == ' ')  {
+            return true;
+        }
+    }
+    return false;
+}
+
 bool GameBoard::setGameSpace(int p_row, int p_col, char **arr) {
+    cout << "In setgamespace" << endl;
     if (board_arr[p_row][p_col] == ' ') {
         if (arr[p_row][p_col] == 'S') {
             board_arr[p_row][p_col] = 'X';

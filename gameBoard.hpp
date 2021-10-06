@@ -167,6 +167,8 @@ public:
      @param p_col column od desired position
      @param arr ship board of opponet
      @return true if sucess, false else */
+    bool setGameSpaceBool(int p_row, int p_col, char **arr);
+
     bool setGameSpace(int p_row, int p_col, char **arr);
 
     /** checks char passed for previous move, ie is there a '?' in space passed

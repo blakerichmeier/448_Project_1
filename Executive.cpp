@@ -246,15 +246,20 @@ void Executive::runApp() {
 					userInput.getMove_Input();
 				}
 
-				if (user1_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
+				if (user1_gameBoard.setGameSpaceBool(userInput.getRow(), userInput.getColumn(),
                                                  user2_gameBoard.get_shipArr()) || fired_abil)
 				{
+
+				if(!fired_abil){
+					cout << "In !fireabil" << endl;
+					user1_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
+                                                 user2_gameBoard.get_shipArr());
+				}
+
 				cout << "MOVE MADE" << endl;
 				//print board
 				user1_gameBoard.printPlayBoard(false);
 				//winner check & advance state
-
-
 
 				if (user1_gameBoard.check_winner()){
 					state = end_game;
@@ -265,6 +270,9 @@ void Executive::runApp() {
 				userInput.pause();
 				cout << string(40, '\n');
 				break;
+
+				fired_abil = false;
+
 				} else {
 					cout << "MOVE ERROR" << endl;
 					break;
@@ -302,9 +310,14 @@ void Executive::runApp() {
 						userInput.getMove_Input();
 					}
 					// test move
-					if (user2_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
+					if (user2_gameBoard.setGameSpaceBool(userInput.getRow(), userInput.getColumn(),
                                                  user1_gameBoard.get_shipArr()) || fired_abil)
 					{
+						cout << "in set game bool" << endl;
+						if(!fired_abil){
+							user2_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
+                                                 user1_gameBoard.get_shipArr());
+						}
 						cout << "MOVE MADE";
 						user2_gameBoard.printPlayBoard(false);
 						//winner check & advance state
@@ -317,6 +330,7 @@ void Executive::runApp() {
 				userInput.pause();
 				cout << string(40, '\n');
 						break;
+					fired_abil = false;
 					} else {
 						cout << "MOVE ERROR" << endl;
 						break;
