@@ -70,6 +70,7 @@ void Executive::runApp() {
 
     //State Machine
     while (!winner) {
+		bool fired_abil = false;
         switch (state) {
             case begin:
                 //start the game
@@ -239,13 +240,14 @@ void Executive::runApp() {
 				if (special_ability == 1 && !ability_fired) {
 					user1_gameBoard.ability(userInput,user2_gameBoard.get_shipArr());
 					ability_fired = true;
+					fired_abil = true;
 				}
 				else {
 					userInput.getMove_Input();
 				}
 
 				if (user1_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
-                                                 user2_gameBoard.get_shipArr()))
+                                                 user2_gameBoard.get_shipArr()) || fired_abil)
 				{
 				cout << "MOVE MADE" << endl;
 				//print board
@@ -294,13 +296,14 @@ void Executive::runApp() {
 					if (special_ability2 == 1 && !ability_fired2) {
 						user2_gameBoard.ability(userInput,user1_gameBoard.get_shipArr());
 						ability_fired2 = true;
+						fired_abil = true;
 					}
 					else {
 						userInput.getMove_Input();
 					}
 					// test move
 					if (user2_gameBoard.setGameSpace(userInput.getRow(), userInput.getColumn(),
-                                                 user1_gameBoard.get_shipArr()))
+                                                 user1_gameBoard.get_shipArr()) || fired_abil)
 					{
 						cout << "MOVE MADE";
 						user2_gameBoard.printPlayBoard(false);
