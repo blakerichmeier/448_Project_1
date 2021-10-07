@@ -136,6 +136,7 @@ public:
 	
 	int aiDifficulty();
     
+    int ability_choice(bool do_print);
 };
 
 #endif /* USER_INPUT_HPP */

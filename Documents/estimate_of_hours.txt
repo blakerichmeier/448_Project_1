@@ -2,3 +2,8 @@ This is a text file to document what everyone thinks the number of hours to comp
 
 Benjamin Moeller - 30 hours
 Blake Richmeier - 15 hours
+
+We came up with this estimate by utlilzing properties of Agile methods. Since we have data on the previous project,
+we have a rough idea of how long it would take to so this project. Our hours for the most part are lower than
+the time it took to finish the last project since we have the functions made by the previous group to rely on
+when adding the different ai difficulties and other functionalities.

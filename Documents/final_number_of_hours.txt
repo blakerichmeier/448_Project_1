@@ -3,3 +3,17 @@ Text file to document the final number of hours it took to complete the project
 Blake Richmeier - Monday  10/4   - 3 hours scoreboard
                 - Tuesday 10/5   - 3 hours scoreboard and super move bug fixes
                 - Wednesday 10/6 - 4 hours documentation, bug fixes, and finishing score board
+
+Benjamin Moeller - 9/23 - 1 hour on bug fixing
+                 - 9/24 - 1 hour on fixing ship placement
+                 - 9/25 - 1 hour on various bug fixes
+                 - 9/26 - 2 hours working on ship placement again
+                 - 9/27 - 2 hours still working on fixing ship placement
+                 - 9/28 - 30 minutes on small bug fixes
+                 - 9/29 - 1 hour on finalizing the ship placement bugs
+                 - 9/30 - 30 minutes on adding more couts to the game
+                 - 10/1 - 1 hour on adding the easy mode to the project
+                 - 10/2 - 1 hour on finishing up the easy mode
+                 - 10/4 - 1 hour on some documentation and bug fixes
+                 - 10/5 - 30 minutes on bug fixes
+                 - 10/6 - 2 hours on connecting the special ability to main

@@ -98,10 +98,16 @@ void Executive::runApp() {
                         system("clear");
                         if(np == 0) {
                             user1_gameBoard.printShipBoard();
+							user1_gameBoard.is_up = false;
+							user1_gameBoard.is_right = false;
+
                         } else {
                             user2_gameBoard.printShipBoard();
+							user2_gameBoard.is_up = false;
+							user2_gameBoard.is_right = false;
                         }
                         cout << "\nPlayer " << np + 1 << endl;
+						cout << "NOTE: Ship will by default place to the left or down, unless it is an illegal move\n";
                         cout << "Placing ship " << i  << " of " << userInput.getNumShips() << " ship(s)" << endl;
 						if(vsAI == false) //ask both players for input if not playing ai
 						{
@@ -211,6 +217,7 @@ void Executive::runApp() {
                 break;
 
             case user1_turn:
+				system("clear");
                 //let player know what state
                 if(!vsAI){
                   cout << "       ************* SCORE ************" << endl;
@@ -235,8 +242,7 @@ void Executive::runApp() {
 		cout << "\nYour turn!\n";
                 //get turn input
 				int special_ability;
-				cout << "Would you like to use the special ability? (1 = yes, 2 = no)\n";
-				cin >> special_ability;
+				special_ability = userInput.ability_choice(ability_fired);
 				if (special_ability == 1 && !ability_fired) {
 					user1_gameBoard.ability(userInput,user2_gameBoard.get_shipArr());
 					ability_fired = true;
@@ -280,6 +286,7 @@ void Executive::runApp() {
                 //test move
 
             case user2_turn:
+				system("clear");
                 //let player know what state
 
                 cout << "       ************* SCORE ************" << endl;
@@ -299,8 +306,7 @@ void Executive::runApp() {
 				{
 					//get turn input
 					int special_ability2;
-					cout << "Would you like to use the special ability? (1 = yes, 2 = no)\n";
-					cin >> special_ability2;
+					special_ability2 = userInput.ability_choice(ability_fired2);
 					if (special_ability2 == 1 && !ability_fired2) {
 						user2_gameBoard.ability(userInput,user1_gameBoard.get_shipArr());
 						ability_fired2 = true;

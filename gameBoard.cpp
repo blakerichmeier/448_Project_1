@@ -303,11 +303,10 @@ bool GameBoard::setGameSpace(int p_row, int p_col, char **arr) {
         if (arr[p_row][p_col] == 'S') {
             board_arr[p_row][p_col] = 'X';
             current_hits++;
-	    cout << "HIT" << endl;
             return true;
         } else if (arr[p_row][p_col] == ' ')  {
             board_arr[p_row][p_col] = 'O';
-	    cout << "MISS" <<endl;
+	    
             return true;
         }
     }
@@ -447,12 +446,11 @@ void GameBoard::ability(User_Input user,char **arr)
 		               {
                         board_arr[p_row][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                        }
 		            else if (arr[p_row][p_col] == ' ')
 		                {
                         board_arr[p_row][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 
 	               }
@@ -463,12 +461,11 @@ void GameBoard::ability(User_Input user,char **arr)
 		                {
                         board_arr[p_row-1][p_col-1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                          }
 		             else if (arr[p_row-1][p_col-1] == ' ')
 		                {
                         board_arr[p_row-1][p_col-1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 		            }
 
@@ -478,12 +475,11 @@ void GameBoard::ability(User_Input user,char **arr)
 		                {
                         board_arr[p_row-1][p_col-2] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                         }
 		        	else if (arr[p_row-1][p_col-2] == ' ')
 		        	    {
                         board_arr[p_row-1][p_col-2] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 		            }
                 if (board_arr[p_row-2][p_col-2] == ' ')
@@ -492,12 +488,11 @@ void GameBoard::ability(User_Input user,char **arr)
 		                {
                         board_arr[p_row-2][p_col-2] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                          }
 		        	else if (arr[p_row-2][p_col-2] == ' ')
 		        	    {
                         board_arr[p_row-2][p_col-2] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 		            }
 
@@ -507,12 +502,11 @@ void GameBoard::ability(User_Input user,char **arr)
 		                {
                         board_arr[p_row-2][p_col-1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                         }
 			        else if (arr[p_row-2][p_col-1] == ' ')
 			            {
                         board_arr[p_row-2][p_col-1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 		            }
                 if (board_arr[p_row-1][p_col] == ' ')
@@ -521,12 +515,11 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row-1][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                         }
 		        	else if (arr[p_row-1][p_col] == ' ')
 		        	    {
                         board_arr[p_row-1][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 	            	}
 
@@ -536,12 +529,11 @@ void GameBoard::ability(User_Input user,char **arr)
 		                {
                         board_arr[p_row-2][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                         }
 		        	else if (arr[p_row-2][p_col] == ' ')
 			            {
                         board_arr[p_row-2][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 	               	}
 
@@ -551,12 +543,11 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row][p_col-1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                         }
 		        	else if (arr[p_row][p_col-1] == ' ')
 		        	    {
                         board_arr[p_row][p_col-1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
                 if (board_arr[p_row][p_col-2] == ' ')
@@ -565,12 +556,11 @@ void GameBoard::ability(User_Input user,char **arr)
 		                {
                         board_arr[p_row][p_col-2] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                         }
 		        	else if (arr[p_row][p_col-2] == ' ')
 		            	{
                         board_arr[p_row][p_col-2] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
 	        }
@@ -583,12 +573,11 @@ void GameBoard::ability(User_Input user,char **arr)
 		                 {
                         board_arr[p_row][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                          }
 			        else if (arr[p_row][p_col] == ' ')
 		            	{
                         board_arr[p_row][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 		            }
                 if (board_arr[p_row+1][p_col+1] == ' ')
@@ -597,12 +586,11 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+1][p_col+1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                         }
 			        else if (arr[p_row+1][p_col+1] == ' ')
 			            {
                         board_arr[p_row+1][p_col+1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                      }
 		        if (board_arr[p_row+1][p_col+2] == ' ')
@@ -611,12 +599,11 @@ void GameBoard::ability(User_Input user,char **arr)
 		                {
                         board_arr[p_row+1][p_col+2] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                         }
 			        else if (arr[p_row+1][p_col+2] == ' ')
 			            {
                         board_arr[p_row+1][p_col+2] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 		            }
 
@@ -626,12 +613,11 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+2][p_col-1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                          }
 			        else if (arr[p_row+2][p_col+1] == ' ')
 			            {
                         board_arr[p_row+2][p_col+1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 		            }
 
@@ -641,12 +627,11 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+2][p_col+2] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                         }
 		        	else if (arr[p_row+2][p_col+2] == ' ')
 		        	    {
                         board_arr[p_row+2][p_col+2] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
                 if (board_arr[p_row+1][p_col] == ' ')
@@ -655,12 +640,11 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+1][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
                         }
 		        	else if (arr[p_row+1][p_col] == ' ')
 		        	    {
                         board_arr[p_row+1][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                          }
                     }
 
@@ -670,12 +654,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+2][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 			        else if (arr[p_row+2][p_col] == ' ')
 			            {
                         board_arr[p_row+2][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
 
@@ -685,12 +669,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row][p_col+1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 			        else if (arr[p_row][p_col+1] == ' ')
 			            {
                         board_arr[p_row][p_col+1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
                 if (board_arr[p_row][p_col+2] == ' ')
@@ -699,12 +683,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row][p_col+2] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
                     else if (arr[p_row][p_col+2] == ' ')
                         {
                         board_arr[p_row][p_col+2] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
 
@@ -718,12 +702,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 		            else if (arr[p_row][p_col] == ' ')
 		                {
                         board_arr[p_row][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
                 if (board_arr[p_row+1][p_col-1] == ' ')
@@ -732,13 +716,13 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+1][p_col-1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
 
                         }
 		        else if (arr[p_row+1][p_col-1] == ' ')
 		                {
                         board_arr[p_row+1][p_col-1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                          }
                     }
 		        if (board_arr[p_row+1][p_col-2] == ' ')
@@ -747,13 +731,13 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+1][p_col-2] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
 		                 }
 
 			        else if (arr[p_row+1][p_col-2] == ' ')
 			            {
                         board_arr[p_row+1][p_col-2] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 		            }
 		        if (board_arr[p_row+2][p_col-1] == ' ')
@@ -762,12 +746,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+2][p_col-1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 			         else if (arr[p_row+2][p_col-1] == ' ')
 			            {
                         board_arr[p_row+2][p_col-1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 		            }
 
@@ -778,13 +762,13 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+2][p_col-2] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
 
                         }
 			        else if (arr[p_row+2][p_col-2] == ' ')
 			            {
                         board_arr[p_row+2][p_col-2] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
                 if (board_arr[p_row+1][p_col] == ' ')
@@ -793,12 +777,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+1][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
                     else if (arr[p_row+1][p_col] == ' ')
                         {
                         board_arr[p_row+1][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                          }
                     }
 
@@ -808,12 +792,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+2][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 			        else if (arr[p_row+2][p_col] == ' ')
 			            {
                         board_arr[p_row+2][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
 
@@ -823,13 +807,13 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row][p_col-1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
 
                         }
                     else if (arr[p_row][p_col-1] == ' ')
                         {
                         board_arr[p_row][p_col-1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
                 if (board_arr[p_row][p_col-2] == ' ')
@@ -838,12 +822,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row][p_col-2] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 		        	else if (arr[p_row][p_col-2] == ' ')
 		        	    {
                         board_arr[p_row][p_col-2] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
 
@@ -857,12 +841,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
                     else if (arr[p_row][p_col] == ' ')
                         {
                         board_arr[p_row][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
                 if (board_arr[p_row-1][p_col+1] == ' ')
@@ -871,12 +855,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row-1][p_col+1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 		        	else if (arr[p_row-1][p_col+1] == ' ')
 		        	    {
                         board_arr[p_row-1][p_col+1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
 
@@ -886,12 +870,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row-1][p_col+2] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
                     else if (arr[p_row-1][p_col+2] == ' ')
                         {
                         board_arr[p_row-1][p_col+2] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 			        }
 
@@ -901,12 +885,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row-2][p_col+2] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 			        else if (arr[p_row-2][p_col+2] == ' ')
 			            {
                         board_arr[p_row-2][p_col+2] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
                 if (board_arr[p_row-1][p_col] == ' ')
@@ -915,12 +899,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row-1][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
 		                }
                      else if (arr[p_row-1][p_col] == ' ')
                         {
                         board_arr[p_row-1][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                          }
                     }
                 if (board_arr[p_row-2][p_col] == ' ')
@@ -929,12 +913,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row-2][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 		        	else if (arr[p_row-2][p_col] == ' ')
 		        	    {
                         board_arr[p_row-2][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
 		        if (board_arr[p_row-2][p_col+1] == ' ')
@@ -943,12 +927,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row-2][p_col+1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
                     else if (arr[p_row-2][p_col+1] == ' ')
                         {
                         board_arr[p_row-2][p_col+1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
 		            }
 
@@ -958,12 +942,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row][p_col+1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 			        else if (arr[p_row][p_col+1] == ' ')
 			            {
                         board_arr[p_row][p_col+1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
                 if (board_arr[p_row][p_col+2] == ' ')
@@ -972,12 +956,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row][p_col+2] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 			        else if (arr[p_row][p_col+2] == ' ')
 			            {
                         board_arr[p_row][p_col+2] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
 
@@ -995,13 +979,13 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 
 			        else if (arr[p_row][p_col] == ' ')
 			            {
                         board_arr[p_row][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
 
@@ -1011,12 +995,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row][p_col+1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 			        else if (arr[p_row][p_col+1] == ' ')
 			            {
                         board_arr[p_row][p_col+1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
 		                }
                     }
                 if (board_arr[p_row][p_col-1] == ' ')
@@ -1025,12 +1009,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row][p_col-1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 		            else if (arr[p_row][p_col-1] == ' ')
 		            	{
                         board_arr[p_row][p_col-1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
 		                 }
                     }
                 if (board_arr[p_row-1][p_col] == ' ')
@@ -1039,12 +1023,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row-1][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 			        else if (arr[p_row-1][p_col] == ' ')
 			            {
                         board_arr[p_row-1][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
                 if (board_arr[p_row+1][p_col] == ' ')
@@ -1053,12 +1037,12 @@ void GameBoard::ability(User_Input user,char **arr)
                 	    {
                         board_arr[p_row+1][p_col] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                          }
 			         else if (arr[p_row+1][p_col] == ' ')
 			            {
                         board_arr[p_row+1][p_col] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
                 if (board_arr[p_row+1][p_col-1] == ' ')
@@ -1067,12 +1051,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+1][p_col-1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                          }
 			        else if (arr[p_row+1][p_col-1] == ' ')
 			            {
                         board_arr[p_row+1][p_col-1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                          }
                     }
 
@@ -1082,12 +1066,12 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row-1][p_col-1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 			        else if (arr[p_row-1][p_col-1] == ' ')
 			            {
                         board_arr[p_row-1][p_col-1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                          }
                     }
 
@@ -1097,13 +1081,13 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row+1][p_col+1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 
 			        else if (arr[p_row+1][p_col+1] == ' ')
 			            {
                         board_arr[p_row+1][p_col+1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
 
@@ -1113,13 +1097,13 @@ void GameBoard::ability(User_Input user,char **arr)
                         {
                         board_arr[p_row-1][p_col+1] = 'X';
                         current_hits++;
-            	        cout << "HIT" << endl;
+            	        
                         }
 
 		            else if (arr[p_row-1][p_col+1] == ' ')
 		            {
                         board_arr[p_row-1][p_col+1] = 'O';
-            	        cout << "MISS" <<endl;
+            	        
                         }
                     }
     }

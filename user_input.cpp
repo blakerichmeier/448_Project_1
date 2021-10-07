@@ -300,3 +300,21 @@ int User_Input::aiDifficulty()
 	cout << "\nPlaying on " + diff[input] + " difficulty\n";
 	return input;
 }
+
+int User_Input::ability_choice(bool do_print) {
+    if (do_print == false) {
+        int input = 0;
+    while(input < 1 || input > 2) {
+        input = 0;
+        cout << "Would you like to use the special ability? (1 = yes, 2 = no)\n";
+        while (!(cin >> input) || input < 1 || input > 3) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input, please enter 1 or 2\n";
+        }
+    }
+    return input;
+    } else {
+        return 2;
+    }
+}

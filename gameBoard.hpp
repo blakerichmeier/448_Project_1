@@ -29,10 +29,10 @@ private:
     char **ship_arr;//holds placed ships
     //array of letters used for the column header labels and ? to fill new board
     char col_head[12] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', ' '};
-    bool is_up;
-    bool is_right;
 
 public:
+    bool is_up;
+    bool is_right;
     int Hits = 0;
     int Misses = 0;
     /*MARK: Constructors*/
