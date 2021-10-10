@@ -4,6 +4,7 @@ Benjamin Moeller - 30 hours
 Blake Richmeier - 15 hours
 Sam Jerguson - 25 hours
 Jiayi fu  - 20 hours
+Alec McGlynn - 20 hours
 
 We came up with this estimate by utlilzing properties of Agile methods. Since we have data on the previous project,
 we have a rough idea of how long it would take to so this project. Our hours for the most part are lower than
