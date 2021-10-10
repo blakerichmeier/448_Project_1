@@ -42,14 +42,12 @@ int *AI::aiMove(GameBoard &playerBoard)
 	case 2:
 	{
 		//medium code here
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 9; i++)
 		{
-			for (int j = 0; j < 11; j++)
+			for (int j = 0; j < 10; j++)
 			{
-				std::cout << "i: " << i << " j: " << j << endl;
-				if (playerBoard.get_shipArr()[i][j] == 'S' && hitsArr[i][j] != 0)
+				if (playerBoard.get_shipArr()[i][j] == 'S' && !(hitsArr[i][j] != 1))
 				{
-					std::cout << "found an hit ship at " << i << j << endl;
 					if (i > 0)
 					{
 						if (hitsArr[i - 1][j] == 0)
