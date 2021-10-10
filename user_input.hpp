@@ -136,6 +136,10 @@ public:
 	
 	int aiDifficulty();
     
+    /** Code to help ask user if they want to use ability
+     * @author Ben Moeller
+     * @post return the int to tell what number the user chose
+     * */
     int ability_choice(bool do_print);
 };
 
