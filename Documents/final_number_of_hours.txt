@@ -19,4 +19,5 @@ Benjamin Moeller - 9/23 - 1 hour on bug fixing
                  - 10/6 - 2 hours on connecting the special ability to main
 jiayi fu      - 9/28 - star to write addility part 
                -9/30  - fix bugs
-               
+Alec McGlynn - 10/7 - 2 hours on medium ai 
+             - 10/9 - 4 hours medium ai    
