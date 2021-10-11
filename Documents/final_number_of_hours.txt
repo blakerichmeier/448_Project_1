@@ -17,11 +17,17 @@ Benjamin Moeller - 9/23 - 1 hour on bug fixing
                  - 10/4 - 1 hour on some documentation and bug fixes
                  - 10/5 - 30 minutes on bug fixes
                  - 10/6 - 2 hours on connecting the special ability to main
+                 - 10/10 - 1 hour finishing up documentation
+
 jiayi fu      - 9/28 - star to write addility part 
                -9/30  - fix bugs
+
 Alec McGlynn - 10/7 - 2 hours on medium ai 
-             - 10/9 - 4 hours medium ai    
+             - 10/9 - 4 hours medium ai  
+
 Sam Jerguson     - 9/24 - 2 hours 30 mins created ai class and worked on linking it to exec class
                  - 9/27 - 3 hours 30 mins added new user input and worked on hard ai
                  - 9/28 - 3 hours 30 mins completed hard ai
                  - 9/29 - 1 hour 30 mins implemented auto-placing ships for ai
+
+Total number of group hours - ~50 hours

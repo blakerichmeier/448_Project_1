@@ -6,6 +6,8 @@ Sam Jerguson - 25 hours
 Jiayi fu  - 20 hours
 Alec McGlynn - 20 hours
 
+Average number of hours - 22 hours
+
 We came up with this estimate by utlilzing properties of Agile methods. Since we have data on the previous project,
 we have a rough idea of how long it would take to so this project. Our hours for the most part are lower than
 the time it took to finish the last project since we have the functions made by the previous group to rely on
